@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guia de Estudo — VizPrecoTempo</title>
+<style>
+  :root{
+    --bg:#0f1117;
+    --panel:#171a23;
+    --panel2:#1d2230;
+    --border:#303746;
+    --text:#e8ebf0;
+    --muted:#a7afbd;
+    --accent:#f0ad4e;
+    --blue:#6cb6ff;
+    --green:#7bd88f;
+    --red:#ff7b72;
+    --purple:#c792ea;
+    --code:#11141b;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:Arial,Helvetica,sans-serif;
+    line-height:1.65;
+  }
+  header{
+    padding:55px 24px;
+    border-bottom:1px solid var(--border);
+    background:linear-gradient(135deg,#151925,#10131a);
+  }
+  .wrap{max-width:1200px;margin:auto}
+  h1{font-size:clamp(30px,5vw,52px);margin:0 0 12px}
+  h2{font-size:28px;margin-top:0}
+  h3{color:var(--accent);margin-bottom:8px}
+  p{color:#d0d5df}
+  .subtitle{max-width:850px;color:var(--muted);font-size:18px}
+  nav{
+    position:sticky;top:0;z-index:10;
+    background:rgba(15,17,23,.95);
+    border-bottom:1px solid var(--border);
+    overflow:auto;
+  }
+  nav .wrap{display:flex;gap:4px}
+  nav a{
+    color:var(--muted);text-decoration:none;
+    padding:14px 12px;white-space:nowrap;font-size:14px
+  }
+  nav a:hover{color:white;background:var(--panel)}
+  main{padding:35px 24px 70px}
+  section{
+    margin:0 0 45px;
+    padding:28px;
+    background:var(--panel);
+    border:1px solid var(--border);
+    border-radius:12px;
+  }
+  .tag{
+    display:inline-block;
+    color:var(--accent);
+    border:1px solid #6d5328;
+    padding:4px 9px;border-radius:5px;
+    font-size:12px;text-transform:uppercase;
+    letter-spacing:.08em
+  }
+  .explain{
+    background:#19241e;
+    border-left:4px solid var(--green);
+    padding:15px 18px;
+    margin:16px 0;
+    border-radius:6px
+  }
+  .teacher{
+    background:#211d28;
+    border-left:4px solid var(--purple);
+    padding:15px 18px;
+    margin:16px 0;
+    border-radius:6px
+  }
+  .warning{
+    background:#281d1d;
+    border-left:4px solid var(--red);
+    padding:15px 18px;
+    margin:16px 0;
+    border-radius:6px
+  }
+  .codebox{
+    background:var(--code);
+    border:1px solid var(--border);
+    border-radius:8px;
+    overflow:auto;
+    margin:18px 0
+  }
+  pre{
+    margin:0;
+    padding:20px;
+    color:#d9dee8;
+    font-family:Consolas,"Courier New",monospace;
+    font-size:13px;
+    line-height:1.6;
+    white-space:pre-wrap
+  }
+  .line{
+    display:block;
+    padding:2px 8px;
+    border-left:3px solid transparent
+  }
+  .line:hover{background:#1b202b;border-left-color:var(--accent)}
+  .comment{color:#7fdbca}
+  .keyword{color:var(--purple)}
+  .string{color:#f2cc8f}
+  .fn{color:var(--blue)}
+  .var{color:#dcdcaa}
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:16px
+  }
+  .card{
+    background:var(--panel2);
+    border:1px solid var(--border);
+    border-radius:9px;
+    padding:18px
+  }
+  .card strong{color:var(--accent)}
+  table{width:100%;border-collapse:collapse;margin:15px 0}
+  th,td{padding:11px;border-bottom:1px solid var(--border);text-align:left;vertical-align:top}
+  th{color:var(--accent)}
+  code{
+    background:#0d1016;
+    border:1px solid var(--border);
+    padding:2px 5px;
+    border-radius:4px;
+    color:#9cdcfe
+  }
+  .flow{
+    display:flex;flex-wrap:wrap;gap:8px;align-items:center;
+    margin:20px 0
+  }
+  .flow span{
+    background:var(--panel2);
+    border:1px solid var(--border);
+    padding:10px 14px;border-radius:7px
+  }
+  .arrow{color:var(--accent);font-size:20px}
+  footer{color:var(--muted);text-align:center;padding:30px}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="wrap">
+    <span class="tag">Guia de estudo</span>
+    <h1>VizPrecoTempo — Como explicar o código</h1>
+    <p class="subtitle">
+      Este material foi montado a partir do código fornecido. A ideia é estudar o funcionamento
+      do módulo, entender o papel de cada trecho e treinar respostas para uma apresentação oral.
+    </p>
+  </div>
+</header>
+
+<nav>
+  <div class="wrap">
+    <a href="#apresentacao">Como apresentar</a>
+    <a href="#visao">Visão geral</a>
+    <a href="#modulo">Módulo</a>
+    <a href="#init">init()</a>
+    <a href="#canvas">Canvas + SVG</a>
+    <a href="#escalas">Escalas</a>
+    <a href="#zoom">Zoom</a>
+    <a href="#filtros">Filtros</a>
+    <a href="#render">Render</a>
+    <a href="#pontos">Pontos</a>
+    <a href="#clique">Clique</a>
+    <a href="#coord">Coord</a>
+    <a href="#painel">Painel</a>
+    <a href="#fluxo">Fluxo</a>
+    <a href="#perguntas">Perguntas</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<section id="apresentacao">
+  <span class="tag">00 — Como apresentar</span>
+  <h2>Roteiro de apresentação: do objetivo ao código</h2>
+
+  <p>
+    Esta é a sequência recomendada para explicar a visualização ao professor.
+    A ideia é começar pelo <strong>porquê</strong> da visualização, depois explicar
+    <strong>o que está sendo mostrado</strong>, demonstrar <strong>como o usuário interage</strong>
+    e só então entrar nos detalhes de <strong>como foi implementada</strong>.
+  </p>
+
+  <div class="flow">
+    <span>1. Objetivo</span><b class="arrow">→</b>
+    <span>2. Dados</span><b class="arrow">→</b>
+    <span>3. Interação</span><b class="arrow">→</b>
+    <span>4. Implementação</span>
+  </div>
+
+  <h3>1. Comece pelo objetivo da visualização</h3>
+  <p>
+    Primeiro explique qual pergunta ou relação a visualização ajuda o usuário a entender.
+    Não comece falando de Canvas, SVG ou D3.js.
+  </p>
+
+  <div class="explain">
+    <strong>O que você pode falar:</strong><br>
+    "Essa visualização tem como objetivo analisar a relação entre o preço dos jogos
+    e o tempo médio que os jogadores passam jogando."
+  </div>
+
+  <h3>2. Explique os dados</h3>
+  <p>
+    Depois apresente o significado visual dos dados: o que representa cada ponto,
+    o que aparece nos eixos e como as cores são utilizadas.
+  </p>
+
+  <div class="explain">
+    <strong>O que você pode falar:</strong><br>
+    "Cada ponto representa um jogo. No eixo X temos o preço do jogo e no eixo Y temos
+    o tempo médio de jogo, convertido de minutos para horas. As cores representam
+    o gênero principal do jogo."
+  </div>
+
+  <p>
+    Você pode complementar explicando que os dados passam por um tratamento inicial,
+    no qual o módulo mantém registros com preço definido, tempo de jogo válido e pelo
+    menos um gênero.
+  </p>
+
+  <h3>3. Mostre a interação</h3>
+  <p>
+    Agora demonstre o que o usuário consegue fazer com a visualização.
+    Essa é uma boa hora para mostrar a aplicação funcionando na tela.
+  </p>
+
+  <div class="explain">
+    <strong>O que você pode falar:</strong><br>
+    "O usuário pode pesquisar um jogo pelo nome, limitar o preço máximo usando o slider,
+    aplicar filtros globais de ano e gênero, utilizar o zoom e clicar em um jogo para
+    visualizar seus detalhes no painel."
+  </div>
+
+  <h3>4. Só depois entre na implementação</h3>
+  <p>
+    Depois que o professor já entendeu o objetivo, os dados e as interações,
+    explique como o sistema foi construído.
+  </p>
+
+  <div class="explain">
+    <strong>O que você pode falar:</strong><br>
+    "Para implementar essa visualização, utilizamos Canvas para desenhar os pontos
+    e SVG para os eixos. O D3.js é utilizado para criar as escalas, eixos, zoom e
+    escala de cores. O módulo também se comunica com o Coord, que permite compartilhar
+    filtros e seleções entre as visualizações."
+  </div>
+
+  <h3>5. Aprofunde no código</h3>
+  <p>
+    Se o professor quiser saber como o código funciona, siga uma ordem lógica:
+  </p>
+
+  <div class="flow">
+    <span>Dados brutos</span><b class="arrow">→</b>
+    <span><code>filter()</code></span><b class="arrow">→</b>
+    <span><code>map()</code></span><b class="arrow">→</b>
+    <span>Escalas</span><b class="arrow">→</b>
+    <span>Canvas + SVG</span><b class="arrow">→</b>
+    <span>Filtros</span><b class="arrow">→</b>
+    <span><code>render()</code></span><b class="arrow">→</b>
+    <span>Interação</span><b class="arrow">→</b>
+    <span><code>Coord</code></span>
+  </div>
+
+  <div class="teacher">
+    <strong>Roteiro completo para falar:</strong><br><br>
+    "Essa visualização tem como objetivo analisar a relação entre o preço dos jogos
+    e o tempo médio de jogo. Cada ponto representa um jogo, sendo que o eixo X mostra
+    o preço e o eixo Y mostra o tempo médio de jogo em horas. A cor representa o gênero
+    principal.<br><br>
+    Além disso, o usuário pode interagir com a visualização por meio de filtros, busca
+    por nome, limite de preço, zoom e seleção de jogos. Ao clicar em um ponto, os detalhes
+    daquele jogo são apresentados no painel.<br><br>
+    Tecnicamente, os dados são inicialmente filtrados e transformados para o formato
+    utilizado pelo módulo. A visualização utiliza Canvas para desenhar os pontos e SVG
+    para os eixos. O D3.js é responsável pelas escalas, eixos, zoom e cores. A função
+    render() combina os filtros globais e locais e redesenha os pontos. A comunicação
+    com o Coord permite que as alterações de estado sejam refletidas entre as visualizações."
+  </div>
+
+  <div class="warning">
+    <strong>Dica para a apresentação:</strong><br>
+    Pense nesta ordem: <strong>Por quê?</strong> → <strong>O quê?</strong> →
+    <strong>Como o usuário usa?</strong> → <strong>Como foi implementado?</strong>.
+    Se o professor interromper com uma pergunta técnica durante a explicação,
+    responda e depois retome o ponto em que estava.
+  </div>
+</section>
+
+<section id="visao">
+  <span class="tag">01 — Visão geral</span>
+  <h2>O que esse código faz?</h2>
+  <p>
+    O módulo <code>VizPrecoTempo</code> cria e controla uma visualização que relaciona
+    <strong>preço</strong> e <strong>tempo médio de jogo</strong>.
+    Cada jogo é representado por um ponto.
+  </p>
+
+  <div class="flow">
+    <span>Dados brutos</span><b class="arrow">→</b>
+    <span>Filtragem e transformação</span><b class="arrow">→</b>
+    <span>Escalas</span><b class="arrow">→</b>
+    <span>Canvas + SVG</span><b class="arrow">→</b>
+    <span>Filtros e interação</span>
+  </div>
+
+  <div class="explain">
+    <strong>Como falar para o professor:</strong><br>
+    "Esse módulo recebe os dados brutos dos jogos, seleciona os registros que possuem
+    informações válidas de preço, tempo e gênero, transforma o tempo de minutos para horas
+    e cria uma visualização de dispersão. O eixo X representa o preço, o eixo Y representa
+    o tempo médio de jogo e as cores representam o primeiro gênero do jogo. A visualização
+    ainda possui filtros, zoom e seleção de pontos."
+  </div>
+</section>
+
+<section id="modulo">
+  <span class="tag">02 — Estrutura</span>
+  <h2>IIFE e módulo revelador</h2>
+
+  <div class="codebox"><pre><span class="line"><span class="keyword">var</span> VizPrecoTempo = (<span class="keyword">function</span>(){</span>
+<span class="line">  <span class="comment">// Todo o estado abaixo fica encapsulado dentro da função</span></span>
+<span class="line">  ...</span>
+<span class="line">  <span class="keyword">return</span> { init: init };</span>
+<span class="line">})();</span></pre></div>
+
+  <p>
+    A função é executada imediatamente. O resultado é armazenado em
+    <code>VizPrecoTempo</code>. Como as variáveis e funções ficam dentro dessa função,
+    elas não ficam diretamente expostas no escopo global.
+  </p>
+
+  <div class="grid">
+    <div class="card"><strong>IIFE</strong><br>Função que é definida e executada imediatamente.</div>
+    <div class="card"><strong>Encapsulamento</strong><br>Variáveis como <code>estado</code>, <code>xScale</code> e <code>render</code> ficam privadas.</div>
+    <div class="card"><strong>API pública</strong><br>O objeto retornado expõe somente <code>init</code>.</div>
+  </div>
+
+  <div class="teacher">
+    <strong>Professor pode perguntar:</strong><br>
+    "Por que usar IIFE?"<br><br>
+    <strong>Resposta:</strong> "Para encapsular o estado e as funções internas do módulo,
+    evitando que esses nomes fiquem disponíveis globalmente e reduzindo possíveis conflitos
+    com outros módulos."
+  </div>
+</section>
+
+<section id="init">
+  <span class="tag">03 — Inicialização</span>
+  <h2>Função init(dadosBrutos)</h2>
+
+  <p>
+    A função <code>init</code> é o ponto de entrada público do módulo. Ela recebe os dados
+    brutos e prepara praticamente toda a visualização.
+  </p>
+
+  <div class="codebox"><pre><span class="line"><span class="keyword">function</span> <span class="fn">init</span>(dadosBrutos){</span>
+<span class="line">  dadosModulo = dadosBrutos</span>
+<span class="line">    .filter(<span class="keyword">function</span>(d){</span>
+<span class="line">      <span class="keyword">return</span> d.price !== <span class="keyword">undefined</span> &&</span>
+<span class="line">             d.average_playtime_forever &gt; 0 &&</span>
+<span class="line">             d.average_playtime_forever &lt; 50000 &&</span>
+<span class="line">             d.genres && d.genres.length &gt; 0;</span>
+<span class="line">    })</span>
+<span class="line">    .map(<span class="keyword">function</span>(d){</span>
+<span class="line">      <span class="keyword">return</span> { ... };</span>
+<span class="line">    });</span>
+<span class="line">}</span></pre></div>
+
+  <h3>Primeiro passo: filtrar</h3>
+  <p>
+    O código elimina jogos que não possuem preço, possuem tempo de jogo inválido,
+    possuem tempo acima de 50.000 minutos ou não possuem gênero.
+  </p>
+
+  <h3>Segundo passo: transformar</h3>
+  <p>
+    O <code>map()</code> cria um novo objeto simplificado para o módulo, mantendo apenas
+    os campos necessários para a visualização e para o painel de detalhes.
+  </p>
+
+  <div class="explain">
+    <strong>Como explicar:</strong><br>
+    "Primeiro eu faço uma limpeza dos dados. Depois transformo os registros para um formato
+    mais adequado ao módulo. Isso facilita o uso dos dados durante a renderização e mantém
+    no módulo apenas as informações relevantes."
+  </div>
+
+  <div class="warning">
+    <strong>Ponto para prestar atenção:</strong><br>
+    O código usa <code>d.genres[0]</code> como <code>genero</code>, mas mantém todos os gêneros
+    em <code>generos</code>. Portanto, a cor e o filtro de gênero consideram apenas o primeiro
+    gênero, enquanto o painel pode mostrar todos.
+  </div>
+</section>
+
+<section>
+  <span class="tag">04 — Estado</span>
+  <h2>Variáveis principais</h2>
+
+  <table>
+    <tr><th>Variável</th><th>Função</th><th>Como explicar</th></tr>
+    <tr>
+      <td><code>estado</code></td>
+      <td>Guarda busca e preço máximo.</td>
+      <td>Representa filtros locais da visualização.</td>
+    </tr>
+    <tr>
+      <td><code>dadosModulo</code></td>
+      <td>Dados tratados.</td>
+      <td>É a base usada para renderização e seleção.</td>
+    </tr>
+    <tr>
+      <td><code>visiveis</code></td>
+      <td>Jogos que passaram pelos filtros.</td>
+      <td>É o subconjunto que aparece como pontos ativos.</td>
+    </tr>
+    <tr>
+      <td><code>precoMaximoDataset</code></td>
+      <td>Maior preço encontrado.</td>
+      <td>Define o limite inicial do slider.</td>
+    </tr>
+    <tr>
+      <td><code>generosUnicos</code></td>
+      <td>Lista de gêneros únicos.</td>
+      <td>Usada para legenda e domínio da escala de cores.</td>
+    </tr>
+    <tr>
+      <td><code>zoomTransform</code></td>
+      <td>Guarda transformação atual do zoom.</td>
+      <td>Permite redesenhar eixos e pontos conforme o usuário aproxima ou afasta.</td>
+    </tr>
+  </table>
+</section>
+
+<section id="canvas">
+  <span class="tag">05 — Renderização</span>
+  <h2>Por que Canvas + SVG?</h2>
+
+  <div class="codebox"><pre><span class="line"><span class="keyword">function</span> <span class="fn">montarCanvas</span>(){</span>
+<span class="line">  ...</span>
+<span class="line">  canvas = d3.select(<span class="string">"#pt-chartWrap"</span>).append(<span class="string">"canvas"</span>)</span>
+<span class="line">  ...</span>
+<span class="line">  svg = d3.select(<span class="string">"#pt-chartWrap"</span>).append(<span class="string">"svg"</span>)</span>
+<span class="line">}</span></pre></div>
+
+  <p>
+    O código cria duas camadas. O <strong>Canvas</strong> é usado para desenhar os pontos.
+    O <strong>SVG</strong> é usado para os eixos.
+  </p>
+
+  <div class="grid">
+    <div class="card">
+      <strong>Canvas</strong>
+      <p>Usado para desenhar os pontos diretamente no contexto 2D.</p>
+    </div>
+    <div class="card">
+      <strong>SVG</strong>
+      <p>Usado para os eixos, aproveitando os recursos do D3 para gerar e atualizar os eixos.</p>
+    </div>
+  </div>
+
+  <div class="teacher">
+    <strong>Professor:</strong> "Por que não desenhar tudo em SVG?"<br><br>
+    <strong>Resposta:</strong> "A escolha foi separar as responsabilidades: os pontos são desenhados
+    no Canvas, enquanto os eixos ficam em SVG. Isso evita criar um elemento DOM individual para
+    cada ponto e mantém os eixos fáceis de manipular com o D3."
+  </div>
+
+  <h3>devicePixelRatio</h3>
+  <p>
+    O código usa <code>window.devicePixelRatio</code> para ajustar a resolução interna do Canvas.
+    Depois utiliza <code>ctx.scale(dpr, dpr)</code>.
+  </p>
+
+  <div class="explain">
+    <strong>Como explicar:</strong><br>
+    "O devicePixelRatio ajuda a adequar a resolução interna do Canvas à densidade de pixels da tela,
+    evitando que o desenho fique visualmente borrado em telas de alta densidade."
+  </div>
+</section>
+
+<section id="escalas">
+  <span class="tag">06 — Escalas</span>
+  <h2>xScale e yScale</h2>
+
+  <div class="codebox"><pre><span class="line">xScale = d3.scaleLinear()</span>
+<span class="line">  .domain([-1, d3.max(dadosModulo, <span class="keyword">function</span>(d){ <span class="keyword">return</span> d.price; }) + 5])</span>
+<span class="line">  .range([margin.left, width - margin.right]);</span>
+<span class="line"></span>
+<span class="line">yScale = d3.scaleLinear()</span>
+<span class="line">  .domain([0, d3.max(dadosModulo, <span class="keyword">function</span>(d){ <span class="keyword">return</span> d.horas; }) + 20])</span>
+<span class="line">  .range([height - margin.bottom, margin.top]);</span></pre></div>
+
+  <p>
+    A escala converte valores dos dados para coordenadas na tela.
+  </p>
+
+  <table>
+    <tr><th>Escala</th><th>Dados</th><th>Tela</th></tr>
+    <tr><td><code>xScale</code></td><td>Preço</td><td>Posição horizontal</td></tr>
+    <tr><td><code>yScale</code></td><td>Horas</td><td>Posição vertical</td></tr>
+  </table>
+
+  <div class="teacher">
+    <strong>Professor pode perguntar:</strong> "Por que o range do Y está invertido?"<br><br>
+    <strong>Resposta:</strong> "Porque no sistema de coordenadas da tela o eixo Y cresce de cima para baixo.
+    Então valores maiores precisam ser posicionados mais acima no gráfico, por isso o range começa
+    em height - margin.bottom e termina em margin.top."
+  </div>
+</section>
+
+<section id="zoom">
+  <span class="tag">07 — Interação</span>
+  <h2>Zoom</h2>
+
+  <div class="codebox"><pre><span class="line"><span class="keyword">function</span> <span class="fn">ativarZoom</span>(){</span>
+<span class="line">  <span class="keyword">var</span> zoom = d3.zoom()</span>
+<span class="line">    .scaleExtent([0.5, 20])</span>
+<span class="line">    .on(<span class="string">"zoom"</span>, <span class="keyword">function</span>(e){</span>
+<span class="line">      zoomTransform = e.transform;</span>
+<span class="line">      desenharEixos(zoomTransform.rescaleX(xScale), zoomTransform.rescaleY(yScale));</span>
+<span class="line">      desenharPontos();</span>
+<span class="line">    });</span>
+<span class="line">  canvas.call(zoom);</span>
+<span class="line">}</span></pre></div>
+
+  <p>
+    O zoom permite alterar a transformação aplicada à visualização. Quando ocorre um evento de zoom,
+    o código atualiza as escalas dos eixos e redesenha os pontos.
+  </p>
+
+  <div class="explain">
+    <strong>Como explicar:</strong><br>
+    "O D3 controla a transformação do zoom. A cada interação, eu pego a transformação atual,
+    recalculo as escalas usando rescaleX e rescaleY, atualizo os eixos e redesenho os pontos
+    para que tudo permaneça sincronizado."
+  </div>
+
+  <div class="warning">
+    <strong>Ponto de atenção:</strong><br>
+    O código limita apenas a escala do zoom com <code>scaleExtent([0.5,20])</code>.
+    Não existe <code>translateExtent</code>, então o deslocamento pode permitir que o usuário
+    navegue para regiões sem dados.
+  </div>
+</section>
+
+<section id="filtros">
+  <span class="tag">08 — Filtros</span>
+  <h2>Filtros globais e locais</h2>
+
+  <div class="codebox"><pre><span class="line"><span class="keyword">function</span> <span class="fn">passaFiltrosGlobais</span>(d, coordState){</span>
+<span class="line">  <span class="keyword">if</span> (d.year &lt; coordState.anoMin || d.year &gt; coordState.anoMax) <span class="keyword">return</span> false;</span>
+<span class="line">  <span class="keyword">if</span> (coordState.genero && d.genero !== coordState.genero) <span class="keyword">return</span> false;</span>
+<span class="line">  <span class="keyword">return</span> true;</span>
+<span class="line">}</span>
+<span class="line"></span>
+<span class="line"><span class="keyword">function</span> <span class="fn">passaFiltrosLocais</span>(d){</span>
+<span class="line">  <span class="keyword">if</span> (estado.busca && d.name.toLowerCase().indexOf(estado.busca) === -1) <span class="keyword">return</span> false;</span>
+<span class="line">  <span class="keyword">return</span> d.price &lt;= estado.precoMax;</span>
+<span class="line">}</span></pre></div>
+
+  <div class="grid">
+    <div class="card">
+      <strong>Global</strong>
+      <p>Ano e gênero vêm do estado compartilhado em <code>Coord</code>.</p>
+    </div>
+    <div class="card">
+      <strong>Local</strong>
+      <p>Busca pelo nome e preço máximo pertencem ao próprio módulo.</p>
+    </div>
+  </div>
+
+  <div class="explain">
+    <strong>Como explicar:</strong><br>
+    "Um jogo precisa passar pelos filtros globais e pelos filtros locais. O operador lógico
+    utilizado na função render é AND, então basta falhar em um dos grupos para deixar de ser
+    considerado visível."
+  </div>
+</section>
+
+<section id="render">
+  <span class="tag">09 — Renderização</span>
+  <h2>O papel da função render()</h2>
+
+  <div class="codebox"><pre><span class="line"><span class="keyword">function</span> <span class="fn">render</span>(){</span>
+<span class="line">  <span class="keyword">var</span> coordState = Coord.getState();</span>
+<span class="line">  visiveis = dadosModulo.filter(<span class="keyword">function</span>(d){</span>
+<span class="line">    <span class="keyword">return</span> passaFiltrosGlobais(d, coordState) && passaFiltrosLocais(d);</span>
+<span class="line">  });</span>
+<span class="line">  ...</span>
+<span class="line">  desenharPontos();</span>
+<span class="line">}</span></pre></div>
+
+  <p>
+    A função <code>render</code> é responsável por recalcular quais jogos estão visíveis e solicitar
+    o redesenho.
+  </p>
+
+  <div class="flow">
+    <span>Estado atual</span><b class="arrow">→</b>
+    <span>Aplicar filtros</span><b class="arrow">→</b>
+    <span>Atualizar visiveis</span><b class="arrow">→</b>
+    <span>Atualizar estatística</span><b class="arrow">→</b>
+    <span>Desenhar pontos</span>
+  </div>
+
+  <div class="teacher">
+    <strong>Professor:</strong> "Quando render é chamado?"<br><br>
+    <strong>Resposta:</strong> "Ele é chamado na inicialização e também quando ocorre alguma alteração
+    relevante nos filtros locais, como busca e preço, ou quando o estado global coordenado muda."
+  </div>
+</section>
+
+<section id="pontos">
+  <span class="tag">10 — Canvas</span>
+  <h2>Como os pontos são desenhados?</h2>
+
+  <p>
+    O código primeiro limpa o Canvas, cria uma área de recorte e depois desenha os pontos em diferentes
+    níveis de opacidade.
+  </p>
+
+  <div class="grid">
+    <div class="card">
+      <strong>1. Pontos fora do filtro local</strong>
+      <p>Continuam visíveis, mas com opacidade 0.05 e cor cinza. Isso preserva o contexto.</p>
+    </div>
+    <div class="card">
+      <strong>2. Pontos visíveis</strong>
+      <p>São desenhados com opacidade 0.75 e cor baseada no gênero.</p>
+    </div>
+    <div class="card">
+      <strong>3. Jogo selecionado</strong>
+      <p>É desenhado por último, maior e com borda branca.</p>
+    </div>
+  </div>
+
+  <div class="explain">
+    <strong>Como explicar:</strong><br>
+    "A ideia de desenhar os pontos filtrados com baixa opacidade é preservar o contexto espacial.
+    Assim, o usuário consegue perceber onde os dados filtrados estavam no conjunto original."
+  </div>
+
+  <div class="warning">
+    <strong>Detalhe importante:</strong><br>
+    O jogo selecionado é procurado em <code>dadosModulo</code>, não em <code>visiveis</code>.
+    Portanto, ele pode continuar destacado mesmo depois que um filtro o exclui da lista de visíveis.
+    Essa é uma decisão/comportamento que você deve saber explicar se o professor questionar.
+  </div>
+</section>
+
+<section id="clique">
+  <span class="tag">11 — Interação</span>
+  <h2>Como um ponto é selecionado?</h2>
+
+  <div class="codebox"><pre><span class="line"><span class="keyword">function</span> <span class="fn">encontrarJogoNoClique</span>(e){</span>
+<span class="line">  <span class="keyword">var</span> rect = canvas.node().getBoundingClientRect();</span>
+<span class="line">  <span class="keyword">var</span> mx = e.clientX - rect.left;</span>
+<span class="line">  <span class="keyword">var</span> my = e.clientY - rect.top;</span>
+<span class="line">  ...</span>
+<span class="line">  visiveis.forEach(<span class="keyword">function</span>(d){</span>
+<span class="line">    <span class="keyword">var</span> dx = xs(d.price) - mx;</span>
+<span class="line">    <span class="keyword">var</span> dy = ys(d.horas) - my;</span>
+<span class="line">    <span class="keyword">var</span> dist = Math.sqrt(dx * dx + dy * dy);</span>
+<span class="line">    <span class="keyword">if</span> (dist &lt; menorDist) ...</span>
+<span class="line">  });</span>
+<span class="line">}</span></pre></div>
+
+  <p>
+    Como Canvas não possui um elemento DOM separado para cada ponto, o código precisa calcular
+    manualmente qual ponto está próximo da posição clicada.
+  </p>
+
+  <div class="explain">
+    <strong>Como explicar:</strong><br>
+    "Eu converto a posição do clique para coordenadas relativas ao Canvas e percorro os pontos
+    visíveis. Para cada ponto calculo a distância euclidiana até o cursor. Se a distância for
+    menor que o raio de clique de 10 pixels, considero aquele jogo como candidato."
+  </div>
+
+  <div class="teacher">
+    <strong>Pergunta avançada:</strong> "Qual é a complexidade?"<br><br>
+    <strong>Resposta:</strong> "A busca percorre todos os pontos visíveis, então no pior caso é O(n).
+    Como isso ocorre no clique e não continuamente durante a animação, o custo é aceitável para
+    o volume atual de dados. Para datasets muito maiores, poderia ser necessário utilizar uma
+    estrutura espacial ou outra estratégia de busca."
+  </div>
+</section>
+
+<section id="coord">
+  <span class="tag">12 — Coordenação</span>
+  <h2>Como o Coord conecta as visualizações?</h2>
+
+  <div class="codebox"><pre><span class="line">Coord.on(<span class="keyword">function</span>(coordState){</span>
+<span class="line">  atualizarBadgeGenero(coordState.genero);</span>
+<span class="line">  atualizarDestaqueLegenda(coordState.genero);</span>
+<span class="line">  render();</span>
+<span class="line">  atualizarPainel(coordState.jogoSelecionado);</span>
+<span class="line">});</span></pre></div>
+
+  <p>
+    O módulo se inscreve no <code>Coord</code>. Quando o estado compartilhado muda, o callback é executado.
+  </p>
+
+  <div class="flow">
+    <span>Usuário interage</span><b class="arrow">→</b>
+    <span>Coord altera estado</span><b class="arrow">→</b>
+    <span>Listeners são notificados</span><b class="arrow">→</b>
+    <span>VizPrecoTempo atualiza</span>
+  </div>
+
+  <div class="teacher">
+    <strong>Como explicar:</strong><br>
+    "O Coord funciona como um ponto central de coordenação. O módulo não precisa conhecer diretamente
+    os outros módulos. Ele reage às mudanças do estado compartilhado por meio do mecanismo de inscrição."
+  </div>
+</section>
+
+<section id="painel">
+  <span class="tag">13 — Detalhes</span>
+  <h2>Como funciona o painel do jogo selecionado?</h2>
+
+  <p>
+    A função <code>atualizarPainel(jogoId)</code> recebe o identificador do jogo selecionado,
+    procura esse jogo em <code>dadosModulo</code> e atualiza o conteúdo do painel.
+  </p>
+
+  <p>
+    Se nenhum jogo estiver selecionado, aparece uma mensagem orientando o usuário a clicar em um ponto.
+    Se o ID não for encontrado, aparece uma mensagem informando que o jogo não possui dados suficientes.
+  </p>
+
+  <p>
+    Quando o jogo existe, o painel mostra imagem, nome, preço, tempo médio, gêneros, desenvolvedora
+    e recomendações.
+  </p>
+
+  <div class="explain">
+    <strong>Como explicar:</strong><br>
+    "A seleção no gráfico não serve apenas para destacar o ponto. Ela também atualiza um painel
+    de detalhes. O ID do jogo funciona como a ligação entre a seleção visual e as informações
+    detalhadas do registro."
+  </div>
+</section>
+
+<section id="fluxo">
+  <span class="tag">14 — Resumo</span>
+  <h2>Fluxo completo para memorizar</h2>
+
+  <div class="flow">
+    <span>init(dadosBrutos)</span><b class="arrow">→</b>
+    <span>filter()</span><b class="arrow">→</b>
+    <span>map()</span><b class="arrow">→</b>
+    <span>montarCanvas()</span><b class="arrow">→</b>
+    <span>criar escalas</span><b class="arrow">→</b>
+    <span>eixos</span><b class="arrow">→</b>
+    <span>zoom</span><b class="arrow">→</b>
+    <span>render()</span>
+  </div>
+
+  <h3>Durante a interação</h3>
+
+  <div class="flow">
+    <span>Filtro local</span><b class="arrow">→</b>
+    <span>estado muda</span><b class="arrow">→</b>
+    <span>render()</span><b class="arrow">→</b>
+    <span>visiveis é recalculado</span><b class="arrow">→</b>
+    <span>Canvas redesenhado</span>
+  </div>
+
+  <h3>Durante a coordenação global</h3>
+
+  <div class="flow">
+    <span>Outro módulo altera Coord</span><b class="arrow">→</b>
+    <span>Coord notifica</span><b class="arrow">→</b>
+    <span>VizPrecoTempo recebe coordState</span><b class="arrow">→</b>
+    <span>render + painel + legenda</span>
+  </div>
+
+  <div class="explain">
+    <strong>Resposta de 1 minuto:</strong><br>
+    "O módulo começa recebendo os dados brutos e fazendo uma filtragem inicial. Depois transforma
+    os registros para um formato adequado, cria o Canvas para os pontos e o SVG para os eixos.
+    As escalas convertem preço e horas em coordenadas de tela. A função render combina os filtros
+    globais, vindos do Coord, com os filtros locais do próprio módulo. Os pontos são então desenhados
+    no Canvas. O usuário pode aplicar filtros, usar zoom e clicar em pontos. Quando existe uma seleção,
+    o jogo é destacado e seus detalhes aparecem no painel. O Coord permite que mudanças de estado
+    sejam compartilhadas entre as visualizações."
+  </div>
+</section>
+
+<section id="perguntas">
+  <span class="tag">15 — Treino</span>
+  <h2>Perguntas que você deve saber responder</h2>
+
+  <div class="grid">
+    <div class="card">
+      <strong>1. O que cada ponto representa?</strong>
+      <p>Um jogo presente nos dados tratados pelo módulo.</p>
+    </div>
+    <div class="card">
+      <strong>2. O que X representa?</strong>
+      <p>O preço do jogo.</p>
+    </div>
+    <div class="card">
+      <strong>3. O que Y representa?</strong>
+      <p>O tempo médio de jogo convertido de minutos para horas.</p>
+    </div>
+    <div class="card">
+      <strong>4. Por que Canvas?</strong>
+      <p>Para desenhar os pontos sem criar um elemento DOM individual para cada ponto.</p>
+    </div>
+    <div class="card">
+      <strong>5. Por que SVG?</strong>
+      <p>Para os eixos, que são gerenciados facilmente pelo D3.</p>
+    </div>
+    <div class="card">
+      <strong>6. Como funciona o filtro?</strong>
+      <p>Filtros globais e locais precisam ser satisfeitos para o jogo entrar em <code>visiveis</code>.</p>
+    </div>
+    <div class="card">
+      <strong>7. Como o clique encontra o jogo?</strong>
+      <p>Calculando a distância entre o cursor e cada ponto visível.</p>
+    </div>
+    <div class="card">
+      <strong>8. Qual a complexidade?</strong>
+      <p>A busca pelo ponto no clique é O(n) no pior caso.</p>
+    </div>
+    <div class="card">
+      <strong>9. O que é Coord?</strong>
+      <p>É o mecanismo utilizado para compartilhar estado e notificar os módulos inscritos.</p>
+    </div>
+    <div class="card">
+      <strong>10. O que você melhoraria?</strong>
+      <p>Limitar o deslocamento do zoom, considerar datasets maiores e revisar o tratamento de muitos gêneros.</p>
+    </div>
+  </div>
+
+  <div class="warning">
+    <strong>Regra de ouro para a apresentação:</strong><br>
+    Não comece falando do código. Comece explicando o objetivo da visualização.
+    Depois explique os dados. Em seguida explique a interação. Só então entre na implementação.
+  </div>
+</section>
+
+</main>
+
+<footer>
+  Guia de estudo baseado no código fornecido para o módulo VizPrecoTempo.
+</footer>
+
+</body>
+</html>
