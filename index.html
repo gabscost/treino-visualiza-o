@@ -2,870 +2,240 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Guia de Estudo — VizPrecoTempo</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#172554">
+<title>Prova 4 — Guia de Estudos</title>
 <style>
-  :root{
-    --bg:#0f1117;
-    --panel:#171a23;
-    --panel2:#1d2230;
-    --border:#303746;
-    --text:#e8ebf0;
-    --muted:#a7afbd;
-    --accent:#f0ad4e;
-    --blue:#6cb6ff;
-    --green:#7bd88f;
-    --red:#ff7b72;
-    --purple:#c792ea;
-    --code:#11141b;
-  }
-  *{box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{
-    margin:0;
-    background:var(--bg);
-    color:var(--text);
-    font-family:Arial,Helvetica,sans-serif;
-    line-height:1.65;
-  }
-  header{
-    padding:55px 24px;
-    border-bottom:1px solid var(--border);
-    background:linear-gradient(135deg,#151925,#10131a);
-  }
-  .wrap{max-width:1200px;margin:auto}
-  h1{font-size:clamp(30px,5vw,52px);margin:0 0 12px}
-  h2{font-size:28px;margin-top:0}
-  h3{color:var(--accent);margin-bottom:8px}
-  p{color:#d0d5df}
-  .subtitle{max-width:850px;color:var(--muted);font-size:18px}
-  nav{
-    position:sticky;top:0;z-index:10;
-    background:rgba(15,17,23,.95);
-    border-bottom:1px solid var(--border);
-    overflow:auto;
-  }
-  nav .wrap{display:flex;gap:4px}
-  nav a{
-    color:var(--muted);text-decoration:none;
-    padding:14px 12px;white-space:nowrap;font-size:14px
-  }
-  nav a:hover{color:white;background:var(--panel)}
-  main{padding:35px 24px 70px}
-  section{
-    margin:0 0 45px;
-    padding:28px;
-    background:var(--panel);
-    border:1px solid var(--border);
-    border-radius:12px;
-  }
-  .tag{
-    display:inline-block;
-    color:var(--accent);
-    border:1px solid #6d5328;
-    padding:4px 9px;border-radius:5px;
-    font-size:12px;text-transform:uppercase;
-    letter-spacing:.08em
-  }
-  .explain{
-    background:#19241e;
-    border-left:4px solid var(--green);
-    padding:15px 18px;
-    margin:16px 0;
-    border-radius:6px
-  }
-  .teacher{
-    background:#211d28;
-    border-left:4px solid var(--purple);
-    padding:15px 18px;
-    margin:16px 0;
-    border-radius:6px
-  }
-  .warning{
-    background:#281d1d;
-    border-left:4px solid var(--red);
-    padding:15px 18px;
-    margin:16px 0;
-    border-radius:6px
-  }
-  .codebox{
-    background:var(--code);
-    border:1px solid var(--border);
-    border-radius:8px;
-    overflow:auto;
-    margin:18px 0
-  }
-  pre{
-    margin:0;
-    padding:20px;
-    color:#d9dee8;
-    font-family:Consolas,"Courier New",monospace;
-    font-size:13px;
-    line-height:1.6;
-    white-space:pre-wrap
-  }
-  .line{
-    display:block;
-    padding:2px 8px;
-    border-left:3px solid transparent
-  }
-  .line:hover{background:#1b202b;border-left-color:var(--accent)}
-  .comment{color:#7fdbca}
-  .keyword{color:var(--purple)}
-  .string{color:#f2cc8f}
-  .fn{color:var(--blue)}
-  .var{color:#dcdcaa}
-  .grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:16px
-  }
-  .card{
-    background:var(--panel2);
-    border:1px solid var(--border);
-    border-radius:9px;
-    padding:18px
-  }
-  .card strong{color:var(--accent)}
-  table{width:100%;border-collapse:collapse;margin:15px 0}
-  th,td{padding:11px;border-bottom:1px solid var(--border);text-align:left;vertical-align:top}
-  th{color:var(--accent)}
-  code{
-    background:#0d1016;
-    border:1px solid var(--border);
-    padding:2px 5px;
-    border-radius:4px;
-    color:#9cdcfe
-  }
-  .flow{
-    display:flex;flex-wrap:wrap;gap:8px;align-items:center;
-    margin:20px 0
-  }
-  .flow span{
-    background:var(--panel2);
-    border:1px solid var(--border);
-    padding:10px 14px;border-radius:7px
-  }
-  .arrow{color:var(--accent);font-size:20px}
-  footer{color:var(--muted);text-align:center;padding:30px}
+:root{--navy:#172554;--blue:#2563eb;--sky:#eff6ff;--ink:#172033;--muted:#5b6475;--line:#dbe3ef;--paper:#fff;--green:#166534;--greenbg:#f0fdf4;--orange:#9a3412;--orangebg:#fff7ed}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#f4f7fb;color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.55}
+header{background:linear-gradient(135deg,#172554,#1d4ed8);color:#fff;padding:28px 18px 24px}
+.wrap{width:min(850px,100%);margin:0 auto}
+.eyebrow{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;opacity:.85;font-weight:700}
+h1{font-size:clamp(1.8rem,6vw,2.5rem);line-height:1.1;margin:8px 0 10px}
+header p{margin:0;color:#e0eaff;max-width:650px}
+.progressbox{margin-top:20px;background:#ffffff20;border:1px solid #ffffff40;border-radius:14px;padding:12px 14px}
+.progressrow{display:flex;justify-content:space-between;gap:12px;font-size:.9rem}
+progress{width:100%;height:9px;margin-top:9px;accent-color:#86efac}
+nav{position:sticky;top:0;z-index:5;background:#fff;border-bottom:1px solid var(--line);padding:10px 12px;overflow-x:auto;white-space:nowrap}
+nav .wrap{display:flex;gap:8px}
+nav a{display:inline-block;text-decoration:none;color:var(--navy);font-weight:700;font-size:.86rem;background:var(--sky);border-radius:999px;padding:8px 12px}
+main{padding:18px 14px 50px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:18px;margin:0 0 16px;box-shadow:0 3px 14px #10204408;scroll-margin-top:76px}
+h2{font-size:1.28rem;line-height:1.25;color:var(--navy);margin:0 0 8px}
+h3{font-size:1.04rem;margin:18px 0 7px;color:#1e3a8a}
+p{margin:8px 0}
+.small{font-size:.9rem;color:var(--muted)}
+.formula{background:#f3f6fc;border-left:4px solid var(--blue);border-radius:8px;padding:12px 13px;margin:10px 0;overflow-wrap:anywhere;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.92rem}
+.answer{background:var(--greenbg);border:1px solid #bbf7d0;border-radius:10px;padding:12px;margin:10px 0}
+.answer strong{color:var(--green)}
+.note{background:var(--orangebg);border:1px solid #fed7aa;border-radius:10px;padding:12px;margin:10px 0}
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:.9rem}
+th,td{padding:9px 7px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:#eff6ff;color:#1e3a8a}
+.tablewrap{overflow-x:auto}
+details{border:1px solid var(--line);border-radius:12px;margin:12px 0;overflow:hidden}
+summary{cursor:pointer;font-weight:750;color:var(--navy);padding:12px 14px;background:#f8faff}
+.detailsbody{padding:12px 14px}
+details[open] summary{border-bottom:1px solid var(--line)}
+button{border:0;border-radius:10px;padding:11px 14px;background:var(--blue);color:#fff;font-size:.95rem;font-weight:700;cursor:pointer}
+.secondary{background:#e8eef9;color:var(--navy)}
+.controls{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.bar-chart{height:220px;display:flex;align-items:flex-end;gap:8px;padding:14px 10px 0;border-left:1px solid #94a3b8;border-bottom:1px solid #94a3b8;background:repeating-linear-gradient(to top,transparent 0,transparent 43px,#e5eaf2 44px)}
+.bar{flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;gap:5px}
+.barfill{width:100%;max-width:105px;background:#60a5fa;border:1px solid #2563eb;border-bottom:0;border-radius:7px 7px 0 0}
+.bar label{font-size:.76rem;text-align:center;color:#334155;line-height:1.25;min-height:35px}
+.bar small{font-size:.72rem;color:#1e3a8a;font-weight:700}
+.svg-note{font-size:.83rem;color:var(--muted)}
+.checkrow{display:flex;gap:9px;align-items:flex-start;margin:8px 0}
+.checkrow input{margin-top:5px;transform:scale(1.15)}
+footer{text-align:center;color:var(--muted);padding:12px 20px 35px;font-size:.85rem}
+@media(min-width:700px){main{padding:24px 18px 60px}.card{padding:22px}.bar-chart{height:250px}}
+@media print{nav,.controls,button,.progressbox{display:none}body{background:white}.card{box-shadow:none;break-inside:avoid}details .detailsbody{display:block}details summary{background:white}}
 </style>
 </head>
-
 <body>
-
 <header>
-  <div class="wrap">
-    <span class="tag">Guia de estudo</span>
-    <h1>VizPrecoTempo — Como explicar o código</h1>
-    <p class="subtitle">
-      Este material foi montado a partir do código fornecido. A ideia é estudar o funcionamento
-      do módulo, entender o papel de cada trecho e treinar respostas para uma apresentação oral.
-    </p>
+ <div class="wrap">
+  <div class="eyebrow">Revisão para a prova</div>
+  <h1>Prova 4 — respostas mastigadinhas</h1>
+  <p>Resolução passo a passo, com fórmulas, substituição dos valores e dicas para lembrar na hora da prova. Feito para estudar pelo celular.</p>
+  <div class="progressbox">
+   <div class="progressrow"><strong>Seu progresso</strong><span id="progressText">0 de 5 questões revisadas</span></div>
+   <progress id="progress" value="0" max="5"></progress>
   </div>
+ </div>
 </header>
-
-<nav>
-  <div class="wrap">
-    <a href="#apresentacao">Como apresentar</a>
-    <a href="#visao">Visão geral</a>
-    <a href="#modulo">Módulo</a>
-    <a href="#init">init()</a>
-    <a href="#canvas">Canvas + SVG</a>
-    <a href="#escalas">Escalas</a>
-    <a href="#zoom">Zoom</a>
-    <a href="#filtros">Filtros</a>
-    <a href="#render">Render</a>
-    <a href="#pontos">Pontos</a>
-    <a href="#clique">Clique</a>
-    <a href="#coord">Coord</a>
-    <a href="#painel">Painel</a>
-    <a href="#fluxo">Fluxo</a>
-    <a href="#perguntas">Perguntas</a>
-  </div>
-</nav>
-
+<nav><div class="wrap">
+<a href="#q1">Q1 · Conceitos</a><a href="#q2">Q2 · Estatística</a><a href="#q3">Q3 · Chebyshev</a><a href="#q4">Q4 · Urna</a><a href="#q5">Q5 · Bayes</a><a href="#resumo">Resumo</a>
+</div></nav>
 <main class="wrap">
-
-<section id="apresentacao">
-  <span class="tag">00 — Como apresentar</span>
-  <h2>Roteiro de apresentação: do objetivo ao código</h2>
-
-  <p>
-    Esta é a sequência recomendada para explicar a visualização ao professor.
-    A ideia é começar pelo <strong>porquê</strong> da visualização, depois explicar
-    <strong>o que está sendo mostrado</strong>, demonstrar <strong>como o usuário interage</strong>
-    e só então entrar nos detalhes de <strong>como foi implementada</strong>.
-  </p>
-
-  <div class="flow">
-    <span>1. Objetivo</span><b class="arrow">→</b>
-    <span>2. Dados</span><b class="arrow">→</b>
-    <span>3. Interação</span><b class="arrow">→</b>
-    <span>4. Implementação</span>
-  </div>
-
-  <h3>1. Comece pelo objetivo da visualização</h3>
-  <p>
-    Primeiro explique qual pergunta ou relação a visualização ajuda o usuário a entender.
-    Não comece falando de Canvas, SVG ou D3.js.
-  </p>
-
-  <div class="explain">
-    <strong>O que você pode falar:</strong><br>
-    "Essa visualização tem como objetivo analisar a relação entre o preço dos jogos
-    e o tempo médio que os jogadores passam jogando."
-  </div>
-
-  <h3>2. Explique os dados</h3>
-  <p>
-    Depois apresente o significado visual dos dados: o que representa cada ponto,
-    o que aparece nos eixos e como as cores são utilizadas.
-  </p>
-
-  <div class="explain">
-    <strong>O que você pode falar:</strong><br>
-    "Cada ponto representa um jogo. No eixo X temos o preço do jogo e no eixo Y temos
-    o tempo médio de jogo, convertido de minutos para horas. As cores representam
-    o gênero principal do jogo."
-  </div>
-
-  <p>
-    Você pode complementar explicando que os dados passam por um tratamento inicial,
-    no qual o módulo mantém registros com preço definido, tempo de jogo válido e pelo
-    menos um gênero.
-  </p>
-
-  <h3>3. Mostre a interação</h3>
-  <p>
-    Agora demonstre o que o usuário consegue fazer com a visualização.
-    Essa é uma boa hora para mostrar a aplicação funcionando na tela.
-  </p>
-
-  <div class="explain">
-    <strong>O que você pode falar:</strong><br>
-    "O usuário pode pesquisar um jogo pelo nome, limitar o preço máximo usando o slider,
-    aplicar filtros globais de ano e gênero, utilizar o zoom e clicar em um jogo para
-    visualizar seus detalhes no painel."
-  </div>
-
-  <h3>4. Só depois entre na implementação</h3>
-  <p>
-    Depois que o professor já entendeu o objetivo, os dados e as interações,
-    explique como o sistema foi construído.
-  </p>
-
-  <div class="explain">
-    <strong>O que você pode falar:</strong><br>
-    "Para implementar essa visualização, utilizamos Canvas para desenhar os pontos
-    e SVG para os eixos. O D3.js é utilizado para criar as escalas, eixos, zoom e
-    escala de cores. O módulo também se comunica com o Coord, que permite compartilhar
-    filtros e seleções entre as visualizações."
-  </div>
-
-  <h3>5. Aprofunde no código</h3>
-  <p>
-    Se o professor quiser saber como o código funciona, siga uma ordem lógica:
-  </p>
-
-  <div class="flow">
-    <span>Dados brutos</span><b class="arrow">→</b>
-    <span><code>filter()</code></span><b class="arrow">→</b>
-    <span><code>map()</code></span><b class="arrow">→</b>
-    <span>Escalas</span><b class="arrow">→</b>
-    <span>Canvas + SVG</span><b class="arrow">→</b>
-    <span>Filtros</span><b class="arrow">→</b>
-    <span><code>render()</code></span><b class="arrow">→</b>
-    <span>Interação</span><b class="arrow">→</b>
-    <span><code>Coord</code></span>
-  </div>
-
-  <div class="teacher">
-    <strong>Roteiro completo para falar:</strong><br><br>
-    "Essa visualização tem como objetivo analisar a relação entre o preço dos jogos
-    e o tempo médio de jogo. Cada ponto representa um jogo, sendo que o eixo X mostra
-    o preço e o eixo Y mostra o tempo médio de jogo em horas. A cor representa o gênero
-    principal.<br><br>
-    Além disso, o usuário pode interagir com a visualização por meio de filtros, busca
-    por nome, limite de preço, zoom e seleção de jogos. Ao clicar em um ponto, os detalhes
-    daquele jogo são apresentados no painel.<br><br>
-    Tecnicamente, os dados são inicialmente filtrados e transformados para o formato
-    utilizado pelo módulo. A visualização utiliza Canvas para desenhar os pontos e SVG
-    para os eixos. O D3.js é responsável pelas escalas, eixos, zoom e cores. A função
-    render() combina os filtros globais e locais e redesenha os pontos. A comunicação
-    com o Coord permite que as alterações de estado sejam refletidas entre as visualizações."
-  </div>
-
-  <div class="warning">
-    <strong>Dica para a apresentação:</strong><br>
-    Pense nesta ordem: <strong>Por quê?</strong> → <strong>O quê?</strong> →
-    <strong>Como o usuário usa?</strong> → <strong>Como foi implementado?</strong>.
-    Se o professor interromper com uma pergunta técnica durante a explicação,
-    responda e depois retome o ponto em que estava.
-  </div>
+<section class="card" id="q1">
+ <h2>Questão 1 — Probabilidade condicional e independência</h2>
+ <p><strong>Probabilidade condicional</strong> é a chance de A acontecer sabendo que B já aconteceu. A informação de que B ocorreu muda o conjunto que estamos considerando.</p>
+ <div class="formula">P(A | B) = P(A ∩ B) / P(B), desde que P(B) &gt; 0</div>
+ <p><strong>Exemplo:</strong> em um baralho, sabendo que a carta é uma figura (J, Q ou K), qual a chance de ser rei? Há 4 reis entre 12 figuras.</p>
+ <div class="formula">P(Rei | Figura) = 4/12 = 1/3 ≈ 33,3%</div>
+ <p><strong>Eventos independentes</strong> são eventos em que saber que um aconteceu não muda a probabilidade do outro.</p>
+ <div class="formula">P(A ∩ B) = P(A) × P(B)</div>
+ <p><strong>Exemplo:</strong> jogar uma moeda e um dado. A chance de sair cara e o número 6 é:</p>
+ <div class="formula">P(cara e 6) = 1/2 × 1/6 = 1/12 ≈ 8,33%</div>
+ <div class="note"><strong>Para lembrar:</strong> condicional = “sabendo que”; independentes = um evento não interfere no outro.</div>
+ <label class="checkrow"><input type="checkbox" class="done"> Marcar questão 1 como revisada</label>
 </section>
 
-<section id="visao">
-  <span class="tag">01 — Visão geral</span>
-  <h2>O que esse código faz?</h2>
-  <p>
-    O módulo <code>VizPrecoTempo</code> cria e controla uma visualização que relaciona
-    <strong>preço</strong> e <strong>tempo médio de jogo</strong>.
-    Cada jogo é representado por um ponto.
-  </p>
-
-  <div class="flow">
-    <span>Dados brutos</span><b class="arrow">→</b>
-    <span>Filtragem e transformação</span><b class="arrow">→</b>
-    <span>Escalas</span><b class="arrow">→</b>
-    <span>Canvas + SVG</span><b class="arrow">→</b>
-    <span>Filtros e interação</span>
-  </div>
-
-  <div class="explain">
-    <strong>Como falar para o professor:</strong><br>
-    "Esse módulo recebe os dados brutos dos jogos, seleciona os registros que possuem
-    informações válidas de preço, tempo e gênero, transforma o tempo de minutos para horas
-    e cria uma visualização de dispersão. O eixo X representa o preço, o eixo Y representa
-    o tempo médio de jogo e as cores representam o primeiro gênero do jogo. A visualização
-    ainda possui filtros, zoom e seleção de pontos."
-  </div>
+<section class="card" id="q2">
+ <h2>Questão 2 — Estatística descritiva</h2>
+ <p>São 80 funcionários. As frequências da tabela são <strong>relativas</strong>, então vamos multiplicar cada uma por 80 para obter a quantidade de funcionários.</p>
+ <div class="tablewrap"><table><thead><tr><th>Faixa</th><th>Freq. relativa</th><th>Freq. absoluta</th><th>Ponto médio</th></tr></thead><tbody>
+ <tr><td>0 a 4</td><td>0,30</td><td>0,30 × 80 = 24</td><td>(0+4)/2 = 2</td></tr>
+ <tr><td>4 a 8</td><td>0,35</td><td>0,35 × 80 = 28</td><td>(4+8)/2 = 6</td></tr>
+ <tr><td>8 a 12</td><td>0,25</td><td>0,25 × 80 = 20</td><td>(8+12)/2 = 10</td></tr>
+ <tr><td>12 a 20</td><td>0,10</td><td>0,10 × 80 = 8</td><td>(12+20)/2 = 16</td></tr>
+ <tr><th>Total</th><th>1,00</th><th>80</th><th>—</th></tr>
+ </tbody></table></div>
+ <h3>(a) Esboço do histograma</h3>
+ <p>As classes têm larguras diferentes. Por isso, no histograma correto, a altura é a frequência relativa dividida pela largura da classe; assim, a área de cada barra representa sua frequência relativa.</p>
+ <div class="bar-chart" aria-label="Histograma esquemático de densidade relativa">
+  <div class="bar"><small>0,075</small><div class="barfill" style="height:75%"></div><label>0–4</label></div>
+  <div class="bar"><small>0,0875</small><div class="barfill" style="height:87.5%"></div><label>4–8</label></div>
+  <div class="bar"><small>0,0625</small><div class="barfill" style="height:62.5%"></div><label>8–12</label></div>
+  <div class="bar"><small>0,0125</small><div class="barfill" style="height:12.5%"></div><label>12–20</label></div>
+ </div>
+ <p class="svg-note">Esboço ilustrativo: alturas proporcionais à densidade relativa (0,075; 0,0875; 0,0625; 0,0125). A barra de 12 a 20 é duas vezes mais larga.</p>
+ <h3>(b) Média, variância e desvio padrão</h3>
+ <p>Multiplique a frequência de cada classe pelo ponto médio.</p>
+ <div class="tablewrap"><table><thead><tr><th>PM</th><th>f</th><th>f × PM</th></tr></thead><tbody>
+ <tr><td>2</td><td>24</td><td>48</td></tr><tr><td>6</td><td>28</td><td>168</td></tr><tr><td>10</td><td>20</td><td>200</td></tr><tr><td>16</td><td>8</td><td>128</td></tr><tr><th>—</th><th>80</th><th>544</th></tr>
+ </tbody></table></div>
+ <p><strong>Média:</strong></p><div class="formula">x̄ = Σ(f × PM) / n = 544 / 80 = 6,8 salários mínimos</div>
+ <p>Para a variância, calcule a distância de cada ponto médio até 6,8, eleve ao quadrado e multiplique pela frequência.</p>
+ <div class="tablewrap"><table><thead><tr><th>PM</th><th>f</th><th>(PM − 6,8)²</th><th>f × (PM − 6,8)²</th></tr></thead><tbody>
+ <tr><td>2</td><td>24</td><td>23,04</td><td>552,96</td></tr><tr><td>6</td><td>28</td><td>0,64</td><td>17,92</td></tr><tr><td>10</td><td>20</td><td>10,24</td><td>204,80</td></tr><tr><td>16</td><td>8</td><td>84,64</td><td>677,12</td></tr><tr><th colspan="3">Soma</th><th>1452,80</th></tr>
+ </tbody></table></div>
+ <div class="formula">Variância populacional: σ² = 1452,8 / 80 = 18,16</div>
+ <div class="formula">Desvio padrão: σ = √18,16 ≈ 4,26 salários mínimos</div>
+ <div class="note">Aqui usamos a variância <strong>populacional</strong>, dividindo por 80, pois estamos tratando os 80 funcionários como o conjunto analisado. Se a disciplina pedir variância amostral, o divisor seria n−1.</div>
+ <h3>(c) Primeiro quartil e mediana</h3>
+ <div class="tablewrap"><table><thead><tr><th>Classe</th><th>f</th><th>Acumulada</th></tr></thead><tbody>
+ <tr><td>0–4</td><td>24</td><td>24</td></tr><tr><td>4–8</td><td>28</td><td>52</td></tr><tr><td>8–12</td><td>20</td><td>72</td></tr><tr><td>12–20</td><td>8</td><td>80</td></tr>
+ </tbody></table></div>
+ <p>Fórmula para quartis em dados agrupados:</p><div class="formula">Qₖ = L + [(k·n/4 − F_ant) / f] × h</div>
+ <p><strong>Primeiro quartil:</strong> posição n/4 = 80/4 = 20. A posição 20 cai na primeira classe (0–4).</p>
+ <div class="formula">Q₁ = 0 + [(20 − 0) / 24] × 4 = 80/24 ≈ 3,33</div>
+ <p><strong>Mediana:</strong> posição n/2 = 80/2 = 40. A posição 40 cai na classe 4–8, porque a acumulada passa de 24 para 52.</p>
+ <div class="formula">Md = 4 + [(40 − 24) / 28] × 4 = 4 + 64/28 ≈ 6,29</div>
+ <p class="small">L = limite inferior; F_ant = acumulada antes da classe; f = frequência da classe; h = largura da classe.</p>
+ <h3>(d) Aumento de 50%</h3>
+ <p>Aumentar 50% equivale a multiplicar cada salário por 1,5.</p>
+ <div class="formula">Média nova = 6,8 × 1,5 = 10,2</div>
+ <div class="formula">Variância nova = 18,16 × (1,5)² = 18,16 × 2,25 = 40,86</div>
+ <p>Então, <strong>a média aumenta 50%</strong> e a <strong>variância fica 2,25 vezes maior</strong>. O desvio padrão também seria multiplicado por 1,5.</p>
+ <h3>(e) Abono de 3 salários mínimos</h3>
+ <div class="formula">Média nova = 6,8 + 3 = 9,8</div>
+ <div class="formula">Mediana nova ≈ 6,29 + 3 = 9,29</div>
+ <div class="formula">Variância nova = 18,16 (não muda)</div>
+ <p>Somar o mesmo valor a todos desloca os dados, mas mantém as distâncias entre eles. Por isso média e mediana aumentam 3; variância e desvio padrão não mudam.</p>
+ <label class="checkrow"><input type="checkbox" class="done"> Marcar questão 2 como revisada</label>
 </section>
 
-<section id="modulo">
-  <span class="tag">02 — Estrutura</span>
-  <h2>IIFE e módulo revelador</h2>
-
-  <div class="codebox"><pre><span class="line"><span class="keyword">var</span> VizPrecoTempo = (<span class="keyword">function</span>(){</span>
-<span class="line">  <span class="comment">// Todo o estado abaixo fica encapsulado dentro da função</span></span>
-<span class="line">  ...</span>
-<span class="line">  <span class="keyword">return</span> { init: init };</span>
-<span class="line">})();</span></pre></div>
-
-  <p>
-    A função é executada imediatamente. O resultado é armazenado em
-    <code>VizPrecoTempo</code>. Como as variáveis e funções ficam dentro dessa função,
-    elas não ficam diretamente expostas no escopo global.
-  </p>
-
-  <div class="grid">
-    <div class="card"><strong>IIFE</strong><br>Função que é definida e executada imediatamente.</div>
-    <div class="card"><strong>Encapsulamento</strong><br>Variáveis como <code>estado</code>, <code>xScale</code> e <code>render</code> ficam privadas.</div>
-    <div class="card"><strong>API pública</strong><br>O objeto retornado expõe somente <code>init</code>.</div>
-  </div>
-
-  <div class="teacher">
-    <strong>Professor pode perguntar:</strong><br>
-    "Por que usar IIFE?"<br><br>
-    <strong>Resposta:</strong> "Para encapsular o estado e as funções internas do módulo,
-    evitando que esses nomes fiquem disponíveis globalmente e reduzindo possíveis conflitos
-    com outros módulos."
-  </div>
+<section class="card" id="q3">
+ <h2>Questão 3 — Teorema de Chebyshev e transformações</h2>
+ <h3>(a) Quantas pessoas esperaram entre 2,2 e 8,2 minutos?</h3>
+ <p>Dados: média = 5,2; desvio padrão = 1,5; n = 40. Primeiro veja quantos desvios padrão separam os limites da média:</p>
+ <div class="formula">5,2 − 2,2 = 3 e 8,2 − 5,2 = 3</div>
+ <p>Como 3 ÷ 1,5 = 2, os limites ficam a <strong>2 desvios padrão da média</strong>, isto é, x̄ ± 2s.</p>
+ <p>Teorema de Chebyshev:</p>
+ <div class="formula">P(|X − x̄| &lt; k·s) ≥ 1 − 1/k²</div>
+ <p>Usamos k = 2:</p>
+ <div class="formula">Pelo menos = 1 − 1/2² = 1 − 1/4 = 3/4 = 75%</div>
+ <p>Agora calcule 75% de 40:</p>
+ <div class="formula">0,75 × 40 = 30 pessoas</div>
+ <div class="answer"><strong>Resposta:</strong> pelo menos 30 pessoas, segundo o limite garantido por Chebyshev.</div>
+ <h3>(b) O que acontece com média, mediana e desvio padrão?</h3>
+ <details open><summary>(i) Multiplicar cada observação por 3</summary><div class="detailsbody">
+ <p>Todos os valores triplicam.</p><div class="formula">Média nova = 3x̄</div><div class="formula">Mediana nova = 3Md</div><div class="formula">Desvio padrão novo = 3s</div>
+ <p>O desvio padrão também triplica porque as distâncias em relação à média ficam 3 vezes maiores.</p></div></details>
+ <details><summary>(ii) Somar 5 a cada observação</summary><div class="detailsbody">
+ <div class="formula">Média nova = x̄ + 5</div><div class="formula">Mediana nova = Md + 5</div><div class="formula">Desvio padrão novo = s</div>
+ <p>Média e mediana aumentam 5; o desvio padrão não muda porque todos os valores se deslocam igualmente.</p></div></details>
+ <details><summary>(iii) Subtrair a média e dividir pelo desvio padrão</summary><div class="detailsbody">
+ <p>A transformação é z = (x − x̄)/s. Ela centraliza os dados na média zero e mede cada valor em unidades de desvio padrão.</p>
+ <div class="formula">Média transformada = 0</div><div class="formula">Mediana transformada = (Md − x̄) / s</div><div class="formula">Desvio padrão transformado = 1</div>
+ <p>Isso vale para s positivo e usando a mesma definição de desvio padrão para padronizar.</p></div></details>
+ <label class="checkrow"><input type="checkbox" class="done"> Marcar questão 3 como revisada</label>
 </section>
 
-<section id="init">
-  <span class="tag">03 — Inicialização</span>
-  <h2>Função init(dadosBrutos)</h2>
-
-  <p>
-    A função <code>init</code> é o ponto de entrada público do módulo. Ela recebe os dados
-    brutos e prepara praticamente toda a visualização.
-  </p>
-
-  <div class="codebox"><pre><span class="line"><span class="keyword">function</span> <span class="fn">init</span>(dadosBrutos){</span>
-<span class="line">  dadosModulo = dadosBrutos</span>
-<span class="line">    .filter(<span class="keyword">function</span>(d){</span>
-<span class="line">      <span class="keyword">return</span> d.price !== <span class="keyword">undefined</span> &&</span>
-<span class="line">             d.average_playtime_forever &gt; 0 &&</span>
-<span class="line">             d.average_playtime_forever &lt; 50000 &&</span>
-<span class="line">             d.genres && d.genres.length &gt; 0;</span>
-<span class="line">    })</span>
-<span class="line">    .map(<span class="keyword">function</span>(d){</span>
-<span class="line">      <span class="keyword">return</span> { ... };</span>
-<span class="line">    });</span>
-<span class="line">}</span></pre></div>
-
-  <h3>Primeiro passo: filtrar</h3>
-  <p>
-    O código elimina jogos que não possuem preço, possuem tempo de jogo inválido,
-    possuem tempo acima de 50.000 minutos ou não possuem gênero.
-  </p>
-
-  <h3>Segundo passo: transformar</h3>
-  <p>
-    O <code>map()</code> cria um novo objeto simplificado para o módulo, mantendo apenas
-    os campos necessários para a visualização e para o painel de detalhes.
-  </p>
-
-  <div class="explain">
-    <strong>Como explicar:</strong><br>
-    "Primeiro eu faço uma limpeza dos dados. Depois transformo os registros para um formato
-    mais adequado ao módulo. Isso facilita o uso dos dados durante a renderização e mantém
-    no módulo apenas as informações relevantes."
-  </div>
-
-  <div class="warning">
-    <strong>Ponto para prestar atenção:</strong><br>
-    O código usa <code>d.genres[0]</code> como <code>genero</code>, mas mantém todos os gêneros
-    em <code>generos</code>. Portanto, a cor e o filtro de gênero consideram apenas o primeiro
-    gênero, enquanto o painel pode mostrar todos.
-  </div>
+<section class="card" id="q4">
+ <h2>Questão 4 — Probabilidade com 3 bolas simultâneas</h2>
+ <p>Urna: 6 brancas, 3 vermelhas e 3 azuis. Total = 12 bolas. Como são retiradas simultaneamente, a ordem não importa; usamos combinações.</p>
+ <div class="formula">Total de grupos possíveis = C(12,3) = 12! / (3!·9!) = 220</div>
+ <p>Combinação C(n,k) significa escolher k itens entre n sem considerar a ordem.</p>
+ <h3>(a) Nenhuma seja vermelha</h3>
+ <p>Há 9 bolas que não são vermelhas (6 brancas + 3 azuis). Escolhemos 3 dessas 9.</p>
+ <div class="formula">P = C(9,3) / C(12,3) = 84 / 220 = 21/55 ≈ 0,3818</div>
+ <div class="answer"><strong>Resposta:</strong> aproximadamente 38,18%.</div>
+ <h3>(b) Exatamente uma seja vermelha</h3>
+ <p>Escolha 1 das 3 vermelhas e 2 das 9 não vermelhas. Multiplicamos porque as duas escolhas precisam acontecer juntas.</p>
+ <div class="formula">P = [C(3,1) × C(9,2)] / C(12,3)</div>
+ <div class="formula">P = (3 × 36) / 220 = 108/220 = 27/55 ≈ 0,4909</div>
+ <div class="answer"><strong>Resposta:</strong> aproximadamente 49,09%.</div>
+ <h3>(c) Todas sejam da mesma cor</h3>
+ <p>Há três possibilidades que não se misturam: 3 brancas, 3 vermelhas ou 3 azuis.</p>
+ <div class="formula">P = [C(6,3) + C(3,3) + C(3,3)] / C(12,3)</div>
+ <div class="formula">P = (20 + 1 + 1) / 220 = 22/220 = 0,10</div>
+ <div class="answer"><strong>Resposta:</strong> 10%.</div>
+ <div class="note"><strong>Dica:</strong> “simultaneamente” geralmente indica que a ordem não importa. “Exatamente uma vermelha” = escolher uma vermelha E duas não vermelhas.</div>
+ <label class="checkrow"><input type="checkbox" class="done"> Marcar questão 4 como revisada</label>
 </section>
 
-<section>
-  <span class="tag">04 — Estado</span>
-  <h2>Variáveis principais</h2>
-
-  <table>
-    <tr><th>Variável</th><th>Função</th><th>Como explicar</th></tr>
-    <tr>
-      <td><code>estado</code></td>
-      <td>Guarda busca e preço máximo.</td>
-      <td>Representa filtros locais da visualização.</td>
-    </tr>
-    <tr>
-      <td><code>dadosModulo</code></td>
-      <td>Dados tratados.</td>
-      <td>É a base usada para renderização e seleção.</td>
-    </tr>
-    <tr>
-      <td><code>visiveis</code></td>
-      <td>Jogos que passaram pelos filtros.</td>
-      <td>É o subconjunto que aparece como pontos ativos.</td>
-    </tr>
-    <tr>
-      <td><code>precoMaximoDataset</code></td>
-      <td>Maior preço encontrado.</td>
-      <td>Define o limite inicial do slider.</td>
-    </tr>
-    <tr>
-      <td><code>generosUnicos</code></td>
-      <td>Lista de gêneros únicos.</td>
-      <td>Usada para legenda e domínio da escala de cores.</td>
-    </tr>
-    <tr>
-      <td><code>zoomTransform</code></td>
-      <td>Guarda transformação atual do zoom.</td>
-      <td>Permite redesenhar eixos e pontos conforme o usuário aproxima ou afasta.</td>
-    </tr>
-  </table>
+<section class="card" id="q5">
+ <h2>Questão 5 — Probabilidade condicional (Bayes)</h2>
+ <p>Dados:</p>
+ <ul><li>6% dos homens vão de bicicleta: P(Bicicleta | Homem) = 0,06</li><li>2% das mulheres vão de bicicleta: P(Bicicleta | Mulher) = 0,02</li><li>65% são mulheres, então 35% são homens.</li></ul>
+ <h3>(a) Probabilidade de um estudante qualquer ir de bicicleta</h3>
+ <p>Há dois caminhos para ir de bicicleta: ser homem e ir de bicicleta, ou ser mulher e ir de bicicleta. Somamos as probabilidades dos dois caminhos.</p>
+ <div class="formula">P(B) = P(B|H)P(H) + P(B|M)P(M)</div>
+ <div class="formula">P(B) = (0,06 × 0,35) + (0,02 × 0,65)</div>
+ <div class="formula">P(B) = 0,021 + 0,013 = 0,034 = 3,4%</div>
+ <div class="answer"><strong>Resposta:</strong> 3,4% dos estudantes vão de bicicleta.</div>
+ <h3>(b) Sabendo que vai de bicicleta, qual a probabilidade de ser homem?</h3>
+ <p>Agora sabemos que a pessoa vai de bicicleta. Queremos a parcela dos ciclistas que são homens, então usamos probabilidade condicional / Bayes.</p>
+ <div class="formula">P(H|B) = P(B|H)P(H) / P(B)</div>
+ <div class="formula">P(H|B) = (0,06 × 0,35) / 0,034</div>
+ <div class="formula">P(H|B) = 0,021 / 0,034 = 21/34 ≈ 0,6176</div>
+ <div class="answer"><strong>Resposta:</strong> aproximadamente 61,76% de chance de ser homem.</div>
+ <div class="note"><strong>Erro comum:</strong> não responda apenas 35%. A pergunta já informa que o estudante vai de bicicleta; isso muda o grupo considerado.</div>
+ <label class="checkrow"><input type="checkbox" class="done"> Marcar questão 5 como revisada</label>
 </section>
 
-<section id="canvas">
-  <span class="tag">05 — Renderização</span>
-  <h2>Por que Canvas + SVG?</h2>
-
-  <div class="codebox"><pre><span class="line"><span class="keyword">function</span> <span class="fn">montarCanvas</span>(){</span>
-<span class="line">  ...</span>
-<span class="line">  canvas = d3.select(<span class="string">"#pt-chartWrap"</span>).append(<span class="string">"canvas"</span>)</span>
-<span class="line">  ...</span>
-<span class="line">  svg = d3.select(<span class="string">"#pt-chartWrap"</span>).append(<span class="string">"svg"</span>)</span>
-<span class="line">}</span></pre></div>
-
-  <p>
-    O código cria duas camadas. O <strong>Canvas</strong> é usado para desenhar os pontos.
-    O <strong>SVG</strong> é usado para os eixos.
-  </p>
-
-  <div class="grid">
-    <div class="card">
-      <strong>Canvas</strong>
-      <p>Usado para desenhar os pontos diretamente no contexto 2D.</p>
-    </div>
-    <div class="card">
-      <strong>SVG</strong>
-      <p>Usado para os eixos, aproveitando os recursos do D3 para gerar e atualizar os eixos.</p>
-    </div>
-  </div>
-
-  <div class="teacher">
-    <strong>Professor:</strong> "Por que não desenhar tudo em SVG?"<br><br>
-    <strong>Resposta:</strong> "A escolha foi separar as responsabilidades: os pontos são desenhados
-    no Canvas, enquanto os eixos ficam em SVG. Isso evita criar um elemento DOM individual para
-    cada ponto e mantém os eixos fáceis de manipular com o D3."
-  </div>
-
-  <h3>devicePixelRatio</h3>
-  <p>
-    O código usa <code>window.devicePixelRatio</code> para ajustar a resolução interna do Canvas.
-    Depois utiliza <code>ctx.scale(dpr, dpr)</code>.
-  </p>
-
-  <div class="explain">
-    <strong>Como explicar:</strong><br>
-    "O devicePixelRatio ajuda a adequar a resolução interna do Canvas à densidade de pixels da tela,
-    evitando que o desenho fique visualmente borrado em telas de alta densidade."
-  </div>
+<section class="card" id="resumo">
+ <h2>Resumo rápido para memorizar</h2>
+ <details open><summary>Fórmulas essenciais</summary><div class="detailsbody">
+ <p><strong>Média agrupada:</strong></p><div class="formula">x̄ = Σ(f × ponto médio) / n</div>
+ <p><strong>Variância populacional agrupada:</strong></p><div class="formula">σ² = Σ[f × (PM − x̄)²] / n</div>
+ <p><strong>Desvio padrão:</strong></p><div class="formula">σ = √variância</div>
+ <p><strong>Quartil em dados agrupados:</strong></p><div class="formula">Qₖ = L + [(k·n/4 − F_ant) / f] × h</div>
+ <p><strong>Mediana agrupada:</strong></p><div class="formula">Md = L + [(n/2 − F_ant) / f] × h</div>
+ <p><strong>Chebyshev:</strong></p><div class="formula">Pelo menos 1 − 1/k² dentro de k desvios padrão da média</div>
+ <p><strong>Probabilidade condicional:</strong></p><div class="formula">P(A|B) = P(A ∩ B) / P(B)</div>
+ <p><strong>Eventos independentes:</strong></p><div class="formula">P(A ∩ B) = P(A) × P(B)</div>
+ <p><strong>Bayes neste exercício:</strong></p><div class="formula">P(H|B) = P(B|H)P(H) / P(B)</div>
+ </div></details>
+ <div class="controls"><button onclick="window.scrollTo({top:0,behavior:'smooth'})">Voltar ao topo ↑</button><button class="secondary" onclick="window.print()">Imprimir / salvar em PDF</button><button class="secondary" onclick="resetProgress()">Zerar progresso</button></div>
+ <p class="small">Dica de estudo: tente explicar cada passo em voz alta antes de abrir os detalhes. Se conseguir explicar de onde veio cada número, você não está só decorando a fórmula.</p>
 </section>
-
-<section id="escalas">
-  <span class="tag">06 — Escalas</span>
-  <h2>xScale e yScale</h2>
-
-  <div class="codebox"><pre><span class="line">xScale = d3.scaleLinear()</span>
-<span class="line">  .domain([-1, d3.max(dadosModulo, <span class="keyword">function</span>(d){ <span class="keyword">return</span> d.price; }) + 5])</span>
-<span class="line">  .range([margin.left, width - margin.right]);</span>
-<span class="line"></span>
-<span class="line">yScale = d3.scaleLinear()</span>
-<span class="line">  .domain([0, d3.max(dadosModulo, <span class="keyword">function</span>(d){ <span class="keyword">return</span> d.horas; }) + 20])</span>
-<span class="line">  .range([height - margin.bottom, margin.top]);</span></pre></div>
-
-  <p>
-    A escala converte valores dos dados para coordenadas na tela.
-  </p>
-
-  <table>
-    <tr><th>Escala</th><th>Dados</th><th>Tela</th></tr>
-    <tr><td><code>xScale</code></td><td>Preço</td><td>Posição horizontal</td></tr>
-    <tr><td><code>yScale</code></td><td>Horas</td><td>Posição vertical</td></tr>
-  </table>
-
-  <div class="teacher">
-    <strong>Professor pode perguntar:</strong> "Por que o range do Y está invertido?"<br><br>
-    <strong>Resposta:</strong> "Porque no sistema de coordenadas da tela o eixo Y cresce de cima para baixo.
-    Então valores maiores precisam ser posicionados mais acima no gráfico, por isso o range começa
-    em height - margin.bottom e termina em margin.top."
-  </div>
-</section>
-
-<section id="zoom">
-  <span class="tag">07 — Interação</span>
-  <h2>Zoom</h2>
-
-  <div class="codebox"><pre><span class="line"><span class="keyword">function</span> <span class="fn">ativarZoom</span>(){</span>
-<span class="line">  <span class="keyword">var</span> zoom = d3.zoom()</span>
-<span class="line">    .scaleExtent([0.5, 20])</span>
-<span class="line">    .on(<span class="string">"zoom"</span>, <span class="keyword">function</span>(e){</span>
-<span class="line">      zoomTransform = e.transform;</span>
-<span class="line">      desenharEixos(zoomTransform.rescaleX(xScale), zoomTransform.rescaleY(yScale));</span>
-<span class="line">      desenharPontos();</span>
-<span class="line">    });</span>
-<span class="line">  canvas.call(zoom);</span>
-<span class="line">}</span></pre></div>
-
-  <p>
-    O zoom permite alterar a transformação aplicada à visualização. Quando ocorre um evento de zoom,
-    o código atualiza as escalas dos eixos e redesenha os pontos.
-  </p>
-
-  <div class="explain">
-    <strong>Como explicar:</strong><br>
-    "O D3 controla a transformação do zoom. A cada interação, eu pego a transformação atual,
-    recalculo as escalas usando rescaleX e rescaleY, atualizo os eixos e redesenho os pontos
-    para que tudo permaneça sincronizado."
-  </div>
-
-  <div class="warning">
-    <strong>Ponto de atenção:</strong><br>
-    O código limita apenas a escala do zoom com <code>scaleExtent([0.5,20])</code>.
-    Não existe <code>translateExtent</code>, então o deslocamento pode permitir que o usuário
-    navegue para regiões sem dados.
-  </div>
-</section>
-
-<section id="filtros">
-  <span class="tag">08 — Filtros</span>
-  <h2>Filtros globais e locais</h2>
-
-  <div class="codebox"><pre><span class="line"><span class="keyword">function</span> <span class="fn">passaFiltrosGlobais</span>(d, coordState){</span>
-<span class="line">  <span class="keyword">if</span> (d.year &lt; coordState.anoMin || d.year &gt; coordState.anoMax) <span class="keyword">return</span> false;</span>
-<span class="line">  <span class="keyword">if</span> (coordState.genero && d.genero !== coordState.genero) <span class="keyword">return</span> false;</span>
-<span class="line">  <span class="keyword">return</span> true;</span>
-<span class="line">}</span>
-<span class="line"></span>
-<span class="line"><span class="keyword">function</span> <span class="fn">passaFiltrosLocais</span>(d){</span>
-<span class="line">  <span class="keyword">if</span> (estado.busca && d.name.toLowerCase().indexOf(estado.busca) === -1) <span class="keyword">return</span> false;</span>
-<span class="line">  <span class="keyword">return</span> d.price &lt;= estado.precoMax;</span>
-<span class="line">}</span></pre></div>
-
-  <div class="grid">
-    <div class="card">
-      <strong>Global</strong>
-      <p>Ano e gênero vêm do estado compartilhado em <code>Coord</code>.</p>
-    </div>
-    <div class="card">
-      <strong>Local</strong>
-      <p>Busca pelo nome e preço máximo pertencem ao próprio módulo.</p>
-    </div>
-  </div>
-
-  <div class="explain">
-    <strong>Como explicar:</strong><br>
-    "Um jogo precisa passar pelos filtros globais e pelos filtros locais. O operador lógico
-    utilizado na função render é AND, então basta falhar em um dos grupos para deixar de ser
-    considerado visível."
-  </div>
-</section>
-
-<section id="render">
-  <span class="tag">09 — Renderização</span>
-  <h2>O papel da função render()</h2>
-
-  <div class="codebox"><pre><span class="line"><span class="keyword">function</span> <span class="fn">render</span>(){</span>
-<span class="line">  <span class="keyword">var</span> coordState = Coord.getState();</span>
-<span class="line">  visiveis = dadosModulo.filter(<span class="keyword">function</span>(d){</span>
-<span class="line">    <span class="keyword">return</span> passaFiltrosGlobais(d, coordState) && passaFiltrosLocais(d);</span>
-<span class="line">  });</span>
-<span class="line">  ...</span>
-<span class="line">  desenharPontos();</span>
-<span class="line">}</span></pre></div>
-
-  <p>
-    A função <code>render</code> é responsável por recalcular quais jogos estão visíveis e solicitar
-    o redesenho.
-  </p>
-
-  <div class="flow">
-    <span>Estado atual</span><b class="arrow">→</b>
-    <span>Aplicar filtros</span><b class="arrow">→</b>
-    <span>Atualizar visiveis</span><b class="arrow">→</b>
-    <span>Atualizar estatística</span><b class="arrow">→</b>
-    <span>Desenhar pontos</span>
-  </div>
-
-  <div class="teacher">
-    <strong>Professor:</strong> "Quando render é chamado?"<br><br>
-    <strong>Resposta:</strong> "Ele é chamado na inicialização e também quando ocorre alguma alteração
-    relevante nos filtros locais, como busca e preço, ou quando o estado global coordenado muda."
-  </div>
-</section>
-
-<section id="pontos">
-  <span class="tag">10 — Canvas</span>
-  <h2>Como os pontos são desenhados?</h2>
-
-  <p>
-    O código primeiro limpa o Canvas, cria uma área de recorte e depois desenha os pontos em diferentes
-    níveis de opacidade.
-  </p>
-
-  <div class="grid">
-    <div class="card">
-      <strong>1. Pontos fora do filtro local</strong>
-      <p>Continuam visíveis, mas com opacidade 0.05 e cor cinza. Isso preserva o contexto.</p>
-    </div>
-    <div class="card">
-      <strong>2. Pontos visíveis</strong>
-      <p>São desenhados com opacidade 0.75 e cor baseada no gênero.</p>
-    </div>
-    <div class="card">
-      <strong>3. Jogo selecionado</strong>
-      <p>É desenhado por último, maior e com borda branca.</p>
-    </div>
-  </div>
-
-  <div class="explain">
-    <strong>Como explicar:</strong><br>
-    "A ideia de desenhar os pontos filtrados com baixa opacidade é preservar o contexto espacial.
-    Assim, o usuário consegue perceber onde os dados filtrados estavam no conjunto original."
-  </div>
-
-  <div class="warning">
-    <strong>Detalhe importante:</strong><br>
-    O jogo selecionado é procurado em <code>dadosModulo</code>, não em <code>visiveis</code>.
-    Portanto, ele pode continuar destacado mesmo depois que um filtro o exclui da lista de visíveis.
-    Essa é uma decisão/comportamento que você deve saber explicar se o professor questionar.
-  </div>
-</section>
-
-<section id="clique">
-  <span class="tag">11 — Interação</span>
-  <h2>Como um ponto é selecionado?</h2>
-
-  <div class="codebox"><pre><span class="line"><span class="keyword">function</span> <span class="fn">encontrarJogoNoClique</span>(e){</span>
-<span class="line">  <span class="keyword">var</span> rect = canvas.node().getBoundingClientRect();</span>
-<span class="line">  <span class="keyword">var</span> mx = e.clientX - rect.left;</span>
-<span class="line">  <span class="keyword">var</span> my = e.clientY - rect.top;</span>
-<span class="line">  ...</span>
-<span class="line">  visiveis.forEach(<span class="keyword">function</span>(d){</span>
-<span class="line">    <span class="keyword">var</span> dx = xs(d.price) - mx;</span>
-<span class="line">    <span class="keyword">var</span> dy = ys(d.horas) - my;</span>
-<span class="line">    <span class="keyword">var</span> dist = Math.sqrt(dx * dx + dy * dy);</span>
-<span class="line">    <span class="keyword">if</span> (dist &lt; menorDist) ...</span>
-<span class="line">  });</span>
-<span class="line">}</span></pre></div>
-
-  <p>
-    Como Canvas não possui um elemento DOM separado para cada ponto, o código precisa calcular
-    manualmente qual ponto está próximo da posição clicada.
-  </p>
-
-  <div class="explain">
-    <strong>Como explicar:</strong><br>
-    "Eu converto a posição do clique para coordenadas relativas ao Canvas e percorro os pontos
-    visíveis. Para cada ponto calculo a distância euclidiana até o cursor. Se a distância for
-    menor que o raio de clique de 10 pixels, considero aquele jogo como candidato."
-  </div>
-
-  <div class="teacher">
-    <strong>Pergunta avançada:</strong> "Qual é a complexidade?"<br><br>
-    <strong>Resposta:</strong> "A busca percorre todos os pontos visíveis, então no pior caso é O(n).
-    Como isso ocorre no clique e não continuamente durante a animação, o custo é aceitável para
-    o volume atual de dados. Para datasets muito maiores, poderia ser necessário utilizar uma
-    estrutura espacial ou outra estratégia de busca."
-  </div>
-</section>
-
-<section id="coord">
-  <span class="tag">12 — Coordenação</span>
-  <h2>Como o Coord conecta as visualizações?</h2>
-
-  <div class="codebox"><pre><span class="line">Coord.on(<span class="keyword">function</span>(coordState){</span>
-<span class="line">  atualizarBadgeGenero(coordState.genero);</span>
-<span class="line">  atualizarDestaqueLegenda(coordState.genero);</span>
-<span class="line">  render();</span>
-<span class="line">  atualizarPainel(coordState.jogoSelecionado);</span>
-<span class="line">});</span></pre></div>
-
-  <p>
-    O módulo se inscreve no <code>Coord</code>. Quando o estado compartilhado muda, o callback é executado.
-  </p>
-
-  <div class="flow">
-    <span>Usuário interage</span><b class="arrow">→</b>
-    <span>Coord altera estado</span><b class="arrow">→</b>
-    <span>Listeners são notificados</span><b class="arrow">→</b>
-    <span>VizPrecoTempo atualiza</span>
-  </div>
-
-  <div class="teacher">
-    <strong>Como explicar:</strong><br>
-    "O Coord funciona como um ponto central de coordenação. O módulo não precisa conhecer diretamente
-    os outros módulos. Ele reage às mudanças do estado compartilhado por meio do mecanismo de inscrição."
-  </div>
-</section>
-
-<section id="painel">
-  <span class="tag">13 — Detalhes</span>
-  <h2>Como funciona o painel do jogo selecionado?</h2>
-
-  <p>
-    A função <code>atualizarPainel(jogoId)</code> recebe o identificador do jogo selecionado,
-    procura esse jogo em <code>dadosModulo</code> e atualiza o conteúdo do painel.
-  </p>
-
-  <p>
-    Se nenhum jogo estiver selecionado, aparece uma mensagem orientando o usuário a clicar em um ponto.
-    Se o ID não for encontrado, aparece uma mensagem informando que o jogo não possui dados suficientes.
-  </p>
-
-  <p>
-    Quando o jogo existe, o painel mostra imagem, nome, preço, tempo médio, gêneros, desenvolvedora
-    e recomendações.
-  </p>
-
-  <div class="explain">
-    <strong>Como explicar:</strong><br>
-    "A seleção no gráfico não serve apenas para destacar o ponto. Ela também atualiza um painel
-    de detalhes. O ID do jogo funciona como a ligação entre a seleção visual e as informações
-    detalhadas do registro."
-  </div>
-</section>
-
-<section id="fluxo">
-  <span class="tag">14 — Resumo</span>
-  <h2>Fluxo completo para memorizar</h2>
-
-  <div class="flow">
-    <span>init(dadosBrutos)</span><b class="arrow">→</b>
-    <span>filter()</span><b class="arrow">→</b>
-    <span>map()</span><b class="arrow">→</b>
-    <span>montarCanvas()</span><b class="arrow">→</b>
-    <span>criar escalas</span><b class="arrow">→</b>
-    <span>eixos</span><b class="arrow">→</b>
-    <span>zoom</span><b class="arrow">→</b>
-    <span>render()</span>
-  </div>
-
-  <h3>Durante a interação</h3>
-
-  <div class="flow">
-    <span>Filtro local</span><b class="arrow">→</b>
-    <span>estado muda</span><b class="arrow">→</b>
-    <span>render()</span><b class="arrow">→</b>
-    <span>visiveis é recalculado</span><b class="arrow">→</b>
-    <span>Canvas redesenhado</span>
-  </div>
-
-  <h3>Durante a coordenação global</h3>
-
-  <div class="flow">
-    <span>Outro módulo altera Coord</span><b class="arrow">→</b>
-    <span>Coord notifica</span><b class="arrow">→</b>
-    <span>VizPrecoTempo recebe coordState</span><b class="arrow">→</b>
-    <span>render + painel + legenda</span>
-  </div>
-
-  <div class="explain">
-    <strong>Resposta de 1 minuto:</strong><br>
-    "O módulo começa recebendo os dados brutos e fazendo uma filtragem inicial. Depois transforma
-    os registros para um formato adequado, cria o Canvas para os pontos e o SVG para os eixos.
-    As escalas convertem preço e horas em coordenadas de tela. A função render combina os filtros
-    globais, vindos do Coord, com os filtros locais do próprio módulo. Os pontos são então desenhados
-    no Canvas. O usuário pode aplicar filtros, usar zoom e clicar em pontos. Quando existe uma seleção,
-    o jogo é destacado e seus detalhes aparecem no painel. O Coord permite que mudanças de estado
-    sejam compartilhadas entre as visualizações."
-  </div>
-</section>
-
-<section id="perguntas">
-  <span class="tag">15 — Treino</span>
-  <h2>Perguntas que você deve saber responder</h2>
-
-  <div class="grid">
-    <div class="card">
-      <strong>1. O que cada ponto representa?</strong>
-      <p>Um jogo presente nos dados tratados pelo módulo.</p>
-    </div>
-    <div class="card">
-      <strong>2. O que X representa?</strong>
-      <p>O preço do jogo.</p>
-    </div>
-    <div class="card">
-      <strong>3. O que Y representa?</strong>
-      <p>O tempo médio de jogo convertido de minutos para horas.</p>
-    </div>
-    <div class="card">
-      <strong>4. Por que Canvas?</strong>
-      <p>Para desenhar os pontos sem criar um elemento DOM individual para cada ponto.</p>
-    </div>
-    <div class="card">
-      <strong>5. Por que SVG?</strong>
-      <p>Para os eixos, que são gerenciados facilmente pelo D3.</p>
-    </div>
-    <div class="card">
-      <strong>6. Como funciona o filtro?</strong>
-      <p>Filtros globais e locais precisam ser satisfeitos para o jogo entrar em <code>visiveis</code>.</p>
-    </div>
-    <div class="card">
-      <strong>7. Como o clique encontra o jogo?</strong>
-      <p>Calculando a distância entre o cursor e cada ponto visível.</p>
-    </div>
-    <div class="card">
-      <strong>8. Qual a complexidade?</strong>
-      <p>A busca pelo ponto no clique é O(n) no pior caso.</p>
-    </div>
-    <div class="card">
-      <strong>9. O que é Coord?</strong>
-      <p>É o mecanismo utilizado para compartilhar estado e notificar os módulos inscritos.</p>
-    </div>
-    <div class="card">
-      <strong>10. O que você melhoraria?</strong>
-      <p>Limitar o deslocamento do zoom, considerar datasets maiores e revisar o tratamento de muitos gêneros.</p>
-    </div>
-  </div>
-
-  <div class="warning">
-    <strong>Regra de ouro para a apresentação:</strong><br>
-    Não comece falando do código. Comece explicando o objetivo da visualização.
-    Depois explique os dados. Em seguida explique a interação. Só então entre na implementação.
-  </div>
-</section>
-
 </main>
-
-<footer>
-  Guia de estudo baseado no código fornecido para o módulo VizPrecoTempo.
-</footer>
-
+<footer>Guia de revisão · Estatística e Probabilidade · Layout adaptado para celular</footer>
+<script>
+const checks=[...document.querySelectorAll('.done')];
+const prog=document.getElementById('progress');
+const txt=document.getElementById('progressText');
+function updateProgress(){const n=checks.filter(c=>c.checked).length;prog.value=n;txt.textContent=`${n} de ${checks.length} questões revisadas`;}
+checks.forEach(c=>c.addEventListener('change',updateProgress));
+function resetProgress(){checks.forEach(c=>c.checked=false);updateProgress();}
+updateProgress();
+</script>
 </body>
 </html>
