@@ -1,241 +1,1591 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#172554">
-<title>Prova 4 — Guia de Estudos</title>
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Simulados DMAE Uberlândia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=IBM+Plex+Mono:wght@500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
 <style>
-:root{--navy:#172554;--blue:#2563eb;--sky:#eff6ff;--ink:#172033;--muted:#5b6475;--line:#dbe3ef;--paper:#fff;--green:#166534;--greenbg:#f0fdf4;--orange:#9a3412;--orangebg:#fff7ed}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:#f4f7fb;color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.55}
-header{background:linear-gradient(135deg,#172554,#1d4ed8);color:#fff;padding:28px 18px 24px}
-.wrap{width:min(850px,100%);margin:0 auto}
-.eyebrow{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;opacity:.85;font-weight:700}
-h1{font-size:clamp(1.8rem,6vw,2.5rem);line-height:1.1;margin:8px 0 10px}
-header p{margin:0;color:#e0eaff;max-width:650px}
-.progressbox{margin-top:20px;background:#ffffff20;border:1px solid #ffffff40;border-radius:14px;padding:12px 14px}
-.progressrow{display:flex;justify-content:space-between;gap:12px;font-size:.9rem}
-progress{width:100%;height:9px;margin-top:9px;accent-color:#86efac}
-nav{position:sticky;top:0;z-index:5;background:#fff;border-bottom:1px solid var(--line);padding:10px 12px;overflow-x:auto;white-space:nowrap}
-nav .wrap{display:flex;gap:8px}
-nav a{display:inline-block;text-decoration:none;color:var(--navy);font-weight:700;font-size:.86rem;background:var(--sky);border-radius:999px;padding:8px 12px}
-main{padding:18px 14px 50px}
-.card{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:18px;margin:0 0 16px;box-shadow:0 3px 14px #10204408;scroll-margin-top:76px}
-h2{font-size:1.28rem;line-height:1.25;color:var(--navy);margin:0 0 8px}
-h3{font-size:1.04rem;margin:18px 0 7px;color:#1e3a8a}
-p{margin:8px 0}
-.small{font-size:.9rem;color:var(--muted)}
-.formula{background:#f3f6fc;border-left:4px solid var(--blue);border-radius:8px;padding:12px 13px;margin:10px 0;overflow-wrap:anywhere;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.92rem}
-.answer{background:var(--greenbg);border:1px solid #bbf7d0;border-radius:10px;padding:12px;margin:10px 0}
-.answer strong{color:var(--green)}
-.note{background:var(--orangebg);border:1px solid #fed7aa;border-radius:10px;padding:12px;margin:10px 0}
-table{width:100%;border-collapse:collapse;margin:10px 0;font-size:.9rem}
-th,td{padding:9px 7px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
-th{background:#eff6ff;color:#1e3a8a}
-.tablewrap{overflow-x:auto}
-details{border:1px solid var(--line);border-radius:12px;margin:12px 0;overflow:hidden}
-summary{cursor:pointer;font-weight:750;color:var(--navy);padding:12px 14px;background:#f8faff}
-.detailsbody{padding:12px 14px}
-details[open] summary{border-bottom:1px solid var(--line)}
-button{border:0;border-radius:10px;padding:11px 14px;background:var(--blue);color:#fff;font-size:.95rem;font-weight:700;cursor:pointer}
-.secondary{background:#e8eef9;color:var(--navy)}
-.controls{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
-.bar-chart{height:220px;display:flex;align-items:flex-end;gap:8px;padding:14px 10px 0;border-left:1px solid #94a3b8;border-bottom:1px solid #94a3b8;background:repeating-linear-gradient(to top,transparent 0,transparent 43px,#e5eaf2 44px)}
-.bar{flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;gap:5px}
-.barfill{width:100%;max-width:105px;background:#60a5fa;border:1px solid #2563eb;border-bottom:0;border-radius:7px 7px 0 0}
-.bar label{font-size:.76rem;text-align:center;color:#334155;line-height:1.25;min-height:35px}
-.bar small{font-size:.72rem;color:#1e3a8a;font-weight:700}
-.svg-note{font-size:.83rem;color:var(--muted)}
-.checkrow{display:flex;gap:9px;align-items:flex-start;margin:8px 0}
-.checkrow input{margin-top:5px;transform:scale(1.15)}
-footer{text-align:center;color:var(--muted);padding:12px 20px 35px;font-size:.85rem}
-@media(min-width:700px){main{padding:24px 18px 60px}.card{padding:22px}.bar-chart{height:250px}}
-@media print{nav,.controls,button,.progressbox{display:none}body{background:white}.card{box-shadow:none;break-inside:avoid}details .detailsbody{display:block}details summary{background:white}}
+/* Layout: caderno de prova na esquerda, folha de respostas (gabarito) fixa na direita; no celular a folha abre por baixo. */
+:root {
+  --bg: #F1F2EE;
+  --surface: #FFFFFF;
+  --ink: #11181F;
+  --muted: #566170;
+  --line: #D3D7D0;
+  --bar: #CBCFC8;
+  --accent: #1B3DA6;
+  --accent-ink: #FFFFFF;
+  --accent-soft: #E4E9F8;
+  --ok: #17764B;
+  --ok-soft: #DDF1E6;
+  --bad: #B3261E;
+  --bad-soft: #F8E2E0;
+  --flag: #A85F00;
+  --flag-soft: #FBEBD2;
+  --f-display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --f-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0E1318; --surface: #161D25; --ink: #E7EBEF; --muted: #9BA7B3; --line: #2A343E; --bar: #26303A;
+    --accent: #86A2FF; --accent-ink: #0A1022; --accent-soft: #1C2742;
+    --ok: #52C98F; --ok-soft: #14301F; --bad: #FF8F86; --bad-soft: #3A1C1A;
+    --flag: #F2B04A; --flag-soft: #3A2B10; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0E1318; --surface: #161D25; --ink: #E7EBEF; --muted: #9BA7B3; --line: #2A343E; --bar: #26303A;
+  --accent: #86A2FF; --accent-ink: #0A1022; --accent-soft: #1C2742;
+  --ok: #52C98F; --ok-soft: #14301F; --bad: #FF8F86; --bad-soft: #3A1C1A;
+  --flag: #F2B04A; --flag-soft: #3A2B10; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 17px; line-height: 1.55; }
+button { font: inherit; color: inherit; cursor: pointer; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.wrap { max-width: 1120px; margin-inline: auto; padding-inline: 16px; padding-block: 20px 96px; }
+h1, h2, h3 { font-family: var(--f-display); text-wrap: balance; margin: 0; line-height: 1.15; }
+.mono { font-family: var(--f-mono); font-variant-numeric: tabular-nums; }
+.bar-label { font-family: var(--f-display); font-weight: 700; text-transform: uppercase; letter-spacing: .08em; font-size: 13px; background: var(--bar); padding: 6px 12px; }
+
+/* Home */
+.masthead { display: grid; gap: 10px; padding-block: 12px 22px; border-bottom: 3px solid var(--ink); margin-bottom: 22px; }
+.masthead .org { font-family: var(--f-display); font-weight: 700; font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.masthead h1 { font-size: clamp(30px, 6vw, 52px); font-weight: 800; letter-spacing: -.01em; }
+.masthead p { margin: 0; max-width: 62ch; color: var(--muted); }
+.notice { background: var(--surface); border: 1px solid var(--line); padding: 14px 16px; margin-bottom: 26px; display: grid; gap: 6px; font-size: 15px; }
+.notice b { font-family: var(--f-display); }
+.section-title { font-size: 14px; font-family: var(--f-display); font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin: 6px 0 12px; }
+.provas { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); gap: 14px; margin-bottom: 30px; }
+.caderno { background: var(--surface); border: 1px solid var(--line); border-top: 6px solid var(--ink); padding: 16px; display: grid; gap: 12px; align-content: start; min-width: 0; }
+.caderno .num { font-family: var(--f-display); font-weight: 800; font-size: 40px; line-height: 1; }
+.caderno .head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
+.caderno .origem { font-size: 13px; color: var(--muted); font-family: var(--f-display); font-weight: 500; }
+.comp { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { font-family: var(--f-mono); font-size: 12px; border: 1px solid var(--line); padding: 2px 8px; color: var(--muted); }
+.best { font-size: 14px; color: var(--muted); }
+.btn-row { display: flex; flex-wrap: wrap; gap: 8px; }
+.btn { font-family: var(--f-display); font-weight: 700; font-size: 15px; padding: 10px 16px; border: 2px solid var(--ink); background: transparent; min-height: 44px; }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.btn:hover { background: var(--ink); color: var(--bg); }
+.btn.primary:hover { filter: brightness(1.12); background: var(--accent); color: var(--accent-ink); }
+.btn.small { min-height: 36px; padding: 6px 12px; font-size: 13px; }
+.btn.link { border: 0; text-decoration: underline; padding-inline: 4px; min-height: 36px; font-weight: 500; }
+.btn.link:hover { background: transparent; color: var(--accent); }
+.areas { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 200px), 1fr)); gap: 10px; }
+.areas .btn { text-align: left; display: grid; gap: 2px; font-weight: 700; }
+.areas .btn span { font-family: var(--f-mono); font-weight: 500; font-size: 12px; opacity: .75; }
+
+/* Prova */
+.topbar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: var(--bg); border-bottom: 2px solid var(--ink); padding-block: 10px; margin-bottom: 16px; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; }
+.topbar .title { font-family: var(--f-display); font-weight: 800; font-size: 20px; margin-right: auto; }
+.topbar .sub { font-family: var(--f-display); font-weight: 500; font-size: 13px; color: var(--muted); display: block; letter-spacing: .04em; text-transform: uppercase; }
+.timer { font-family: var(--f-mono); font-weight: 600; font-size: 18px; }
+.quiz { display: grid; grid-template-columns: minmax(0, 1fr); gap: 20px; align-items: start; }
+@media (min-width: 960px) { .quiz { grid-template-columns: minmax(0, 1fr) 300px; } }
+.qcard { background: var(--surface); border: 1px solid var(--line); min-width: 0; }
+.qcard .inner { padding: 18px 18px 20px; display: grid; gap: 16px; }
+.qhead { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.qnum { font-family: var(--f-display); font-weight: 800; font-size: 22px; }
+.flagbtn { margin-left: auto; font-family: var(--f-display); font-weight: 700; font-size: 13px; border: 2px solid var(--line); background: transparent; padding: 6px 12px; min-height: 36px; }
+.flagbtn[aria-pressed="true"] { background: var(--flag-soft); border-color: var(--flag); color: var(--flag); }
+.base { border-left: 4px solid var(--ink); background: var(--bg); padding: 12px 16px; font-size: 16px; }
+.base summary { cursor: pointer; font-family: var(--f-display); font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: .08em; }
+.base .bt { font-family: var(--f-display); font-weight: 700; margin: 8px 0 2px; }
+.base .by { font-size: 13px; color: var(--muted); margin: 0 0 8px; }
+.base p { margin: 0 0 .7em; max-width: 68ch; }
+.base .nota { font-size: 14px; color: var(--muted); }
+.enun { max-width: 70ch; }
+.enun small { color: var(--muted); }
+.fig { background: var(--bg); border: 1px solid var(--line); padding: 10px; display: grid; justify-items: center; overflow-x: auto; }
+.fig svg { max-width: 100%; height: auto; }
+table.tb { border-collapse: collapse; margin: 10px 0; font-family: var(--f-mono); font-variant-numeric: tabular-nums; }
+table.tb td { border: 1px solid var(--ink); padding: 4px 14px; text-align: center; }
+.opts { display: grid; gap: 10px; }
+.opt { display: grid; grid-template-columns: 38px minmax(0, 1fr); gap: 12px; align-items: start; text-align: left; background: var(--surface); border: 2px solid var(--line); padding: 12px 14px; min-height: 52px; }
+.opt:hover:not([disabled]) { border-color: var(--ink); }
+.opt .bub { width: 34px; height: 34px; border-radius: 50%; border: 2px solid var(--ink); display: grid; place-items: center; font-family: var(--f-display); font-weight: 700; font-size: 15px; }
+.opt .otx { padding-top: 4px; overflow-wrap: anywhere; }
+.opt[aria-pressed="true"] { border-color: var(--accent); background: var(--accent-soft); }
+.opt[aria-pressed="true"] .bub { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.opt.ok { border-color: var(--ok); background: var(--ok-soft); }
+.opt.ok .bub { background: var(--ok); border-color: var(--ok); color: var(--bg); }
+.opt.bad { border-color: var(--bad); background: var(--bad-soft); }
+.opt.bad .bub { background: var(--bad); border-color: var(--bad); color: var(--bg); }
+.opt[disabled] { cursor: default; }
+.feedback { border: 2px solid var(--line); padding: 12px 16px; font-size: 16px; display: grid; gap: 6px; }
+.feedback.ok { border-color: var(--ok); background: var(--ok-soft); }
+.feedback.bad { border-color: var(--bad); background: var(--bad-soft); }
+.feedback b { font-family: var(--f-display); }
+.warn { display: inline-block; font-family: var(--f-display); font-weight: 700; font-size: 12px; letter-spacing: .04em; text-transform: uppercase; color: var(--flag); border: 1px solid var(--flag); padding: 1px 8px; }
+.nav { display: flex; gap: 10px; justify-content: space-between; flex-wrap: wrap; }
+
+/* Folha de respostas */
+.sheet { background: var(--surface); border: 1px solid var(--line); border-top: 6px solid var(--ink); padding: 12px 12px 14px; position: sticky; top: calc(88px + env(safe-area-inset-top, 0px)); max-height: calc(100vh - 110px); overflow: auto; min-width: 0; }
+.sheet h2 { font-size: 15px; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+.sheet h2 span { font-family: var(--f-mono); font-size: 12px; color: var(--muted); letter-spacing: 0; text-transform: none; font-weight: 500; }
+.grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3px 14px; }
+.row { display: grid; grid-template-columns: 26px repeat(4, 22px); gap: 4px; align-items: center; padding: 2px 3px; border: 1px solid transparent; }
+.row.cur { border-color: var(--accent); background: var(--accent-soft); }
+.row .rn { font-family: var(--f-mono); font-size: 12px; color: var(--muted); background: transparent; border: 0; padding: 0; text-align: right; position: relative; min-height: 24px; }
+.row.flag .rn::after { content: ""; position: absolute; left: -2px; top: 2px; width: 6px; height: 6px; background: var(--flag); border-radius: 50%; }
+.bb { width: 22px; height: 22px; border-radius: 50%; border: 1.5px solid var(--muted); background: transparent; padding: 0; font-family: var(--f-mono); font-size: 10px; line-height: 1; color: var(--muted); display: grid; place-items: center; }
+.bb:hover { border-color: var(--ink); color: var(--ink); }
+.bb.on { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.bb.ok { background: var(--ok); border-color: var(--ok); color: var(--bg); }
+.bb.bad { background: var(--bad); border-color: var(--bad); color: var(--bg); }
+.bb.gab { border-color: var(--ok); color: var(--ok); }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 12px; color: var(--muted); margin-top: 10px; font-family: var(--f-display); }
+.legend i { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 5px; vertical-align: -1px; }
+.mbar { display: none; }
+@media (max-width: 959px) {
+  .sheet { position: fixed; left: 0; right: 0; bottom: 0; top: auto; z-index: 40; max-height: 72vh; border-inline: 0; transform: translateY(105%); transition: transform .2s ease; padding-bottom: calc(86px + env(safe-area-inset-bottom, 0px)); box-shadow: 0 -8px 30px rgba(0,0,0,.25); }
+  .sheet.open { transform: none; }
+  .mbar { display: flex; position: fixed; left: 0; right: 0; bottom: 0; z-index: 50; background: var(--bg); border-top: 2px solid var(--ink); gap: 8px; padding: 10px 16px calc(10px + env(safe-area-inset-bottom, 0px)); }
+  .mbar .btn { flex: 1; padding-inline: 8px; }
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .desk-nav { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { .sheet { transition: none; } }
+
+/* Resultado */
+.score { display: grid; gap: 14px; background: var(--surface); border: 1px solid var(--line); border-top: 6px solid var(--ink); padding: 18px; margin-bottom: 18px; }
+.score .big { font-family: var(--f-display); font-weight: 800; font-size: clamp(44px, 10vw, 84px); line-height: 1; }
+.score .big small { font-size: .38em; color: var(--muted); font-weight: 600; }
+.areabars { display: grid; gap: 10px; }
+.ab { display: grid; grid-template-columns: minmax(110px, 190px) minmax(0, 1fr) 62px; gap: 10px; align-items: center; font-family: var(--f-display); font-size: 14px; font-weight: 500; }
+.ab .track { height: 12px; background: var(--bar); position: relative; }
+.ab .fill { position: absolute; inset: 0 auto 0 0; background: var(--accent); }
+.ab .v { font-family: var(--f-mono); font-size: 13px; text-align: right; }
+@media (max-width: 520px) { .ab { grid-template-columns: minmax(0, 1fr) 62px; } .ab .track { grid-column: 1 / -1; order: 3; } }
+.filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 12px; }
+.filters .btn[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+.review details { background: var(--surface); border: 1px solid var(--line); margin-bottom: 8px; }
+.review summary { padding: 10px 14px; cursor: pointer; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; font-family: var(--f-display); font-weight: 600; min-height: 44px; }
+.review summary .st { font-family: var(--f-mono); font-weight: 600; font-size: 13px; padding: 1px 8px; border: 1px solid; }
+.st.ok { color: var(--ok); } .st.bad { color: var(--bad); } .st.no { color: var(--muted); }
+.review summary .ar { color: var(--muted); font-weight: 500; font-size: 13px; }
+.review .body { padding: 4px 16px 16px; display: grid; gap: 14px; }
+.empty { padding: 24px; text-align: center; color: var(--muted); border: 1px dashed var(--line); }
+.confirm { background: var(--flag-soft); border: 2px solid var(--flag); padding: 14px 16px; margin-bottom: 16px; display: grid; gap: 10px; font-family: var(--f-display); }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+svg text { font-family: var(--f-display); }
 </style>
-</head>
-<body>
-<header>
- <div class="wrap">
-  <div class="eyebrow">Revisão para a prova</div>
-  <h1>Prova 4 — respostas mastigadinhas</h1>
-  <p>Resolução passo a passo, com fórmulas, substituição dos valores e dicas para lembrar na hora da prova. Feito para estudar pelo celular.</p>
-  <div class="progressbox">
-   <div class="progressrow"><strong>Seu progresso</strong><span id="progressText">0 de 5 questões revisadas</span></div>
-   <progress id="progress" value="0" max="5"></progress>
-  </div>
- </div>
-</header>
-<nav><div class="wrap">
-<a href="#q1">Q1 · Conceitos</a><a href="#q2">Q2 · Estatística</a><a href="#q3">Q3 · Chebyshev</a><a href="#q4">Q4 · Urna</a><a href="#q5">Q5 · Bayes</a><a href="#resumo">Resumo</a>
-</div></nav>
-<main class="wrap">
-<section class="card" id="q1">
- <h2>Questão 1 — Probabilidade condicional e independência</h2>
- <p><strong>Probabilidade condicional</strong> é a chance de A acontecer sabendo que B já aconteceu. A informação de que B ocorreu muda o conjunto que estamos considerando.</p>
- <div class="formula">P(A | B) = P(A ∩ B) / P(B), desde que P(B) &gt; 0</div>
- <p><strong>Exemplo:</strong> em um baralho, sabendo que a carta é uma figura (J, Q ou K), qual a chance de ser rei? Há 4 reis entre 12 figuras.</p>
- <div class="formula">P(Rei | Figura) = 4/12 = 1/3 ≈ 33,3%</div>
- <p><strong>Eventos independentes</strong> são eventos em que saber que um aconteceu não muda a probabilidade do outro.</p>
- <div class="formula">P(A ∩ B) = P(A) × P(B)</div>
- <p><strong>Exemplo:</strong> jogar uma moeda e um dado. A chance de sair cara e o número 6 é:</p>
- <div class="formula">P(cara e 6) = 1/2 × 1/6 = 1/12 ≈ 8,33%</div>
- <div class="note"><strong>Para lembrar:</strong> condicional = “sabendo que”; independentes = um evento não interfere no outro.</div>
- <label class="checkrow"><input type="checkbox" class="done"> Marcar questão 1 como revisada</label>
-</section>
 
-<section class="card" id="q2">
- <h2>Questão 2 — Estatística descritiva</h2>
- <p>São 80 funcionários. As frequências da tabela são <strong>relativas</strong>, então vamos multiplicar cada uma por 80 para obter a quantidade de funcionários.</p>
- <div class="tablewrap"><table><thead><tr><th>Faixa</th><th>Freq. relativa</th><th>Freq. absoluta</th><th>Ponto médio</th></tr></thead><tbody>
- <tr><td>0 a 4</td><td>0,30</td><td>0,30 × 80 = 24</td><td>(0+4)/2 = 2</td></tr>
- <tr><td>4 a 8</td><td>0,35</td><td>0,35 × 80 = 28</td><td>(4+8)/2 = 6</td></tr>
- <tr><td>8 a 12</td><td>0,25</td><td>0,25 × 80 = 20</td><td>(8+12)/2 = 10</td></tr>
- <tr><td>12 a 20</td><td>0,10</td><td>0,10 × 80 = 8</td><td>(12+20)/2 = 16</td></tr>
- <tr><th>Total</th><th>1,00</th><th>80</th><th>—</th></tr>
- </tbody></table></div>
- <h3>(a) Esboço do histograma</h3>
- <p>As classes têm larguras diferentes. Por isso, no histograma correto, a altura é a frequência relativa dividida pela largura da classe; assim, a área de cada barra representa sua frequência relativa.</p>
- <div class="bar-chart" aria-label="Histograma esquemático de densidade relativa">
-  <div class="bar"><small>0,075</small><div class="barfill" style="height:75%"></div><label>0–4</label></div>
-  <div class="bar"><small>0,0875</small><div class="barfill" style="height:87.5%"></div><label>4–8</label></div>
-  <div class="bar"><small>0,0625</small><div class="barfill" style="height:62.5%"></div><label>8–12</label></div>
-  <div class="bar"><small>0,0125</small><div class="barfill" style="height:12.5%"></div><label>12–20</label></div>
- </div>
- <p class="svg-note">Esboço ilustrativo: alturas proporcionais à densidade relativa (0,075; 0,0875; 0,0625; 0,0125). A barra de 12 a 20 é duas vezes mais larga.</p>
- <h3>(b) Média, variância e desvio padrão</h3>
- <p>Multiplique a frequência de cada classe pelo ponto médio.</p>
- <div class="tablewrap"><table><thead><tr><th>PM</th><th>f</th><th>f × PM</th></tr></thead><tbody>
- <tr><td>2</td><td>24</td><td>48</td></tr><tr><td>6</td><td>28</td><td>168</td></tr><tr><td>10</td><td>20</td><td>200</td></tr><tr><td>16</td><td>8</td><td>128</td></tr><tr><th>—</th><th>80</th><th>544</th></tr>
- </tbody></table></div>
- <p><strong>Média:</strong></p><div class="formula">x̄ = Σ(f × PM) / n = 544 / 80 = 6,8 salários mínimos</div>
- <p>Para a variância, calcule a distância de cada ponto médio até 6,8, eleve ao quadrado e multiplique pela frequência.</p>
- <div class="tablewrap"><table><thead><tr><th>PM</th><th>f</th><th>(PM − 6,8)²</th><th>f × (PM − 6,8)²</th></tr></thead><tbody>
- <tr><td>2</td><td>24</td><td>23,04</td><td>552,96</td></tr><tr><td>6</td><td>28</td><td>0,64</td><td>17,92</td></tr><tr><td>10</td><td>20</td><td>10,24</td><td>204,80</td></tr><tr><td>16</td><td>8</td><td>84,64</td><td>677,12</td></tr><tr><th colspan="3">Soma</th><th>1452,80</th></tr>
- </tbody></table></div>
- <div class="formula">Variância populacional: σ² = 1452,8 / 80 = 18,16</div>
- <div class="formula">Desvio padrão: σ = √18,16 ≈ 4,26 salários mínimos</div>
- <div class="note">Aqui usamos a variância <strong>populacional</strong>, dividindo por 80, pois estamos tratando os 80 funcionários como o conjunto analisado. Se a disciplina pedir variância amostral, o divisor seria n−1.</div>
- <h3>(c) Primeiro quartil e mediana</h3>
- <div class="tablewrap"><table><thead><tr><th>Classe</th><th>f</th><th>Acumulada</th></tr></thead><tbody>
- <tr><td>0–4</td><td>24</td><td>24</td></tr><tr><td>4–8</td><td>28</td><td>52</td></tr><tr><td>8–12</td><td>20</td><td>72</td></tr><tr><td>12–20</td><td>8</td><td>80</td></tr>
- </tbody></table></div>
- <p>Fórmula para quartis em dados agrupados:</p><div class="formula">Qₖ = L + [(k·n/4 − F_ant) / f] × h</div>
- <p><strong>Primeiro quartil:</strong> posição n/4 = 80/4 = 20. A posição 20 cai na primeira classe (0–4).</p>
- <div class="formula">Q₁ = 0 + [(20 − 0) / 24] × 4 = 80/24 ≈ 3,33</div>
- <p><strong>Mediana:</strong> posição n/2 = 80/2 = 40. A posição 40 cai na classe 4–8, porque a acumulada passa de 24 para 52.</p>
- <div class="formula">Md = 4 + [(40 − 24) / 28] × 4 = 4 + 64/28 ≈ 6,29</div>
- <p class="small">L = limite inferior; F_ant = acumulada antes da classe; f = frequência da classe; h = largura da classe.</p>
- <h3>(d) Aumento de 50%</h3>
- <p>Aumentar 50% equivale a multiplicar cada salário por 1,5.</p>
- <div class="formula">Média nova = 6,8 × 1,5 = 10,2</div>
- <div class="formula">Variância nova = 18,16 × (1,5)² = 18,16 × 2,25 = 40,86</div>
- <p>Então, <strong>a média aumenta 50%</strong> e a <strong>variância fica 2,25 vezes maior</strong>. O desvio padrão também seria multiplicado por 1,5.</p>
- <h3>(e) Abono de 3 salários mínimos</h3>
- <div class="formula">Média nova = 6,8 + 3 = 9,8</div>
- <div class="formula">Mediana nova ≈ 6,29 + 3 = 9,29</div>
- <div class="formula">Variância nova = 18,16 (não muda)</div>
- <p>Somar o mesmo valor a todos desloca os dados, mas mantém as distâncias entre eles. Por isso média e mediana aumentam 3; variância e desvio padrão não mudam.</p>
- <label class="checkrow"><input type="checkbox" class="done"> Marcar questão 2 como revisada</label>
-</section>
+<div class="wrap" id="app"></div>
 
-<section class="card" id="q3">
- <h2>Questão 3 — Teorema de Chebyshev e transformações</h2>
- <h3>(a) Quantas pessoas esperaram entre 2,2 e 8,2 minutos?</h3>
- <p>Dados: média = 5,2; desvio padrão = 1,5; n = 40. Primeiro veja quantos desvios padrão separam os limites da média:</p>
- <div class="formula">5,2 − 2,2 = 3 e 8,2 − 5,2 = 3</div>
- <p>Como 3 ÷ 1,5 = 2, os limites ficam a <strong>2 desvios padrão da média</strong>, isto é, x̄ ± 2s.</p>
- <p>Teorema de Chebyshev:</p>
- <div class="formula">P(|X − x̄| &lt; k·s) ≥ 1 − 1/k²</div>
- <p>Usamos k = 2:</p>
- <div class="formula">Pelo menos = 1 − 1/2² = 1 − 1/4 = 3/4 = 75%</div>
- <p>Agora calcule 75% de 40:</p>
- <div class="formula">0,75 × 40 = 30 pessoas</div>
- <div class="answer"><strong>Resposta:</strong> pelo menos 30 pessoas, segundo o limite garantido por Chebyshev.</div>
- <h3>(b) O que acontece com média, mediana e desvio padrão?</h3>
- <details open><summary>(i) Multiplicar cada observação por 3</summary><div class="detailsbody">
- <p>Todos os valores triplicam.</p><div class="formula">Média nova = 3x̄</div><div class="formula">Mediana nova = 3Md</div><div class="formula">Desvio padrão novo = 3s</div>
- <p>O desvio padrão também triplica porque as distâncias em relação à média ficam 3 vezes maiores.</p></div></details>
- <details><summary>(ii) Somar 5 a cada observação</summary><div class="detailsbody">
- <div class="formula">Média nova = x̄ + 5</div><div class="formula">Mediana nova = Md + 5</div><div class="formula">Desvio padrão novo = s</div>
- <p>Média e mediana aumentam 5; o desvio padrão não muda porque todos os valores se deslocam igualmente.</p></div></details>
- <details><summary>(iii) Subtrair a média e dividir pelo desvio padrão</summary><div class="detailsbody">
- <p>A transformação é z = (x − x̄)/s. Ela centraliza os dados na média zero e mede cada valor em unidades de desvio padrão.</p>
- <div class="formula">Média transformada = 0</div><div class="formula">Mediana transformada = (Md − x̄) / s</div><div class="formula">Desvio padrão transformado = 1</div>
- <p>Isso vale para s positivo e usando a mesma definição de desvio padrão para padronizar.</p></div></details>
- <label class="checkrow"><input type="checkbox" class="done"> Marcar questão 3 como revisada</label>
-</section>
-
-<section class="card" id="q4">
- <h2>Questão 4 — Probabilidade com 3 bolas simultâneas</h2>
- <p>Urna: 6 brancas, 3 vermelhas e 3 azuis. Total = 12 bolas. Como são retiradas simultaneamente, a ordem não importa; usamos combinações.</p>
- <div class="formula">Total de grupos possíveis = C(12,3) = 12! / (3!·9!) = 220</div>
- <p>Combinação C(n,k) significa escolher k itens entre n sem considerar a ordem.</p>
- <h3>(a) Nenhuma seja vermelha</h3>
- <p>Há 9 bolas que não são vermelhas (6 brancas + 3 azuis). Escolhemos 3 dessas 9.</p>
- <div class="formula">P = C(9,3) / C(12,3) = 84 / 220 = 21/55 ≈ 0,3818</div>
- <div class="answer"><strong>Resposta:</strong> aproximadamente 38,18%.</div>
- <h3>(b) Exatamente uma seja vermelha</h3>
- <p>Escolha 1 das 3 vermelhas e 2 das 9 não vermelhas. Multiplicamos porque as duas escolhas precisam acontecer juntas.</p>
- <div class="formula">P = [C(3,1) × C(9,2)] / C(12,3)</div>
- <div class="formula">P = (3 × 36) / 220 = 108/220 = 27/55 ≈ 0,4909</div>
- <div class="answer"><strong>Resposta:</strong> aproximadamente 49,09%.</div>
- <h3>(c) Todas sejam da mesma cor</h3>
- <p>Há três possibilidades que não se misturam: 3 brancas, 3 vermelhas ou 3 azuis.</p>
- <div class="formula">P = [C(6,3) + C(3,3) + C(3,3)] / C(12,3)</div>
- <div class="formula">P = (20 + 1 + 1) / 220 = 22/220 = 0,10</div>
- <div class="answer"><strong>Resposta:</strong> 10%.</div>
- <div class="note"><strong>Dica:</strong> “simultaneamente” geralmente indica que a ordem não importa. “Exatamente uma vermelha” = escolher uma vermelha E duas não vermelhas.</div>
- <label class="checkrow"><input type="checkbox" class="done"> Marcar questão 4 como revisada</label>
-</section>
-
-<section class="card" id="q5">
- <h2>Questão 5 — Probabilidade condicional (Bayes)</h2>
- <p>Dados:</p>
- <ul><li>6% dos homens vão de bicicleta: P(Bicicleta | Homem) = 0,06</li><li>2% das mulheres vão de bicicleta: P(Bicicleta | Mulher) = 0,02</li><li>65% são mulheres, então 35% são homens.</li></ul>
- <h3>(a) Probabilidade de um estudante qualquer ir de bicicleta</h3>
- <p>Há dois caminhos para ir de bicicleta: ser homem e ir de bicicleta, ou ser mulher e ir de bicicleta. Somamos as probabilidades dos dois caminhos.</p>
- <div class="formula">P(B) = P(B|H)P(H) + P(B|M)P(M)</div>
- <div class="formula">P(B) = (0,06 × 0,35) + (0,02 × 0,65)</div>
- <div class="formula">P(B) = 0,021 + 0,013 = 0,034 = 3,4%</div>
- <div class="answer"><strong>Resposta:</strong> 3,4% dos estudantes vão de bicicleta.</div>
- <h3>(b) Sabendo que vai de bicicleta, qual a probabilidade de ser homem?</h3>
- <p>Agora sabemos que a pessoa vai de bicicleta. Queremos a parcela dos ciclistas que são homens, então usamos probabilidade condicional / Bayes.</p>
- <div class="formula">P(H|B) = P(B|H)P(H) / P(B)</div>
- <div class="formula">P(H|B) = (0,06 × 0,35) / 0,034</div>
- <div class="formula">P(H|B) = 0,021 / 0,034 = 21/34 ≈ 0,6176</div>
- <div class="answer"><strong>Resposta:</strong> aproximadamente 61,76% de chance de ser homem.</div>
- <div class="note"><strong>Erro comum:</strong> não responda apenas 35%. A pergunta já informa que o estudante vai de bicicleta; isso muda o grupo considerado.</div>
- <label class="checkrow"><input type="checkbox" class="done"> Marcar questão 5 como revisada</label>
-</section>
-
-<section class="card" id="resumo">
- <h2>Resumo rápido para memorizar</h2>
- <details open><summary>Fórmulas essenciais</summary><div class="detailsbody">
- <p><strong>Média agrupada:</strong></p><div class="formula">x̄ = Σ(f × ponto médio) / n</div>
- <p><strong>Variância populacional agrupada:</strong></p><div class="formula">σ² = Σ[f × (PM − x̄)²] / n</div>
- <p><strong>Desvio padrão:</strong></p><div class="formula">σ = √variância</div>
- <p><strong>Quartil em dados agrupados:</strong></p><div class="formula">Qₖ = L + [(k·n/4 − F_ant) / f] × h</div>
- <p><strong>Mediana agrupada:</strong></p><div class="formula">Md = L + [(n/2 − F_ant) / f] × h</div>
- <p><strong>Chebyshev:</strong></p><div class="formula">Pelo menos 1 − 1/k² dentro de k desvios padrão da média</div>
- <p><strong>Probabilidade condicional:</strong></p><div class="formula">P(A|B) = P(A ∩ B) / P(B)</div>
- <p><strong>Eventos independentes:</strong></p><div class="formula">P(A ∩ B) = P(A) × P(B)</div>
- <p><strong>Bayes neste exercício:</strong></p><div class="formula">P(H|B) = P(B|H)P(H) / P(B)</div>
- </div></details>
- <div class="controls"><button onclick="window.scrollTo({top:0,behavior:'smooth'})">Voltar ao topo ↑</button><button class="secondary" onclick="window.print()">Imprimir / salvar em PDF</button><button class="secondary" onclick="resetProgress()">Zerar progresso</button></div>
- <p class="small">Dica de estudo: tente explicar cada passo em voz alta antes de abrir os detalhes. Se conseguir explicar de onde veio cada número, você não está só decorando a fórmula.</p>
-</section>
-</main>
-<footer>Guia de revisão · Estatística e Probabilidade · Layout adaptado para celular</footer>
 <script>
-const checks=[...document.querySelectorAll('.done')];
-const prog=document.getElementById('progress');
-const txt=document.getElementById('progressText');
-function updateProgress(){const n=checks.filter(c=>c.checked).length;prog.value=n;txt.textContent=`${n} de ${checks.length} questões revisadas`;}
-checks.forEach(c=>c.addEventListener('change',updateProgress));
-function resetProgress(){checks.forEach(c=>c.checked=false);updateProgress();}
-updateProgress();
+const PROVAS = {};
+// Textos-base compartilhados por grupos de questões.
+const TEXTOS = {
+  onca: {
+    titulo: "A onça doente",
+    autor: "Monteiro Lobato",
+    html: `<p>A onça caiu da árvore e por muitos dias esteve de cama seriamente enferma. E como não pudesse caçar, padecia fome das negras.</p>
+<p>Em tais apuros imaginou um plano.</p>
+<p>— Comadre irara – disse ela – corra o mundo e diga à bicharia que estou à morte e exijo que venham visitar-me.</p>
+<p>A irara partiu, deu o recado e os animais, um a um, principiaram a visitar a onça.</p>
+<p>Vem o veado, vem a capivara, vem a cutia, vem o porco do mato.</p>
+<p>Veio também o jabuti.</p>
+<p>Mas o finório jabuti, antes de penetrar na toca, teve a lembrança de olhar o chão. Viu na poeira só rastos entrantes, não viu nenhum rastro sainte. E desconfiou:</p>
+<p>— Hum!… Parece que nesta casa quem entra não sai. O melhor, em vez de visitar a nossa querida onça doente, é ir rezar por ela…</p>
+<p>E foi o único que se salvou.</p>`
+  },
+  anuncio: {
+    titulo: "Publicidade de cerveja",
+    autor: "BR Brew",
+    html: `<p>Anúncio da cerveja <i>Catharina Sour</i>, da cervejaria BR Brew, com o nome <b>“Amigo da onça”</b>. A imagem, em tons de cinza, mostra uma ave pousada sobre pedras, com duas onças nos cantos ao fundo. Abaixo ficam o nome do produto e a ficha técnica: amargor 2 IBU, cor 39 EBC, temperatura de serviço de 2 a 4 °C e teor alcoólico (ABV) de 3,7%. Na lateral, em letras verticais, lê-se: <b>“Aprecie com moderação”</b>.</p>
+<p class="nota">A imagem da prova original não foi reproduzida aqui; o texto acima descreve seus elementos.</p>`
+  },
+  marta: {
+    titulo: "A fila das oito",
+    autor: "Texto original",
+    html: `<p>Todas as manhãs, Marta chegava à repartição antes das oito. Não era pressa: gostava de ver o saguão ainda vazio, as cadeiras alinhadas, o cheiro de café recém-passado. Aos poucos, os primeiros cidadãos apareciam, trazendo pastas de plástico e dúvidas.</p>
+<p>Marta aprendera que a maior parte da irritação nas filas não vinha da espera, mas da incerteza. Por isso, antes de abrir o atendimento, colava na parede um aviso simples com os documentos necessários e o tempo médio de cada serviço. A reclamação diminuiu, e ninguém precisou de decreto para isso.</p>`
+  },
+  agua: {
+    titulo: "O caminho da água",
+    autor: "Texto original",
+    html: `<p>A água que chega à torneira percorre um caminho que poucos conhecem. Antes de abastecer a cidade, ela é captada em rios ou poços, passa por tanques onde partículas se depositam, recebe produtos que eliminam microrganismos e só então segue por tubulações enterradas.</p>
+<p>Parte desse volume, porém, se perde no trajeto, seja por vazamentos, seja por ligações clandestinas. Reduzir essas perdas é tão importante quanto ampliar a produção, pois cada litro economizado dispensa novas captações e custos adicionais. Por isso, campanhas de consumo consciente e manutenção constante da rede devem andar juntas.</p>`
+  },
+  oficio: {
+    titulo: "O ofício da terça",
+    autor: "Texto original",
+    html: `<p>O ofício chegou na terça e foi parar, como tantos outros, sobre uma pilha. Ninguém o leu com atenção, porque o assunto vinha escondido no quarto parágrafo, depois de duas linhas de cortesias e de um histórico que ninguém pedira.</p>
+<p>Só na sexta, quando o prazo já vencera, alguém percebeu que o documento exigia uma resposta. Desde então, a seção adotou uma regra: o pedido vai logo na primeira frase, e o resto, se houver, vem depois.</p>`
+  },
+  relatorio: {
+    titulo: "Relatório mensal de consumo",
+    autor: "Texto original",
+    html: `<p>Segundo o relatório mensal, o consumo médio de água por domicílio caiu 6% depois da campanha de conscientização. A queda foi mais acentuada nos bairros onde houve visitas de agentes, o que sugere que o contato direto com os moradores teve efeito maior do que os cartazes e os anúncios.</p>
+<p>Os técnicos, no entanto, recomendam cautela: o período coincidiu com chuvas acima da média, fator que também pode ter reduzido o uso de água em jardins e áreas externas.</p>`
+  },
+  reserv: {
+    titulo: "O nível do reservatório",
+    autor: "Texto original",
+    html: `<p>Na última semana de setembro, o nível do reservatório baixou para menos de 40% da capacidade. A companhia de águas divulgou uma nota explicando que não havia risco imediato de desabastecimento, mas pediu que os moradores evitassem lavar calçadas e carros com mangueira.</p>
+<p>Alguns leitores estranharam o pedido: se não havia risco, por que economizar? O diretor técnico respondeu que prevenir custa menos do que remediar. Segundo ele, quem reduz o consumo hoje ajuda o reservatório a atravessar a estiagem sem racionamento, que é a medida mais impopular e mais cara para todos.</p>`
+  },
+  atend: {
+    titulo: "O guichê 3",
+    autor: "Texto original",
+    html: `<p>No guichê 3, o atendimento começa às nove. Antes disso, Rui confere a lista de senhas, separa os formulários e liga o computador. Quando a primeira pessoa chega, ele já sabe quantas estão à frente dela e quanto tempo, em média, cada uma levará.</p>
+<p>Rui acredita que atender bem não é falar bonito, mas resolver. Por isso, quando não encontra a informação, não improvisa uma resposta: anota o caso, avisa o prazo e liga de volta. No fim do dia, o caderno de ligações vazio é a sua melhor avaliação.</p>`
+  },
+  poupa: {
+    titulo: "A torneira que pinga",
+    autor: "Texto original",
+    html: `<p>Uma pequena torneira que pinga parece inofensiva. Ao longo de um mês, porém, ela pode desperdiçar muitos litros de água tratada. A conta chega no fim do mês, mas o prejuízo maior é invisível: a água que se perde não volta ao rio.</p>
+<p>Consertar um vazamento doméstico custa pouco; ignorá-lo custa caro, para a casa e para a cidade.</p>`
+  }
+};
+
+// Prova 1: questões transcritas do caderno FUNDEP / DMAE Uberlândia 2020 (Oficial Administrativo, código 302).
+// Gabarito resolvido por análise; itens marcados com conf:'verificar' devem ser conferidos com o gabarito oficial.
+PROVAS[1] = {
+  id: 1,
+  titulo: "Prova 1",
+  origem: "Prova real FUNDEP / DMAE 2020",
+  q: [
+    // ---------- LÍNGUA PORTUGUESA ----------
+    ["LP", "Esse texto é", ["uma crônica.", "uma lenda.", "um conto.", "uma fábula."], 3,
+      "Os personagens são animais que falam e agem como pessoas, e a história termina com uma lição sobre esperteza. Essas são as marcas da fábula.", { t: "onca" }],
+    ["LP", "De acordo com o texto, assinale a alternativa <b>incorreta</b>.",
+      ["Caso a onça não estivesse enferma, não precisaria articular o plano de chamar os bichos para visitá-la.",
+       "Os animais obedeciam às demandas da onça.",
+       "O jabuti salvou-se por si mesmo.",
+       "O plano da onça não foi bem-sucedido, já que ela não conseguiu cumprir seu objetivo quando o jabuti se mostrou mais esperto."], 3,
+      "O plano funcionou: a onça conseguiu atrair e devorar quase todos os animais. Só o jabuti escapou, e isso não faz o plano fracassar. A alternativa D é a única que contraria o texto.", { t: "onca" }],
+    ["LP", "Considere as afirmativas a seguir.<br>I. A onça caiu da árvore em consequência de ter ficado seriamente enferma.<br>II. A onça não podia caçar, todavia, padecia de fome.<br>III. O jabuti não viu rastro sainte, portanto desconfiou.<br><br>Está(ão) correta(s) a(s) afirmativa(s)",
+      ["I e II, apenas.", "II, apenas.", "I e III, apenas.", "III, apenas."], 3,
+      "I inverte causa e consequência: ela ficou enferma por causa da queda. II usa “todavia” (oposição) onde cabe “portanto” (consequência). Só a III tem a conjunção conclusiva adequada.", { t: "onca" }],
+    ["LP", "Releia o trecho a seguir.<br>“Viu na poeira só rastos entrantes, não viu nenhum rastro sainte.”<br>As palavras <i>entrante</i> e <i>sainte</i> são formadas a partir do processo de",
+      ["aglutinação.", "derivação prefixal.", "derivação sufixal.", "derivação parassintética."], 2,
+      "Entrar + -ante e sair + -inte: o radical recebe apenas sufixo, sem prefixo. É derivação sufixal.", { t: "onca" }],
+    ["LP", "Todas as palavras ou locuções destacadas a seguir se referem a adjetivos, exceto:",
+      ["“A onça caiu da árvore e por muitos dias esteve de cama seriamente <b>enferma</b>.”",
+       "“Em tais <b>apuros</b>, imaginou um plano.”",
+       "“Mas o <b>finório</b> jabuti, antes de penetrar na toca, teve a lembrança de olhar o chão.”",
+       "“Viu na poeira só rastros <b>entrantes</b>, não viu nenhum rastro sainte.”"], 1,
+      "“Apuros” é substantivo (situação difícil). Enferma, finório e entrantes qualificam substantivos, logo são adjetivos.", { t: "onca" }],
+    ["LP", "Releia a sentença.<br>“Mas o finório jabuti, antes de penetrar na toca, teve a lembrança de olhar o chão.”<br>A oração pode ser reescrita da seguinte maneira, sem alteração de seu significado:",
+      ["Mas o néscio jabuti, antes de penetrar na toca, teve a lembrança de olhar o chão.",
+       "Mas o ladino jabuti, antes de penetrar na toca, teve a lembrança de olhar o chão.",
+       "Mas o insigne jabuti, antes de penetrar na toca, teve a lembrança de olhar o chão.",
+       "Mas o ilustre jabuti, antes de penetrar na toca, teve a lembrança de olhar o chão."], 1,
+      "Finório significa astuto, esperto, e ladino tem esse mesmo sentido. Néscio é ignorante; insigne e ilustre significam notável." , { t: "onca" }],
+    ["LP", "O texto se trata de um(a)", ["publicidade.", "charge.", "cartum.", "logotipo."], 0,
+      "É a divulgação de um produto (a cerveja), com nome, características técnicas e a advertência “Aprecie com moderação”: uma publicidade.", { t: "anuncio" }],
+    ["LP", "A expressão “amigo da onça”, utilizada no texto, significa",
+      ["pessoa ladra, gatuno.", "amigo muito querido, grande amigo.", "aquele que é ébrio, beberrão.", "falso amigo, amigo-urso."], 3,
+      "“Amigo da onça” é o falso amigo, aquele que prejudica quando deveria ajudar.", { t: "anuncio" }],
+    ["LP", "Releia este trecho.<br>“Aprecie com moderação”<br>O único verbo encontrado no texto está no modo",
+      ["indicativo.", "imperativo.", "subjuntivo.", "infinitivo."], 1,
+      "“Aprecie” expressa um conselho dirigido ao leitor, o que caracteriza o modo imperativo.", { t: "anuncio" }],
+    ["LP", "Está correto o uso de crase na seguinte alternativa:",
+      ["A nova receita da cervejaria BR BREW foi produzida para celebrar à chegada do verão.",
+       "Com um visual rosa de médio à intenso, a nova bebida reproduz as cores das frutas inseridas na receita.",
+       "Aderir à essa nova receita no portfólio aumenta a abrangência da empresa.",
+       "As seguintes características referem-se à nova cerveja: uma refrescante Catharina Sour com adição de goiaba, cereja e hibisco."], 3,
+      "“Referir-se” pede a preposição a, e “nova cerveja” aceita o artigo a: crase correta. Em A, “celebrar” não pede preposição. Em B, não há crase antes de palavra masculina. Em C, não há crase antes de pronome demonstrativo (essa).", {}],
+    // ---------- RACIOCÍNIO LÓGICO ----------
+    ["RL", "No ano de 1985, o pai de Vítor disse a ele o seguinte: “Se neste ano meu pai estivesse vivo, a idade dele seria a soma da sua idade com o dobro da minha, ou seja, 79 anos”.<br>Anos se passaram até que Vítor resolveu calcular qual era a idade de seu pai quando, em 1985, ele havia lhe dito isso. Foi então que Vítor, no ano de 2019, já com 41 anos completos, descobriu, corretamente, que a idade de seu pai no ano de 1985 era",
+      ["29 anos.", "34 anos.", "36 anos.", "41 anos."], 2,
+      "Em 1985, Vítor tinha 41 − 34 = 7 anos. Então 7 + 2P = 79, o que dá P = 36 anos.", {}],
+    ["RL", "Na figura a seguir, o cubo maior é constituído por 64 cubinhos idênticos. O cubo maior terá todas as suas faces totalmente pintadas com tinta de mesma cor. Após as faces do cubo serem pintadas, a razão entre o número de cubinhos que não terão nenhuma das suas faces pintadas e o número dos que terão pelo menos uma de suas faces pintadas é igual a",
+      ["1/7", "1/8", "1/16", "1/14"], 0,
+      "O cubo é 4×4×4. Sem tinta fica só o miolo 2×2×2 = 8 cubinhos. Com tinta ficam 64 − 8 = 56. A razão é 8/56 = 1/7.", { fig: ["cube", 4] }],
+    ["RL", "Após assaltarem um posto de gasolina, os ladrões saíram em um carro com velocidade constante igual a 100 km/h. Após exatos 30 minutos que os ladrões saíram em fuga, a polícia começou a perseguição a eles em uma viatura com velocidade constante de 120 km/h.<br>Se o carro dos ladrões e a viatura policial mantiveram suas velocidades constantes, quanto tempo após começarem a perseguição, a viatura policial alcançará o carro dos ladrões?",
+      ["2 horas e 20 minutos.", "2 horas e 30 minutos.", "2 horas e 40 minutos.", "2 horas e 50 minutos."], 1,
+      "Vantagem inicial: 100 × 0,5 = 50 km. A viatura recupera 120 − 100 = 20 km por hora, então leva 50 / 20 = 2,5 h = 2 h 30 min.", {}],
+    ["RL", "A primeira fase, correspondente à prova escrita de um concurso para provimento de cargo público, será realizada em um sábado. Já a segunda fase desse concurso ocorrerá 57 dias após a primeira.<br>Logo, o dia da semana em que ocorrerá a segunda fase desse concurso é um(a)",
+      ["sábado.", "domingo.", "segunda-feira.", "terça-feira."], 1,
+      "57 = 8 × 7 + 1. Sobra 1 dia, e o dia seguinte ao sábado é domingo.", {}],
+    ["RL", "O diretor do museu do futebol de uma capital brasileira resolveu organizar o número de visitantes que passavam por lá em cada um dos cinco dias de visitação da semana. Os resultados foram contabilizados em uma tabela. As quatro entradas diárias ficam nas colunas, da esquerda para a direita, e os cinco dias da semana ficam nas linhas, de cima para baixo.<br><table class='tb'><tr><td>20</td><td>25</td><td>15</td><td>22</td></tr><tr><td>24</td><td>22</td><td>19</td><td>26</td></tr><tr><td>12</td><td>30</td><td>33</td><td>28</td></tr><tr><td>18</td><td>32</td><td>25</td><td>25</td></tr><tr><td>26</td><td>28</td><td>12</td><td>18</td></tr></table>O elemento da quarta linha e terceira coluna, 25, corresponde ao número de pessoas que visitaram o museu no 4º dia da semana e no 3º horário de visitação do dia.<br>O número total de visitações ao museu que aconteceram ao longo dos cinco dias da semana, no segundo horário de visitação, é igual a",
+      ["84.", "91.", "119.", "137."], 3,
+      "O segundo horário corresponde à segunda coluna: 25 + 22 + 30 + 32 + 28 = 137.", {}],
+    ["RL", "Mário gasta, exatamente, 20% do seu salário mensal com o aluguel de sua casa.<br>Se, em um determinado mês, o salário de Mário tiver um reajuste (aumento) correspondente a 50% e, nesse mesmo mês, o valor do aluguel de sua casa tiver um aumento de 20%, o percentual de seu salário que ele gastará com o aluguel será igual a",
+      ["15%.", "16%.", "22%.", "24%."], 1,
+      "Com salário S, o aluguel passa de 0,20S para 0,24S e o salário passa a 1,5S. A fração é 0,24 / 1,5 = 0,16, ou seja, 16%.", {}],
+    ["RL", "Cada 20 gotas de um medicamento correspondem ao equivalente de 1 mL. No rótulo desse medicamento, há a indicação de que o princípio ativo tem uma concentração de 2,5 mg/mL, ou seja, cada 1 mL do medicamento contém 2,5 mg de princípio ativo. Um médico prescreveu a seu paciente a ingestão de, exatamente, 6,0 mg do princípio ativo desse remédio todos os dias pela manhã.<br>Para que esse paciente siga, rigorosamente, a prescrição do médico, ele deve ingerir pela manhã uma quantidade, em gotas, do medicamento igual a",
+      ["40.", "44.", "48.", "52."], 2,
+      "6,0 mg ÷ 2,5 mg/mL = 2,4 mL. Como 1 mL = 20 gotas, são 2,4 × 20 = 48 gotas.", {}],
+    ["RL", "Uma empresa decidiu criar um sistema de pontuação que era proporcional à produtividade de seus funcionários. Ou seja, se um funcionário, de acordo com os parâmetros da empresa, de um mês para outro dobrasse sua produção, dentro das mesmas condições de trabalho, a sua pontuação também seria dobrada.<br>Maria e Rute são duas funcionárias dessa empresa. Elas trabalham na mesma função, cumprindo a mesma jornada de trabalho, no entanto, a pontuação de Rute, em todos os meses, é 25% maior que a pontuação de Maria.<br>Mantendo cada uma a mesma produtividade, se em um dia de trabalho, Maria executa um serviço em 12 horas, Rute cumpre esse mesmo serviço num tempo igual a",
+      ["9 horas e 25 minutos.", "9 horas e 36 minutos.", "10 horas.", "10 horas e 24 minutos."], 1,
+      "Rute é 25% mais produtiva, então seu tempo é 12 / 1,25 = 9,6 h = 9 h 36 min.", {}],
+    ["RL", "Em um lava-jato, Romário lava dez carros no tempo de 4 horas. Já Bebeto, menos experiente que Romário, lava os mesmos dez carros nas mesmas condições, em um tempo de 6 horas.<br>Se Romário e Bebeto trabalharem juntos, eles lavarão esses dez carros em um tempo igual a",
+      ["2 horas e 40 minutos.", "2 horas e 24 minutos.", "5 horas.", "5 horas e 30 minutos."], 1,
+      "Juntos, em 1 hora fazem 1/4 + 1/6 = 5/12 do trabalho. O tempo total é 12/5 h = 2,4 h = 2 h 24 min.", {}],
+    ["RL", "Em uma escola de educação infantil, no espaço destinado para jogos e brincadeiras, foi desenhado no chão a forma geométrica de um hexágono regular como o da figura a seguir.<br>O desenho do hexágono é fixo no chão, no entanto, seus lados são cobertos por peças coloridas, cada lado uma peça, de tal forma que as cores dos lados podem variar de acordo com a disposição das peças.<br>Se existem sete peças de cores distintas para serem colocadas sobre cada lado do hexágono, qual o número total de formas diferentes que se pode colocar essas peças sobre esses lados?",
+      ["120.", "720.", "2520.", "5040."], 3,
+      "Como o desenho é fixo, os 6 lados são distinguíveis. Escolhem-se 6 peças das 7 em ordem: 7 × 6 × 5 × 4 × 3 × 2 = 5040.", { fig: ["hex"] }],
+    // ---------- ATUALIDADES ----------
+    ["AT", "Os especialistas explicam que a expansão das principais facções criminosas do país, o Primeiro Comando da Capital (PCC) e o Comando Vermelho (CV), rumo ao Norte e Nordeste, resultou em uma guerra entre elas dentro dos presídios. “O ano de 2017 começou com matanças nos presídios no Amazonas, Rio Grande do Norte e Roraima. O sistema ficou muito conflagrado, porque se imaginava depois dessas três ondas um efeito dominó”, explica Paes Manso, coautor do livro <i>A guerra: a ascensão do PCC e o mundo do crime no Brasil</i>. A guerra nos presídios teve reflexos nas ruas, acirrando os conflitos e elevando os índices de criminalidade daquele ano. Mas, com o tempo, a tensão entre os grupos rivais começou a diminuir a partir de armistícios e pactos de não agressão.<br><small>Disponível em: brasil.elpais.com, 20 jul. 2019.</small><br><br>De acordo com o texto, a tendência de queda da violência no Brasil, que começou no início de 2018, pode ser explicada",
+      ["pela própria dinâmica do mercado do crime.", "pelas ações oficiais tomadas pelo Governo Federal.", "pela extinção das principais facções criminosas do país.", "pelo aumento da tensão entre os grupos criminosos rivais."], 0,
+      "O texto atribui a queda aos armistícios e pactos de não agressão entre as facções, ou seja, a um movimento do próprio mercado do crime.", {}],
+    ["AT", "Analise a afirmativa a seguir.<br>“Para você ter queimada natural, você precisa da existência de raios.” (Alberto Setzer, pesquisador do Programa Queimadas do Inpe, g1, 19 ago. 2019)<br>A declaração do pesquisador corrobora com a tese de que parte das queimadas que atingiram o Brasil em meados de 2019",
+      ["tiveram início na fronteira do estado do Amazonas com a Venezuela, resultado das ações criminosas de pessoas ligadas ao presidente Nicolás Maduro.",
+       "são fenômenos naturais que acontecem especialmente na região Norte do Brasil, que anualmente apresenta os menores índices pluviométricos do país.",
+       "foram provocadas por ações humanas, já que, nesse período, as regiões mais afetadas por essas queimadas encontravam-se em um prolongado período de seca.",
+       "ocorreram devido à cultura dos povos indígenas da Amazônia de queimar áreas para “limpar” o terreno para o cultivo, prática que se configura criminosa, segundo a lei de Crimes Ambientais."], 2,
+      "Sem raios, a queimada não é natural. Como a época era de seca prolongada e não de tempestades, o fogo teve origem em ações humanas.", {}],
+    ["AT", "O MPF (Ministério Público Federal) entrou com uma ação contra a União por omissão no desastre das manchas de óleo no Nordeste. A Procuradoria pede que, em 24 horas, seja colocado em ação o Plano Nacional de Contingência para Incidentes de Poluição por Óleo em Água. Segundo o MPF, trata-se do maior desastre ambiental da história no litoral brasileiro em termos de extensão. Para a Procuradoria, a União está sendo omissa por protelar medidas protetivas e não atuar de forma articulada na região atingida pelos vazamentos.<br><small>Folha de S.Paulo, out. 2019 (adaptação).</small><br><br>A situação descrita na notícia tem provocado muito debate acerca das responsabilidades no processo de preservação ambiental. Nesse contexto, são ações que, obrigatórias ou não, colaboram com a proteção dos ecossistemas, exceto:",
+      ["Corte de investimentos públicos em iniciativas comprometidas com a conscientização ambiental.",
+       "Limpeza manual das praias, efetuada por turistas, habitantes e trabalhadores das áreas afetadas.",
+       "Fortalecimento da legislação ambiental, visando à responsabilização efetiva de agentes degradantes.",
+       "Aumento da fiscalização dos órgãos responsáveis, a fim de apurar falhas administrativas."], 0,
+      "Cortar investimentos em conscientização ambiental enfraquece a proteção dos ecossistemas. As demais ações a favorecem.", {}],
+    ["AT", "O Papa Francisco fez, na manhã do dia 13 de outubro de 2019, a canonização de Irmã Dulce, a Santa Dulce dos Pobres. 50 mil pessoas acompanharam a cerimônia na Praça São Pedro, no Vaticano. A presença de brasileiros foi bastante visível, com bandeiras do país e pessoas com roupas das cores verde e amarela.<br><small>Gazeta do Povo, 14 out. 2019 (adaptação).</small><br><br>A canonização de Irmã Dulce foi vista pelos membros da igreja católica do Brasil como um marco na história do cristianismo no país, uma vez que",
+      ["garante a candidatura de um brasileiro nas próximas eleições papais.", "assegura um prêmio em dinheiro aos cofres da igreja católica no Brasil.", "faz da religiosa baiana a primeira mulher nascida no Brasil a se tornar santa.", "eleva o Brasil à categoria de membro permanente na cúpula da igreja em Roma."], 2,
+      "Irmã Dulce, nascida em Salvador, tornou-se a primeira santa nascida no Brasil.", {}],
+    ["AT", "“O Ministério Público Federal (MPF) e a mineradora Vale fecharam um Termo de Ajuste Preliminar Extrajudicial (TAP-E) que assegura direitos a indígenas atingidos na tragédia de Brumadinho (MG). O TAP-E Pataxó, como foi apelidado o acordo, estabelece que os indígenas das etnias Pataxó e Pataxó Hã Hã Hãe deverão receber um pagamento mensal emergencial em moldes similares ao compromisso assumido pela Vale com moradores de Córrego do Feijão e do Parque da Cachoeira, comunidades que foram afetadas pelo rompimento da barragem I da Mina Feijão, em Brumadinho.” (Hoje em Dia, 2 nov. 2019)<br><br>O TAP-E Pataxó reconhece os indígenas das etnias Pataxó e Pataxó Hã Hã Hãe como vítimas indiretas do rompimento da barragem I da Mina Feijão, em Brumadinho, uma vez que eles",
+      ["tiveram suas aldeias e roças destruídas pela lama, que também intoxicou dezenas de animais e crianças.", "dependiam do Rio Paraopeba, que foi atingido pelos rejeitos oriundos do rompimento da barragem da Vale.", "trabalhavam com mineração de ouro nas terras onde se localizava a barragem I da Mina Feijão, em Brumadinho.", "viviam na periferia de Brumadinho, cidade que foi devastada pela onda de rejeitos causada pelo rompimento."], 1,
+      "São vítimas indiretas porque dependiam do Rio Paraopeba, atingido pelos rejeitos. Quem teve casas ou roças destruídas pela lama foi vítima direta.", {}],
+    // ---------- LEGISLAÇÃO ----------
+    ["LG", "Sobre os objetivos prioritários do município de Uberlândia previstos na Lei Orgânica, assinale com V as afirmativas verdadeiras e com F as falsas.<br>( ) É objetivo prioritário do município promover adequado ordenamento territorial, de modo a assegurar a qualidade de vida de sua população, incentivando-se o êxodo rural e a integração urbana.<br>( ) É objetivo prioritário do município promover planos, programas e projetos de interesse dos segmentos mais carentes da sociedade, realizando a desapropriação de área rural para fins de reforma agrária.<br>( ) É objetivo prioritário do município promover o desenvolvimento econômico com justa distribuição de renda entre todos os segmentos da população.<br>( ) É objetivo prioritário do município garantir a participação popular nas ações de governo.<br><br>Assinale a sequência correta.",
+      ["F F V V", "F V F V", "V F F F", "V V V F"], 0,
+      "Nenhum ordenamento territorial incentiva o êxodo rural (a Lei Orgânica fala em evitá-lo), e a desapropriação para reforma agrária é competência da União. Os dois últimos objetivos são verdadeiros. Gabarito deduzido, conferir com o texto da Lei Orgânica.", { conf: "verificar" }],
+    ["LG", "Segundo o Art. 76 da Lei Orgânica do Município de Uberlândia, os Poderes Legislativo e Executivo são obrigados a fornecer, a qualquer interessado, no prazo máximo de _________, certidões de atos, contratos e decisões, sob pena de responsabilidade da autoridade ou servidor público municipal que negar ou retardar sua expedição, assim como atender às requisições judiciais em igual prazo, se outro não for fixado pelo requisitante.<br>Assinale a alternativa que completa corretamente a lacuna anterior.",
+      ["dez dias.", "15 dias.", "30 dias.", "90 dias."], 1,
+      "Marcada como 15 dias por ser o prazo usual das leis orgânicas municipais para certidões. Não consegui localizar o texto do Art. 76 para confirmar, então confira com o gabarito oficial.", { conf: "verificar" }],
+    ["LG", "Considere que uma pessoa tomou posse como servidor público do município de Uberlândia.<br>Nos termos do Art. 61 da Lei Orgânica do Município de Uberlândia, são direitos assegurados a essa pessoa, exceto:",
+      ["Décimo-terceiro salário, com base na remuneração integral ou no valor da aposentadoria.", "Proibição de diferença de salários, de exercícios de função e de critério de admissão, salvo se por motivo de sexo, idade, cor ou estado civil.", "Remuneração do trabalho noturno superior ao do diurno.", "Salário-família para os seus dependentes."], 1,
+      "A Constituição proíbe diferença de salários e de critérios de admissão por motivo de sexo, idade, cor ou estado civil, sem exceção. A cláusula “salvo se por motivo de” inverte a regra.", {}],
+    ["LG", "De acordo com o Art. 26 da Lei Complementar municipal nº 40/1992, que dispõe sobre o estatuto dos servidores públicos do município de Uberlândia, suas autarquias, fundações públicas e câmara municipal, o servidor habilitado em concurso público e empossado em cargo de provimento efetivo adquirirá estabilidade no serviço público ao completar quantos anos de efetivo exercício?",
+      ["Dois.", "Três.", "Quatro.", "Cinco."], 1,
+      "A Constituição Federal (art. 41, após a EC 19/1998) fixa três anos de efetivo exercício. Não encontrei o texto atualizado do art. 26 da LC 40/1992, então confira com o gabarito oficial.", { conf: "verificar" }],
+    ["LG", "São tipos de penalidades disciplinares previstas no Estatuto dos Servidores do município de Uberlândia, exceto:",
+      ["Advertência.", "Suspensão.", "Admoestação.", "Cassação de aposentadoria."], 2,
+      "Os estatutos de servidores preveem advertência, suspensão, demissão e cassação de aposentadoria ou disponibilidade. “Admoestação” não é penalidade formal.", { conf: "verificar" }],
+    // ---------- CONHECIMENTOS ESPECÍFICOS ----------
+    ["CE", "Nos contextos das iniciativas pública e privada e suas características, tem-se o que é chamado linha de convergência.<br>Nesse sentido, considere as afirmativas a seguir.<br>I. Ambas devem utilizar técnicas administrativas como planejamento, direção, controle, motivação de pessoal e avaliação de resultados.<br>II. Sofrem influência do ambiente no qual atuam referentes a fatores econômicos, sociais, políticos, ambientais e tecnológicos.<br>III. A orientação principal sempre é voltada para o bem-estar da sociedade / cliente.<br><br>Estão corretas as afirmativas",
+      ["I e II, apenas.", "II e III, apenas.", "I e III, apenas.", "I, II e III."], 0,
+      "I e II descrevem o que há de comum entre as duas gestões. A III generaliza demais: a orientação do setor privado é o lucro, e o bem-estar do cliente é meio para isso.", {}],
+    ["CE", "“[...] Esses traços ou atributos favorecem a ligação e harmonia entre os elementos de um texto. Isso é percebido quando se lê um texto e se verifica que as palavras, as frases e os parágrafos estão entrelaçados, dando continuidade uns aos outros. O uso de conjunção, elipse, referência e substituição são meios que proporcionam ou estabelecem esses atributos em um texto.” (Manual de Redação da Presidência da República, 2002)<br>Essas características se referem a",
+      ["coesão e coerência.", "clareza e objetividade.", "compreensibilidade e lógica.", "racionalidade e concordância."], 0,
+      "Conjunção, elipse, referência e substituição são mecanismos de coesão, que conectam as partes do texto. Somados à coerência, dão unidade ao conjunto. Gabarito deduzido.", { conf: "verificar" }],
+    ["CE", "No que se refere ao processo de planejar e às suas três etapas principais, é possível classificar como dados de entrada:",
+      ["Análise e interpretação de alternativas.", "Objetivos, recursos e meios de controle.", "Resposta aos eventos e divisão de tarefas.", "Informações, projeções e decisões que afetam o futuro."], 3,
+      "Entrada reúne o que alimenta o planejamento: informações, projeções e decisões com efeito futuro. Análise é processamento, e as demais opções tratam de execução e controle. Gabarito deduzido.", { conf: "verificar" }],
+    ["CE", "São diversos os documentos usados para comunicação entre as instituições do nosso país. Considerando os documentos comerciais e oficiais, relacione a COLUNA II de acordo com a COLUNA I, associando os documentos às respectivas descrições.<br><b>COLUNA I</b><br>1. Relatório administrativo<br>2. Circular<br>3. Edital<br><b>COLUNA II</b><br>( ) É um traslado, uma transcrição autêntica de leis, decretos ou posturas. Pode ser uma ordem oficial, aviso, citação etc., que se prende em local próprio e visível ao público para conhecimento geral.<br>( ) É uma comunicação que, reproduzida em muitos exemplares, é dirigida a muitas pessoas ou a um órgão. Serve para transmitir avisos, ordens ou instruções. Geralmente contém assunto de caráter ou interesse geral.<br>( ) É uma comunicação produzida por colaboradores de uma organização, desde que requeridas ou utilizadas pelos solicitantes. Pode ser uma simples carta, uma conferência, um quadro, um gráfico, uma tabela etc. Pode ser realizado por texto ou oralmente.<br><br>Assinale a sequência correta.",
+      ["1 2 3", "2 1 3", "3 2 1", "2 3 1"], 2,
+      "A primeira descrição é a do edital (3), afixado em local visível. A segunda é a da circular (2), reproduzida em muitos exemplares. A terceira é a do relatório (1).", {}],
+    ["CE", "Analise o trecho a seguir.<br>Neste tipo de orçamento, o aspecto econômico é secundário e as finanças públicas refletem uma “neutralidade”: nesse contexto, o equilíbrio financeiro ocorre naturalmente e o volume do gasto público não chega a pesar significativamente em termos econômicos, sendo uma forma eficaz de controle, colocando frente a frente, despesas e receitas. A análise mais relevante aponta questões ligadas à tributação e seus efeitos, considerando a despesa pública como um mal necessário. O aspecto jurídico do orçamento tem maior relevo.<br><br>Esse trecho apresenta qual tipo de orçamento?",
+      ["Flexível.", "Programa.", "Tradicional.", "Jurisdicional."], 2,
+      "Ênfase no aspecto jurídico, na neutralidade das finanças e no controle de despesas e receitas é a descrição clássica do orçamento tradicional.", {}],
+    ["CE", "Analise as afirmativas seguintes referentes a conceitos centrais da administração moderna, e assinale com V as verdadeiras e com F as falsas.<br>( ) Indicadores servem para fundamentar a análise dos resultados obtidos e do próprio processo de tomada de decisão.<br>( ) Eficácia é a relação entre produtos ou serviços gerados com os recursos consumidos, geralmente sob a forma de custos ou produtividade. Por exemplo, o número de domicílios visitados por agente público por período de tempo, para uma determinada campanha.<br>( ) Cronograma é uma técnica de representação gráfica que busca descrever um processo em todas as suas etapas e os passos para a conclusão de cada etapa.<br>( ) A amplitude de controle implica no número de funcionários que um gerente lidera ou comanda. Normalmente a amplitude de controle não é padronizada.<br><br>Assinale a sequência correta.",
+      ["V F V F", "F V F V", "V F F V", "F V V F"], 2,
+      "A segunda descreve eficiência (recursos x resultados), não eficácia. A terceira descreve o fluxograma, e o cronograma organiza atividades no tempo. A primeira e a quarta estão corretas.", {}],
+    ["CE", "Com relação ao tema orçamento público, analise as afirmativas a seguir.<br>I. O orçamento público é caracterizado por conter uma multiplicidade de aspectos, por exemplo, político, jurídico, contábil, econômico, financeiro e administrativo.<br>II. O orçamento é um plano, e este expressa, em termos de dinheiro, para um período de tempo definido, o programa de operações do governo e os meios de financiamento desse programa.<br>III. Pode-se afirmar que um orçamento que demonstra os propósitos e objetivos para os quais os créditos se fazem necessários, os custos dos programas propostos para atingir os objetivos e os dados quantitativos que mensurem as realizações e o trabalho levado a efeito em cada programa é chamado de orçamento de desempenho.<br><br>Está(ão) correta(s) a(s) afirmativa(s)",
+      ["I, apenas.", "II e III, apenas.", "I e III, apenas.", "I, II e III."], 3,
+      "As três seguem as definições clássicas. A III reproduz a definição de orçamento de desempenho: objetivos, custos dos programas e medidas de realização.", { conf: "verificar" }],
+    ["CE", "Com o capital representado por C, os juros totais representados por J, a taxa de juros por período representada por i e considerando n períodos, têm-se:<br><b>Jn = n(Ci)</b><br><b>J3 = Ci + Ci + Ci = 3(Ci)</b><br>As fórmulas destacadas no enunciado são fórmulas de",
+      ["juros simples.", "amortização de capital.", "capitalização de juros compostos.", "montante a investimento por período."], 0,
+      "Nos juros simples, a taxa incide sempre sobre o capital inicial, então os juros crescem linearmente: J = C·i·n.", {}],
+    ["CE", "Em conformidade com a Lei nº 8.666 de 1993, são licitações em que poderá ser estabelecida margem de preferência, exceto:",
+      ["Bens ou produtos manufaturados de países do Mercosul que atendam a normas técnicas brasileiras.", "Produtos, serviços ou lotes de produtos, definidos pelo licitante municipal, estadual, autarquia ou licitante federal, limitada a até 15% acima do preço dos produtos manufaturados e serviços estrangeiros.", "Bens e serviços produzidos ou prestados por empresas que comprovem cumprimento de reserva de cargos prevista em lei para pessoa com deficiência ou para reabilitado da Previdência Social e que atendam às regras de acessibilidade previstas na legislação.", "Bens e serviços prestados ou produzidos por empresas que comprovem o quadro mínimo de técnicos ou profissionais certificados dentro das exigências do Instituto Nacional de Metrologia, Qualidade e Tecnologia (INMETRO), da Agência Nacional de Vigilância Sanitária (ANVISA) ou do Ministério da Saúde (MS)."], 3,
+      "O art. 3º da Lei 8.666/93 prevê margem de preferência para produtos nacionais, para o Mercosul e para empresas que cumprem a reserva de cargos de pessoas com deficiência. A exigência de quadro de técnicos certificados por INMETRO, ANVISA ou MS não consta dessa lista. Conferir com o gabarito oficial.", { conf: "verificar" }],
+    ["CE", "Com relação às premissas e conceitos referentes à Lei de Licitações nº 8.666 de 1993 da Administração Pública, analise as afirmativas a seguir.<br>I. Alienação refere-se a toda transferência de domínio de bens a terceiros.<br>II. Projeto executivo é o conjunto dos elementos necessários e suficientes à execução completa de obra, de acordo com as normas pertinentes da Associação Brasileira de Normas Técnicas (ABNT).<br>III. As comissões criadas pela administração com a função de receber, examinar e julgar todos os documentos e procedimentos relativos às licitações e ao cadastramento de licitantes são denominadas oficiais, especialistas ou dedicadas.<br><br>Estão corretas as afirmativas",
+      ["I e II, apenas.", "II e III, apenas.", "I e III, apenas.", "I, II e III."], 0,
+      "I e II reproduzem as definições do art. 6º. Na III, a lei fala em comissão de licitação, permanente ou especial, e não em oficiais, especialistas ou dedicadas.", {}]
+  ]
+};
+
+// Prova 2: questões originais, no estilo FUNDEP (10 LP, 10 RL, 5 AT, 5 LG, 10 CE).
+PROVAS[2] = {
+  id: 2,
+  titulo: "Prova 2",
+  origem: "Questões originais no estilo da banca",
+  q: [
+    // ---------- LÍNGUA PORTUGUESA ----------
+    ["LP", "Segundo o texto, a irritação nas filas decorria principalmente",
+      ["da lentidão dos atendentes.", "do cheiro de café no saguão.", "da falta de cadeiras para esperar.", "da incerteza dos cidadãos sobre o que fazer."], 3,
+      "A narradora afirma que a maior parte da irritação vinha da incerteza, e não da espera.", { t: "marta" }],
+    ["LP", "No trecho “a maior parte da irritação nas filas não vinha da espera, mas da incerteza”, a conjunção <i>mas</i> estabelece relação de",
+      ["adição.", "explicação.", "oposição.", "conclusão."], 2,
+      "“Mas” liga duas ideias que se contrapõem: não era a espera, era a incerteza.", { t: "marta" }],
+    ["LP", "No trecho “colava na parede um aviso simples”, o termo <i>um aviso simples</i> exerce a função sintática de",
+      ["objeto direto.", "sujeito.", "objeto indireto.", "predicativo do sujeito."], 0,
+      "“Colava” é verbo transitivo direto: quem cola, cola algo. O complemento vem sem preposição, então é objeto direto.", { t: "marta" }],
+    ["LP", "A frase final do texto, “ninguém precisou de decreto para isso”, sugere que",
+      ["a medida só foi possível depois de uma norma oficial.", "uma solução simples resolveu o problema sem exigir formalidade legal.", "o decreto existente foi revogado pela chefia.", "os cidadãos ignoraram o aviso colado na parede."], 1,
+      "A narradora reforça que um aviso comum bastou, sem necessidade de ato normativo.", { t: "marta" }],
+    ["LP", "No texto, a palavra <i>repartição</i> tem o sentido de",
+      ["divisão de bens entre herdeiros.", "ato de repartir alimentos.", "órgão ou setor da administração pública.", "sala de reuniões particular."], 2,
+      "No contexto, com fila, atendimento e documentos, “repartição” é o órgão público onde o serviço é prestado.", { t: "marta" }],
+    ["LP", "Assinale a frase em que a concordância verbal está de acordo com a norma-padrão.",
+      ["Houveram muitos problemas na fila.", "Faz dois anos que ela trabalha aqui.", "Haviam candidatos na sala.", "Fazem anos que não chove aqui."], 1,
+      "Haver (no sentido de existir) e fazer (indicando tempo) são impessoais e ficam na 3ª pessoa do singular: “Houve”, “Havia”, “Faz”.", {}],
+    ["LP", "Assinale a alternativa que está de acordo com a regência verbal da norma-padrão.",
+      ["Prefiro mais café do que chá.", "Prefiro café do que chá.", "Prefiro café a chá.", "Prefiro mais café que chá."], 2,
+      "O verbo preferir pede a preposição a: “prefiro uma coisa a outra”. Não se usa “mais” nem “do que” com ele.", {}],
+    ["LP", "Está correto o uso do sinal indicativo de crase em",
+      ["Entregou o relatório à chefe do setor.", "Dirigiu-se à ele com educação.", "Fez a prova à lápis.", "Começou a trabalhar à partir de segunda."], 0,
+      "Entregar a alguém (preposição a) + a chefe (artigo a) = à chefe. Não há crase antes de pronome pessoal (ele), de palavra masculina (lápis) ou em “a partir de”.", {}],
+    ["LP", "A vírgula está empregada corretamente em",
+      ["O servidor, trabalha na sala ao lado.", "Maria, foi ao banco, e voltou logo.", "Os alunos, e os professores saíram.", "Em dezembro, os servidores receberão o décimo terceiro."], 3,
+      "A vírgula separa o adjunto adverbial deslocado (“Em dezembro”). Nas outras, ela separa sujeito do verbo ou termos coordenados sem necessidade.", {}],
+    ["LP", "Assinale a palavra grafada de forma <b>incorreta</b>.",
+      ["excessão", "pretensão", "obsessão", "exceção"], 0,
+      "O substantivo correto é “exceção”, derivado de excetuar. Pretensão e obsessão levam ss e exceção leva ç.", {}],
+    // ---------- RACIOCÍNIO LÓGICO ----------
+    ["RL", "Observe a sequência numérica: 3, 7, 15, 31, ... O próximo número da sequência é",
+      ["47.", "55.", "63.", "62."], 2,
+      "Cada termo é o dobro do anterior mais 1: 31 × 2 + 1 = 63.", {}],
+    ["RL", "Um produto custava R$ 80,00. Recebeu um desconto de 15% e, em seguida, um acréscimo de 10% sobre o preço já com desconto. O preço final do produto é",
+      ["R$ 72,00.", "R$ 74,80.", "R$ 76,00.", "R$ 78,20."], 1,
+      "80 × 0,85 = 68. Depois, 68 × 1,10 = 74,80.", {}],
+    ["RL", "Oito funcionários, trabalhando no mesmo ritmo, processam 240 processos. Seis funcionários com esse mesmo ritmo processam 120 processos em 4 dias. Quantos dias os oito funcionários levam para processar os 240 processos?",
+      ["4 dias.", "5 dias.", "6 dias.", "8 dias."], 2,
+      "Ritmo por funcionário: 120 / (6 × 4) = 5 processos por dia. Os oito fazem 40 por dia, então 240 / 40 = 6 dias.", {}],
+    ["RL", "Considere verdadeira a afirmação: “Se chove, então a rua fica molhada”. Nessas condições, é necessariamente verdadeiro que",
+      ["se a rua não está molhada, então não choveu.", "se a rua está molhada, então choveu.", "se não chove, a rua não fica molhada.", "chove e a rua não fica molhada."], 0,
+      "A contrapositiva de “P → Q” é “não Q → não P”, e ela é equivalente à condicional original. As demais não decorrem dela.", {}],
+    ["RL", "Em uma urna há 5 bolas vermelhas, 3 azuis e 2 verdes, todas iguais no tamanho. Retirando-se uma bola ao acaso, a probabilidade de ela <b>não</b> ser azul é",
+      ["3/10.", "1/2.", "7/10.", "4/5."], 2,
+      "São 10 bolas e 7 não são azuis: 7/10.", {}],
+    ["RL", "O gráfico mostra o número de atendimentos feitos por um setor de uma autarquia durante cinco dias. A média diária de atendimentos nesse período é igual a",
+      ["45.", "48.", "50.", "55."], 2,
+      "Soma: 40 + 55 + 35 + 50 + 70 = 250. Média: 250 / 5 = 50.", { fig: ["bars", "Atendimentos por dia", ["Seg", "Ter", "Qua", "Qui", "Sex"], [40, 55, 35, 50, 70]] }],
+    ["RL", "A idade do pai é o triplo da idade do filho. Daqui a 10 anos, a idade do pai será o dobro da idade do filho. A idade atual do pai é",
+      ["30 anos.", "36 anos.", "40 anos.", "45 anos."], 0,
+      "Filho x e pai 3x. Então 3x + 10 = 2(x + 10), o que dá x = 10 e o pai tem 30 anos.", {}],
+    ["RL", "Se hoje é quarta-feira, o dia da semana daqui a 100 dias será",
+      ["quinta-feira.", "sexta-feira.", "sábado.", "domingo."], 1,
+      "100 = 14 × 7 + 2. Dois dias depois de quarta-feira é sexta-feira.", {}],
+    ["RL", "Um terreno retangular tem perímetro de 36 m e o comprimento é o dobro da largura. A área desse terreno é",
+      ["48 m².", "60 m².", "66 m².", "72 m²."], 3,
+      "Perímetro: 2(c + l) = 6l = 36, então l = 6 m e c = 12 m. Área: 6 × 12 = 72 m².", {}],
+    ["RL", "O número de anagramas diferentes da palavra CASA é",
+      ["6.", "12.", "18.", "24."], 1,
+      "São 4 letras com o A repetido duas vezes: 4! / 2! = 24 / 2 = 12.", {}],
+    // ---------- ATUALIDADES ----------
+    ["AT", "O Pix, sistema brasileiro de pagamentos instantâneos lançado em novembro de 2020, foi criado e é regulado pelo(a)",
+      ["BNDES.", "Banco Central do Brasil.", "Caixa Econômica Federal.", "Receita Federal."], 1,
+      "O Pix é um arranjo de pagamentos instituído pelo Banco Central do Brasil.", {}],
+    ["AT", "A Agenda 2030 da Organização das Nações Unidas reúne quantos Objetivos de Desenvolvimento Sustentável (ODS)?",
+      ["8.", "12.", "17.", "20."], 2,
+      "A Agenda 2030 tem 17 ODS, que incluem água potável e saneamento (ODS 6), erradicação da pobreza e ação contra a mudança global do clima.", {}],
+    ["AT", "A 30ª Conferência das Partes da ONU sobre mudanças climáticas (COP30), realizada em 2025, teve como sede a cidade de",
+      ["Brasília.", "Belém.", "Rio de Janeiro.", "Manaus."], 1,
+      "A COP30 foi sediada em Belém, no Pará, na Amazônia.", {}],
+    ["AT", "A Emenda Constitucional nº 132, de 2023, ficou conhecida por tratar de",
+      ["reforma tributária sobre o consumo.", "reforma da Previdência Social.", "reforma política e eleitoral.", "reforma administrativa do funcionalismo."], 0,
+      "A EC 132/2023 reformou o sistema tributário sobre o consumo, criando tributos como IBS e CBS que substituem outros.", {}],
+    ["AT", "O Novo Marco Legal do Saneamento (Lei nº 14.026/2020) estabeleceu como meta, até o ano de 2033, que",
+      ["toda a população tenha acesso à internet de banda larga.", "80% dos domicílios sejam atendidos por redes de gás natural.", "50% das cidades adotem coleta seletiva.", "99% da população tenha acesso à água potável e 90% à coleta e tratamento de esgoto."], 3,
+      "A meta de universalização é de 99% para água potável e 90% para coleta e tratamento de esgoto até 2033.", {}],
+    // ---------- LEGISLAÇÃO ----------
+    ["LG", "Não é princípio expresso da Administração Pública no caput do art. 37 da Constituição Federal:",
+      ["legalidade.", "impessoalidade.", "supremacia do interesse público.", "eficiência."], 2,
+      "O art. 37 enumera legalidade, impessoalidade, moralidade, publicidade e eficiência. A supremacia do interesse público é princípio implícito.", {}],
+    ["LG", "Segundo o art. 37 da Constituição Federal, a investidura em cargo ou emprego público depende de",
+      ["aprovação prévia em concurso público, ressalvadas as nomeações para cargo em comissão.", "indicação do chefe do Poder Executivo.", "análise de currículo pela chefia imediata.", "sorteio entre os interessados habilitados."], 0,
+      "A regra é o concurso público de provas ou de provas e títulos, com exceção dos cargos em comissão de livre nomeação e exoneração.", {}],
+    ["LG", "De acordo com o art. 41 da Constituição Federal, são estáveis após quantos anos de efetivo exercício os servidores nomeados para cargo de provimento efetivo em virtude de concurso público?",
+      ["Um ano.", "Dois anos.", "Três anos.", "Cinco anos."], 2,
+      "Após três anos de efetivo exercício e aprovação em avaliação especial de desempenho, o servidor adquire estabilidade.", {}],
+    ["LG", "Segundo a Lei de Acesso à Informação (Lei nº 12.527/2011), o órgão ou entidade pública deve autorizar ou conceder o acesso imediato à informação disponível. Não sendo possível, o prazo para comunicar a data, o local e o modo de realizar a consulta, ou informar que não possui a informação, é de até",
+      ["5 dias.", "10 dias.", "15 dias.", "20 dias, prorrogáveis por mais 10."], 3,
+      "O art. 11 fixa o prazo de até 20 dias, prorrogável por mais 10 dias mediante justificativa expressa.", {}],
+    ["LG", "Não é modalidade de licitação prevista na Lei nº 14.133/2021 (Nova Lei de Licitações e Contratos):",
+      ["Tomada de preços.", "Pregão.", "Concorrência.", "Diálogo competitivo."], 0,
+      "A Lei 14.133/2021 prevê pregão, concorrência, concurso, leilão e diálogo competitivo. Tomada de preços e convite eram da Lei 8.666/1993.", {}],
+    // ---------- CONHECIMENTOS ESPECÍFICOS ----------
+    ["CE", "Na administração, a função que consiste em verificar se os resultados obtidos correspondem ao que foi planejado, corrigindo eventuais desvios, é denominada",
+      ["planejamento.", "organização.", "direção.", "controle."], 3,
+      "As funções administrativas clássicas são planejar, organizar, dirigir e controlar. Medir resultados e corrigir desvios é controlar.", {}],
+    ["CE", "Segundo o Manual de Redação da Presidência da República, o pronome de tratamento adequado para dirigir-se a particulares e a autoridades em geral, nos casos não reservados a pronomes específicos, é",
+      ["Vossa Senhoria.", "Vossa Excelência.", "Vossa Magnificência.", "Vossa Eminência."], 0,
+      "Vossa Senhoria é o tratamento geral para autoridades e particulares. As demais formas são reservadas a cargos específicos.", {}],
+    ["CE", "No orçamento público, o instrumento que estabelece as metas e prioridades da administração para o exercício financeiro subsequente e orienta a elaboração da lei orçamentária anual é",
+      ["o Plano Plurianual (PPA).", "a Lei de Diretrizes Orçamentárias (LDO).", "a Lei Orçamentária Anual (LOA).", "o Balanço Geral."], 1,
+      "A LDO define metas e prioridades e orienta a LOA. O PPA trata de programas de médio prazo, e a LOA fixa receitas e despesas do ano.", {}],
+    ["CE", "Na execução da despesa pública, o ato emanado de autoridade competente que cria para o Estado a obrigação de pagamento, pendente ou não de implemento de condição, é o(a)",
+      ["liquidação.", "pagamento.", "empenho.", "licitação."], 2,
+      "Os estágios da despesa são empenho, liquidação e pagamento. O empenho é o primeiro: reserva a dotação e cria a obrigação.", {}],
+    ["CE", "Um capital de R$ 2.000,00 foi aplicado a juros simples, à taxa de 5% ao mês, durante 4 meses. O valor dos juros obtidos foi de",
+      ["R$ 300,00.", "R$ 400,00.", "R$ 420,00.", "R$ 500,00."], 1,
+      "J = C · i · n = 2000 × 0,05 × 4 = 400.", {}],
+    ["CE", "Na teoria das três idades dos documentos, o arquivo que guarda documentos de valor histórico, probatório ou informativo, sem prazo de eliminação, é o arquivo",
+      ["corrente.", "intermediário.", "de movimento.", "permanente."], 3,
+      "O arquivo permanente conserva definitivamente os documentos de valor secundário (histórico, informativo, probatório).", {}],
+    ["CE", "O documento em que se registram, de forma resumida, os fatos e as deliberações de uma reunião é denominado",
+      ["ata.", "memorando.", "requerimento.", "ofício."], 0,
+      "A ata registra o que foi tratado e decidido em reunião, e é assinada pelos participantes.", {}],
+    ["CE", "De acordo com a Lei nº 14.133/2021, a modalidade de licitação obrigatória para a aquisição de bens e serviços comuns, cujo critério de julgamento é o menor preço ou o maior desconto, é o(a)",
+      ["concurso.", "leilão.", "pregão.", "diálogo competitivo."], 2,
+      "O pregão é a modalidade para bens e serviços comuns, com julgamento por menor preço ou maior desconto.", {}],
+    ["CE", "Segundo a Lei nº 4.320/1964, o produto da alienação de bens móveis e imóveis é classificado como receita",
+      ["corrente.", "de capital.", "tributária.", "patrimonial."], 1,
+      "Alienação de bens, operações de crédito e amortização de empréstimos concedidos são receitas de capital.", {}],
+    ["CE", "A representação gráfica da estrutura formal de uma organização, que mostra seus órgãos, níveis hierárquicos e relações de subordinação, é o(a)",
+      ["organograma.", "fluxograma.", "cronograma.", "histograma."], 0,
+      "O organograma mostra a estrutura hierárquica. O fluxograma representa o fluxo de um processo.", {}]
+  ]
+};
+
+// Prova 3: questões originais, no estilo FUNDEP (10 LP, 10 RL, 5 AT, 5 LG, 10 CE).
+PROVAS[3] = {
+  id: 3,
+  titulo: "Prova 3",
+  origem: "Questões originais no estilo da banca",
+  q: [
+    // ---------- LÍNGUA PORTUGUESA ----------
+    ["LP", "A ideia central do texto é que",
+      ["ampliar a produção de água é a única solução para o abastecimento.", "reduzir as perdas é tão importante quanto produzir mais água.", "as ligações clandestinas são o único problema da rede.", "o tratamento da água é dispensável em cidades pequenas."], 1,
+      "O texto defende que cada litro economizado evita novas captações, por isso reduzir perdas pesa tanto quanto ampliar a produção.", { t: "agua" }],
+    ["LP", "No trecho “Parte desse volume, <i>porém</i>, se perde no trajeto”, a palavra destacada expressa ideia de",
+      ["oposição.", "adição.", "explicação.", "conclusão."], 0,
+      "“Porém” é conjunção adversativa: contrapõe a perda da água ao fato de ela ter sido captada e tratada.", { t: "agua" }],
+    ["LP", "Em “seja por vazamentos, seja por ligações clandestinas”, a construção <i>seja... seja</i> tem valor de",
+      ["adversativa.", "conclusiva.", "alternativa.", "comparativa."], 2,
+      "“Seja... seja” apresenta alternativas entre as causas da perda de água: é conjunção alternativa.", { t: "agua" }],
+    ["LP", "No trecho “pois cada litro economizado dispensa novas captações”, a conjunção <i>pois</i> introduz uma",
+      ["explicação.", "oposição.", "indicação de tempo.", "indicação de finalidade."], 0,
+      "A oração justifica a afirmação anterior de que reduzir perdas é tão importante quanto ampliar a produção.", { t: "agua" }],
+    ["LP", "É possível inferir do texto que",
+      ["quem economiza água obriga a empresa a captar mais.", "menos perdas na rede podem evitar novas captações.", "ligações clandestinas melhoram o abastecimento.", "campanhas de consumo consciente dispensam a manutenção da rede."], 1,
+      "O texto diz que cada litro economizado dispensa novas captações e custos. A inferência correta liga redução de perdas a menos captação.", { t: "agua" }],
+    ["LP", "No trecho “Antes de abastecer a cidade, <i>ela</i> é captada em rios ou poços”, o pronome destacado retoma",
+      ["a cidade.", "a torneira.", "a tubulação.", "a água."], 3,
+      "“Ela” é pronome anafórico que retoma o sujeito do período inicial: a água que chega à torneira.", { t: "agua" }],
+    ["LP", "Assinale a alternativa em que a concordância nominal está de acordo com a norma-padrão.",
+      ["Segue anexo os documentos solicitados.", "Seguem anexo os documentos solicitados.", "Seguem anexos os documentos solicitados.", "Segue anexas os documentos solicitados."], 2,
+      "“Anexo” é adjetivo e concorda com o substantivo a que se refere, e o verbo concorda com o sujeito plural: “Seguem anexos os documentos”.", {}],
+    ["LP", "Assinale a alternativa que completa corretamente a frase: “Se eu ______ o diretor, avisarei sobre o prazo.”",
+      ["ver", "vir", "veja", "viro"], 1,
+      "No futuro do subjuntivo de “ver”, a forma é “vir” (se eu vir, se tu vires...).", {}],
+    ["LP", "Está correto o emprego de <i>por que / porque / porquê</i> em",
+      ["Ele faltou por que estava doente.", "Não sei porquê ele faltou.", "Por que você faltou ontem?", "O porque da falta é claro."], 2,
+      "Em perguntas diretas usa-se “por que” separado. Em A cabe “porque” (explicação), em B cabe “por que” e em D cabe “porquê” (substantivo).", {}],
+    ["LP", "Em “O trânsito da cidade é uma selva”, há uma figura de linguagem chamada",
+      ["metáfora.", "metonímia.", "hipérbole.", "eufemismo."], 0,
+      "Compara-se o trânsito à selva sem usar conectivo de comparação, o que caracteriza a metáfora.", {}],
+    // ---------- RACIOCÍNIO LÓGICO ----------
+    ["RL", "Na sequência 2, 6, 12, 20, 30, ... , o próximo termo é",
+      ["36.", "40.", "42.", "44."], 2,
+      "Os termos são n × (n + 1): 1×2, 2×3, 3×4, 4×5, 5×6. O próximo é 6 × 7 = 42.", {}],
+    ["RL", "O preço de um produto sofreu um aumento de 20% e, logo depois, uma redução de 20% sobre o novo preço. Em relação ao preço original, o preço final",
+      ["não se alterou.", "ficou 4% menor.", "ficou 4% maior.", "ficou 2% menor."], 1,
+      "1,20 × 0,80 = 0,96. O preço final equivale a 96% do original, ou seja, 4% menor.", {}],
+    ["RL", "Três torneiras iguais, abertas ao mesmo tempo, enchem um tanque em 12 horas. Com 9 torneiras iguais a essas, o mesmo tanque seria cheio em",
+      ["4 horas.", "6 horas.", "8 horas.", "9 horas."], 0,
+      "Número de torneiras e tempo são inversamente proporcionais: 3 × 12 = 9 × t, então t = 4 horas.", {}],
+    ["RL", "A negação lógica da afirmação “Todos os processos foram arquivados” é",
+      ["Nenhum processo foi arquivado.", "Pelo menos um processo não foi arquivado.", "Alguns processos foram arquivados.", "Todos os processos não foram arquivados."], 1,
+      "A negação de “todo” é “existe pelo menos um que não”. Dizer “nenhum foi arquivado” exagera a negação.", {}],
+    ["RL", "Em uma seção com 6 servidores, deve-se escolher 2 para compor uma comissão. O número de comissões diferentes que podem ser formadas é",
+      ["10.", "12.", "15.", "30."], 2,
+      "A ordem não importa, então é combinação: C(6,2) = 6 × 5 / 2 = 15.", {}],
+    ["RL", "Em um grupo de 40 funcionários, 25 falam inglês, 18 falam espanhol e 6 falam os dois idiomas. O número de funcionários que não falam nenhum dos dois idiomas é",
+      ["3.", "6.", "9.", "12."], 0,
+      "Falam pelo menos um idioma: 25 + 18 − 6 = 37. Sobram 40 − 37 = 3.", {}],
+    ["RL", "Um motorista vai de uma cidade a outra a 60 km/h e volta pelo mesmo caminho a 40 km/h. A velocidade média no percurso de ida e volta é de",
+      ["44 km/h.", "46 km/h.", "48 km/h.", "50 km/h."], 2,
+      "A velocidade média é a distância total dividida pelo tempo total. Com D km: tempo = D/60 + D/40 = D/24, e a distância é 2D, então a média é 48 km/h (e não 50).", {}],
+    ["RL", "O triplo de um número, diminuído de 5, é igual a 31. Esse número é",
+      ["9.", "10.", "11.", "12."], 3,
+      "3x − 5 = 31, então 3x = 36 e x = 12.", {}],
+    ["RL", "Ana é mais alta que Bia. Bia é mais alta que Carla. Dora é mais baixa que Carla. Dessas quatro pessoas, a mais baixa é",
+      ["Ana.", "Bia.", "Carla.", "Dora."], 3,
+      "A ordem do mais alto ao mais baixo é Ana, Bia, Carla, Dora.", {}],
+    ["RL", "Em uma turma, 60% dos alunos são mulheres. Sabendo que há 18 homens, o número total de alunos da turma é",
+      ["40.", "45.", "50.", "54."], 1,
+      "Os homens são 40% da turma: 0,40 × T = 18, então T = 45.", {}],
+    // ---------- ATUALIDADES ----------
+    ["AT", "A Lei Geral de Proteção de Dados Pessoais (Lei nº 13.709/2018) tem como objetivo principal",
+      ["regulamentar o tratamento de dados pessoais, protegendo a liberdade e a privacidade.", "proibir o uso de redes sociais por menores de idade.", "criar o cadastro positivo de crédito.", "fiscalizar o comércio eletrônico internacional."], 0,
+      "A LGPD disciplina como empresas e órgãos públicos coletam, usam e compartilham dados pessoais.", {}],
+    ["AT", "A taxa básica de juros da economia brasileira (Selic) é definida pelo(a)",
+      ["Senado Federal.", "Comitê de Política Monetária (Copom) do Banco Central.", "Ministério da Fazenda.", "Tesouro Nacional."], 1,
+      "O Copom, ligado ao Banco Central, se reúne periodicamente para fixar a meta da taxa Selic.", {}],
+    ["AT", "O Censo Demográfico 2022, realizado pelo IBGE, apurou que a população residente no Brasil era de aproximadamente",
+      ["160 milhões de pessoas.", "180 milhões de pessoas.", "203 milhões de pessoas.", "230 milhões de pessoas."], 2,
+      "O Censo 2022 contou cerca de 203 milhões de habitantes.", {}],
+    ["AT", "Em 2024, a cúpula de líderes do G20, sob presidência brasileira, foi realizada na cidade de",
+      ["Brasília.", "São Paulo.", "Rio de Janeiro.", "Salvador."], 2,
+      "O Brasil presidiu o G20 em 2024, e a cúpula de líderes ocorreu no Rio de Janeiro.", {}],
+    ["AT", "O Aquífero Guarani, um dos maiores reservatórios de água subterrânea do mundo, está localizado",
+      ["apenas no Brasil.", "no Brasil, na Argentina, no Paraguai e no Uruguai.", "na Amazônia peruana e boliviana.", "somente na região Nordeste do Brasil."], 1,
+      "É um aquífero transfronteiriço, compartilhado por quatro países do Mercosul.", {}],
+    // ---------- LEGISLAÇÃO ----------
+    ["LG", "Segundo o art. 37 da Constituição Federal, a remuneração dos servidores públicos e o subsídio só podem ser fixados ou alterados por",
+      ["decreto do chefe do Poder Executivo.", "portaria do órgão de origem.", "lei específica.", "resolução do Tribunal de Contas."], 2,
+      "O inciso X exige lei específica, observada a iniciativa privativa em cada caso.", {}],
+    ["LG", "De acordo com o art. 37 da Constituição Federal, é vedada a acumulação remunerada de cargos públicos, exceto, havendo compatibilidade de horários, a de",
+      ["dois cargos de professor.", "dois cargos técnicos de nível médio.", "um cargo de professor com um cargo de direção.", "dois cargos em comissão."], 0,
+      "As exceções são dois cargos de professor, um de professor com outro técnico ou científico, e dois privativos de profissionais de saúde com profissões regulamentadas.", {}],
+    ["LG", "Pela Lei de Acesso à Informação (Lei nº 12.527/2011), o prazo máximo de restrição de acesso à informação classificada como ultrassecreta é de",
+      ["5 anos.", "15 anos.", "25 anos.", "50 anos."], 2,
+      "Os prazos máximos são 25 anos (ultrassecreta), 15 anos (secreta) e 5 anos (reservada).", {}],
+    ["LG", "Na Lei nº 8.429/1992 (Lei de Improbidade Administrativa), os atos que importam enriquecimento ilícito estão previstos no art.",
+      ["9º.", "10.", "11.", "12."], 0,
+      "O art. 9º trata do enriquecimento ilícito, o 10 do prejuízo ao erário e o 11 dos atos que atentam contra os princípios da Administração.", {}],
+    ["LG", "Pelo princípio da vinculação ao edital, previsto na Lei nº 14.133/2021,",
+      ["a Administração pode alterar as regras durante o julgamento.", "a Administração e os licitantes devem obedecer às regras do edital.", "apenas os licitantes ficam obrigados a seguir o edital.", "o edital pode ser descumprido por razão de interesse público."], 1,
+      "O edital é a lei interna da licitação e obriga tanto a Administração quanto os licitantes.", {}],
+    // ---------- CONHECIMENTOS ESPECÍFICOS ----------
+    ["CE", "Pelo princípio da unidade de comando, formulado por Fayol,",
+      ["todos os empregados decidem por votação.", "cada empregado deve receber ordens de apenas um superior.", "cada chefe pode ter subordinados em número ilimitado.", "o empregado se reporta a vários chefes especializados."], 1,
+      "A unidade de comando evita ordens conflitantes: cada pessoa responde a um único superior.", {}],
+    ["CE", "A comunicação escrita trocada entre unidades administrativas de um mesmo órgão, de forma simples e ágil, é o(a)",
+      ["edital.", "requerimento.", "ata.", "memorando."], 3,
+      "O memorando é a comunicação interna entre unidades do mesmo órgão. O ofício, por sua vez, é usado externamente.", {}],
+    ["CE", "O princípio orçamentário segundo o qual a lei orçamentária deve conter todas as receitas e todas as despesas do Estado é o princípio da",
+      ["anualidade.", "exclusividade.", "universalidade.", "unidade."], 2,
+      "Universalidade: tudo o que o governo arrecada e gasta deve constar do orçamento.", {}],
+    ["CE", "Um capital de R$ 1.000,00 é aplicado a juros compostos, à taxa de 10% ao ano, durante 2 anos. O montante ao final do período é de",
+      ["R$ 1.100,00.", "R$ 1.200,00.", "R$ 1.210,00.", "R$ 1.220,00."], 2,
+      "M = C(1 + i)^n = 1000 × 1,1² = 1000 × 1,21 = 1210.", {}],
+    ["CE", "O tipo de planejamento que abrange toda a organização, tem horizonte de longo prazo e define a missão e os objetivos gerais é o planejamento",
+      ["estratégico.", "tático.", "operacional.", "departamental."], 0,
+      "O estratégico é de longo prazo e de nível institucional. O tático atua por departamentos e o operacional detalha tarefas.", {}],
+    ["CE", "O documento por meio do qual um interessado solicita algo a uma autoridade, com base em um direito ou em uma norma, é o",
+      ["requerimento.", "ata.", "edital.", "circular."], 0,
+      "O requerimento é o instrumento do pedido formal dirigido à autoridade.", {}],
+    ["CE", "Segundo a Lei nº 14.133/2021, a licitação é inexigível quando",
+      ["o valor da contratação é baixo.", "houver inviabilidade de competição.", "ocorrer situação de emergência.", "o objeto for um bem de uso comum."], 1,
+      "A inexigibilidade decorre da inviabilidade de competição. Emergência e baixo valor são hipóteses de dispensa.", {}],
+    ["CE", "Segundo o Código Tributário Nacional, o tributo cujo fato gerador é uma situação independente de qualquer atividade estatal específica relativa ao contribuinte é o(a)",
+      ["taxa.", "contribuição de melhoria.", "empréstimo compulsório.", "imposto."], 3,
+      "O imposto não depende de contraprestação direta do Estado ao contribuinte. A taxa depende de serviço público ou de poder de polícia.", {}],
+    ["CE", "No arquivamento de documentos, o método em que eles são organizados pela ordem das datas é o método",
+      ["alfabético.", "cronológico.", "numérico.", "geográfico."], 1,
+      "O método cronológico ordena os documentos pela data, do mais antigo ao mais recente ou o inverso.", {}],
+    ["CE", "Na administração, a capacidade de alcançar os resultados e objetivos pretendidos é chamada de",
+      ["eficiência.", "produtividade.", "economia.", "eficácia."], 3,
+      "Eficácia é atingir os objetivos. Eficiência é fazê-lo usando bem os recursos disponíveis.", {}]
+  ]
+};
+
+// Prova 4: questões originais, no estilo FUNDEP (10 LP, 10 RL, 5 AT, 5 LG, 10 CE).
+PROVAS[4] = {
+  id: 4,
+  titulo: "Prova 4",
+  origem: "Questões originais no estilo da banca",
+  q: [
+    // ---------- LÍNGUA PORTUGUESA ----------
+    ["LP", "O texto critica principalmente o fato de que",
+      ["textos com muitos rodeios atrapalham a comunicação.", "os ofícios devem ser sempre longos.", "a cortesia é desnecessária nos documentos oficiais.", "os prazos nunca são cumpridos nas repartições."], 0,
+      "O assunto do ofício ficou escondido no quarto parágrafo, depois de cortesias e de um histórico não pedido, e por isso ninguém o leu com atenção.", { t: "oficio" }],
+    ["LP", "No trecho “quando o prazo já <i>vencera</i>”, o verbo destacado está no",
+      ["pretérito perfeito do indicativo.", "pretérito imperfeito do indicativo.", "pretérito mais-que-perfeito do indicativo.", "futuro do pretérito do indicativo."], 2,
+      "“Vencera” é a forma simples do pretérito mais-que-perfeito: indica ação passada anterior a outra também passada.", { t: "oficio" }],
+    ["LP", "No período “Ninguém o leu com atenção, <i>porque</i> o assunto vinha escondido no quarto parágrafo”, a conjunção destacada é",
+      ["adversativa.", "causal (explicativa).", "final.", "conclusiva."], 1,
+      "A oração apresenta o motivo de ninguém ter lido com atenção: o assunto estava escondido.", { t: "oficio" }],
+    ["LP", "Em “foi parar, como tantos outros, sobre uma pilha”, a expressão <i>como tantos outros</i> indica que",
+      ["o ofício era mais importante que os demais.", "o ofício foi lido antes dos demais.", "os outros ofícios foram respondidos.", "o ofício teve o mesmo destino de outros documentos."], 3,
+      "A comparação mostra que ir parar numa pilha era o destino comum dos ofícios naquela seção.", { t: "oficio" }],
+    ["LP", "A regra adotada pela seção, de pôr o pedido na primeira frase, busca",
+      ["ampliar as cortesias do texto.", "dar clareza e objetividade ao pedido.", "aumentar o histórico dos casos.", "adiar os prazos de resposta."], 1,
+      "Colocar o pedido logo no início evita que o leitor perca o essencial, o que é clareza e objetividade.", { t: "oficio" }],
+    ["LP", "Em “Vendem-se casas na região”, o termo <i>casas</i> exerce a função sintática de",
+      ["objeto direto.", "objeto indireto.", "agente da passiva.", "sujeito."], 3,
+      "A frase está na voz passiva sintética (“Casas são vendidas”). O verbo concorda com “casas”, que é o sujeito paciente.", {}],
+    ["LP", "Dirigindo-se a uma Deputada, a forma correta de empregar o pronome de tratamento é",
+      ["Vossa Excelência foi convidado.", "Vossa Excelência foi convidada.", "Vossa Excelência foram convidados.", "Vossa Excelência foi convidados."], 1,
+      "O pronome concorda com a 3ª pessoa do singular, e o adjetivo ou particípio concorda com o gênero da pessoa de quem se fala: convidada.", {}],
+    ["LP", "Assinale a alternativa em que todas as palavras estão corretamente acentuadas, segundo o Acordo Ortográfico em vigor.",
+      ["ideia, herói, assembleia", "idéia, herói, assembléia", "ideia, heroi, assembleia", "ideia, herói, assembléia"], 0,
+      "Com o Acordo, os ditongos abertos “ei” e “oi” perdem o acento em palavras paroxítonas (ideia, assembleia). Em oxítonas e monossílabos tônicos eles mantêm (herói).", {}],
+    ["LP", "Assinale a alternativa em que a colocação do pronome está de acordo com a norma-padrão.",
+      ["Diga-me não.", "Não diga-me.", "Não me diga isso.", "Me não diga."], 2,
+      "A palavra negativa atrai o pronome oblíquo, então ele fica antes do verbo (próclise): “Não me diga”.", {}],
+    ["LP", "O verbo <i>prescindir</i>, em “Aquele serviço não prescinde de revisão”, tem o sentido de",
+      ["necessitar.", "aceitar.", "exigir.", "dispensar."], 3,
+      "Prescindir de significa dispensar, passar sem. Logo, o serviço não pode dispensar a revisão.", {}],
+    // ---------- RACIOCÍNIO LÓGICO ----------
+    ["RL", "Na sequência de letras A, C, F, J, O, ... , a próxima letra é (considere o alfabeto de 26 letras)",
+      ["S.", "T.", "U.", "V."], 2,
+      "As posições são 1, 3, 6, 10, 15, e os saltos aumentam de 1 em 1 (+2, +3, +4, +5). O próximo salto é +6: 21, que é a letra U.", {}],
+    ["RL", "O valor de 25% de 30% de 800 é",
+      ["48.", "60.", "72.", "80."], 1,
+      "0,25 × 0,30 × 800 = 0,075 × 800 = 60.", {}],
+    ["RL", "Quatro pedreiros constroem um muro em 10 dias. Mantido o mesmo ritmo, oito pedreiros construiriam esse mesmo muro em",
+      ["5 dias.", "6 dias.", "8 dias.", "20 dias."], 0,
+      "Pessoas e dias são inversamente proporcionais: 4 × 10 = 8 × d, então d = 5 dias.", {}],
+    ["RL", "Considere verdadeiras as afirmações: “Se estudo, então passo na prova” e “Não passei na prova”. Conclui-se que",
+      ["não estudei.", "estudei.", "passei sem estudar.", "estudei e não passei."], 0,
+      "Se estudar garante passar e eu não passei, então não estudei (negação do consequente leva à negação do antecedente).", {}],
+    ["RL", "Lançando-se um dado comum, a probabilidade de sair um número par e maior que 2 é",
+      ["1/6.", "1/3.", "1/2.", "2/3."], 1,
+      "Os resultados favoráveis são 4 e 6: 2 em 6, ou seja, 1/3.", {}],
+    ["RL", "Um aluno obteve as notas 6, 8 e 10 em três provas com pesos 2, 3 e 5, respectivamente. A média ponderada do aluno é",
+      ["8,0.", "8,2.", "8,6.", "9,0."], 2,
+      "(6×2 + 8×3 + 10×5) / (2 + 3 + 5) = (12 + 24 + 50) / 10 = 8,6.", {}],
+    ["RL", "A soma das idades de um pai e de seu filho é 50 anos, e a idade do pai é igual a 4 vezes a idade do filho. A idade do pai é",
+      ["30 anos.", "35 anos.", "38 anos.", "40 anos."], 3,
+      "Filho x, pai 4x. Então 5x = 50, x = 10 e o pai tem 40 anos.", {}],
+    ["RL", "O triângulo da figura é retângulo, com catetos de 6 cm e 8 cm. O perímetro desse triângulo é",
+      ["20 cm.", "22 cm.", "24 cm.", "28 cm."], 2,
+      "A hipotenusa é √(6² + 8²) = √100 = 10 cm. O perímetro é 6 + 8 + 10 = 24 cm.", { fig: ["tri", 6, 8, 10] }],
+    ["RL", "Se o dia 1º de janeiro de 2025 foi uma quarta-feira, o dia 1º de abril de 2025 foi uma (ano de 365 dias)",
+      ["segunda-feira.", "terça-feira.", "quarta-feira.", "quinta-feira."], 1,
+      "De 1º de janeiro a 1º de abril passam 31 + 28 + 31 = 90 dias. 90 = 12 × 7 + 6, e seis dias depois de quarta-feira é terça-feira.", {}],
+    ["RL", "Duas luzes piscam juntas às 8h. Uma pisca a cada 12 segundos e a outra a cada 16 segundos. Elas voltarão a piscar juntas após",
+      ["32 segundos.", "36 segundos.", "44 segundos.", "48 segundos."], 3,
+      "O intervalo é o mínimo múltiplo comum: MMC(12, 16) = 48 segundos.", {}],
+    // ---------- ATUALIDADES ----------
+    ["AT", "O Marco Civil da Internet (Lei nº 12.965/2014) estabelece",
+      ["princípios, garantias, direitos e deveres para o uso da internet no Brasil.", "a proibição de redes sociais para menores de idade.", "o cadastro obrigatório de todos os usuários.", "a cobrança de tarifa por navegação."], 0,
+      "É a lei que fixa princípios como neutralidade da rede, liberdade de expressão e proteção da privacidade.", {}],
+    ["AT", "O índice oficial de inflação do Brasil, usado como referência nas metas do governo, é o IPCA, calculado pelo(a)",
+      ["Banco Central.", "IBGE.", "Tesouro Nacional.", "Fundação Getulio Vargas."], 1,
+      "O IPCA (Índice Nacional de Preços ao Consumidor Amplo) é calculado pelo IBGE.", {}],
+    ["AT", "A Copa do Mundo de futebol masculino de 2026 tem como países-sede",
+      ["Brasil, Argentina e Uruguai.", "Espanha, Portugal e Marrocos.", "Estados Unidos, Canadá e México.", "Arábia Saudita, Catar e Emirados Árabes."], 2,
+      "Pela primeira vez o torneio é sediado por três países: Estados Unidos, Canadá e México. Também é a primeira edição com 48 seleções.", {}],
+    ["AT", "O Dia Mundial da Água, instituído pela ONU, é comemorado em",
+      ["22 de março.", "5 de junho.", "21 de setembro.", "1º de maio."], 0,
+      "22 de março é o Dia Mundial da Água. 5 de junho é o Dia Mundial do Meio Ambiente.", {}],
+    ["AT", "O município de Uberlândia está localizado na região de Minas Gerais conhecida como",
+      ["Zona da Mata.", "Vale do Jequitinhonha.", "Sul de Minas.", "Triângulo Mineiro."], 3,
+      "Uberlândia é a maior cidade do Triângulo Mineiro.", {}],
+    // ---------- LEGISLAÇÃO ----------
+    ["LG", "Segundo o §6º do art. 37 da Constituição Federal, as pessoas jurídicas de direito público respondem pelos danos que seus agentes, nessa qualidade, causarem a terceiros, assegurado o direito de regresso contra o responsável nos casos de",
+      ["dolo ou culpa.", "somente dolo.", "qualquer ato, mesmo sem culpa.", "somente atos praticados fora do expediente."], 0,
+      "A responsabilidade do Estado é objetiva, mas o direito de regresso contra o agente exige dolo ou culpa.", {}],
+    ["LG", "Conforme a Constituição Federal, a aposentadoria compulsória do servidor público ocorre, em regra, aos",
+      ["65 anos.", "70 anos.", "75 anos.", "80 anos."], 2,
+      "O art. 40, §1º, II, fixa a aposentadoria compulsória aos 75 anos de idade.", {}],
+    ["LG", "Salvo disposição legal específica, o prazo para interposição de recurso administrativo, segundo a Lei nº 9.784/1999, é de",
+      ["5 dias.", "10 dias.", "15 dias.", "30 dias."], 1,
+      "O art. 59 da Lei 9.784/1999 fixa dez dias, contados da ciência ou divulgação oficial da decisão recorrida.", {}],
+    ["LG", "Segundo a Lei de Acesso à Informação (Lei nº 12.527/2011), o requerente de informação pública",
+      ["precisa justificar o motivo da solicitação.", "não precisa apresentar os motivos determinantes da solicitação.", "só pode ser pessoa jurídica.", "deve pagar uma taxa fixa de acesso."], 1,
+      "São vedadas exigências relativas aos motivos do pedido de acesso a informações de interesse público.", {}],
+    ["LG", "Segundo o art. 37, V, da Constituição Federal, as funções de confiança são exercidas",
+      ["por qualquer cidadão indicado pela chefia.", "exclusivamente por aposentados.", "por pessoas contratadas temporariamente.", "exclusivamente por servidores ocupantes de cargo efetivo."], 3,
+      "As funções de confiança são exclusivas de servidores efetivos. Os cargos em comissão podem ser preenchidos por servidores de carreira e por outros, nos termos da lei.", {}],
+    // ---------- CONHECIMENTOS ESPECÍFICOS ----------
+    ["CE", "Na administração, a transferência de autoridade para um subordinado executar uma tarefa, mantendo o superior a responsabilidade final, é chamada de",
+      ["centralização.", "delegação.", "descentralização.", "departamentalização."], 1,
+      "Delegar é transferir a autoridade para realizar uma tarefa. O superior continua respondendo pelo resultado.", {}],
+    ["CE", "Segundo o Manual de Redação da Presidência da República, é atributo da redação oficial",
+      ["pessoalidade.", "informalidade.", "impessoalidade.", "ambiguidade."], 2,
+      "A redação oficial deve ser impessoal, formal, padronizada, clara e concisa.", {}],
+    ["CE", "Pelo princípio orçamentário da anualidade, a lei orçamentária tem vigência de",
+      ["um exercício financeiro, que coincide com o ano civil.", "dois anos.", "quatro anos, coincidindo com o PPA.", "prazo indeterminado."], 0,
+      "O exercício financeiro coincide com o ano civil (1º de janeiro a 31 de dezembro), conforme a Lei 4.320/1964.", {}],
+    ["CE", "Um título de R$ 1.200,00 foi pago com desconto de 5%. O valor pago foi de",
+      ["R$ 1.100,00.", "R$ 1.140,00.", "R$ 1.150,00.", "R$ 1.195,00."], 1,
+      "5% de 1200 = 60. O valor pago é 1200 − 60 = 1140.", {}],
+    ["CE", "A departamentalização por função agrupa as atividades",
+      ["por produto fabricado.", "por área geográfica.", "segundo as funções especializadas, como finanças, pessoal e produção.", "por tipo de cliente atendido."], 2,
+      "Na departamentalização funcional, as unidades se formam em torno de funções especializadas, como finanças, recursos humanos e produção.", {}],
+    ["CE", "A aquisição de equipamentos e material permanente é classificada, no orçamento público, como despesa",
+      ["de capital (investimento).", "corrente de pessoal.", "corrente de custeio.", "com juros da dívida."], 0,
+      "Equipamentos e material permanente são investimentos, grupo das despesas de capital.", {}],
+    ["CE", "O documento que estabelece as condições de uma licitação, convoca os interessados e funciona como lei interna do certame é o(a)",
+      ["contrato.", "empenho.", "parecer.", "edital."], 3,
+      "O edital é o instrumento convocatório da licitação. Administração e licitantes ficam vinculados a ele.", {}],
+    ["CE", "O setor de protocolo tem como atribuição principal",
+      ["decidir sobre os pedidos protocolados.", "registrar e controlar a entrada, a saída e a tramitação de documentos.", "elaborar o orçamento do órgão.", "realizar as licitações."], 1,
+      "O protocolo recebe, registra, distribui e acompanha a movimentação de documentos e processos.", {}],
+    ["CE", "Na hierarquia das necessidades de Maslow, a necessidade situada no topo da pirâmide é a",
+      ["fisiológica.", "de segurança.", "de autorrealização.", "social."], 2,
+      "Da base ao topo: fisiológicas, segurança, sociais, estima e autorrealização.", {}],
+    ["CE", "No ciclo PDCA, a letra C corresponde à etapa de",
+      ["verificar.", "planejar.", "executar.", "agir corretivamente."], 0,
+      "PDCA vem de Plan (planejar), Do (executar), Check (verificar) e Act (agir).", {}]
+  ]
+};
+
+// Prova 5: questões originais, no estilo FUNDEP (10 LP, 10 RL, 5 AT, 5 LG, 10 CE).
+PROVAS[5] = {
+  id: 5,
+  titulo: "Prova 5",
+  origem: "Questões originais no estilo da banca",
+  q: [
+    // ---------- LÍNGUA PORTUGUESA ----------
+    ["LP", "A partir da leitura do texto, é correto concluir que",
+      ["a queda no consumo se deve exclusivamente à campanha.", "não é possível atribuir a queda exclusivamente à campanha.", "as chuvas não influenciaram o consumo de água.", "os cartazes foram mais eficazes que as visitas."], 1,
+      "Os técnicos lembram que o período teve chuvas acima da média, que também reduzem o uso de água. Por isso a campanha não pode ser apontada como única causa.", { t: "relatorio" }],
+    ["LP", "No trecho “Os técnicos, <i>no entanto</i>, recomendam cautela”, a expressão destacada indica",
+      ["adição.", "conclusão.", "oposição.", "explicação."], 2,
+      "“No entanto” é locução adversativa: contrapõe a recomendação de cautela à interpretação otimista do parágrafo anterior.", { t: "relatorio" }],
+    ["LP", "Em “o que sugere que o contato direto teve efeito maior”, o pronome <i>o que</i> retoma",
+      ["toda a ideia expressa na oração anterior.", "apenas a palavra “bairros”.", "apenas a palavra “agentes”.", "apenas a palavra “anúncios”."], 0,
+      "O pronome “o que” funciona como substituto de toda a oração anterior: a queda foi mais acentuada onde houve visitas.", { t: "relatorio" }],
+    ["LP", "No trecho “fator <i>que também pode ter reduzido o uso de água</i>”, a oração destacada é",
+      ["substantiva subjetiva.", "adverbial causal.", "adjetiva.", "coordenada aditiva."], 2,
+      "A oração é introduzida pelo pronome relativo “que” e caracteriza o substantivo “fator”: é oração subordinada adjetiva.", { t: "relatorio" }],
+    ["LP", "No texto, a palavra <i>acentuada</i>, em “A queda foi mais acentuada nos bairros”, pode ser substituída, sem prejuízo do sentido, por",
+      ["fraca.", "lenta.", "irregular.", "intensa."], 3,
+      "Queda acentuada é queda marcante, intensa.", { t: "relatorio" }],
+    ["LP", "Assinale a alternativa correta quanto à regência do verbo <i>assistir</i>, no sentido de “ver”.",
+      ["Assistimos o jogo ontem.", "Assistimos ao jogo ontem.", "Assistimos do jogo ontem.", "Assistimos no jogo ontem."], 1,
+      "No sentido de “ver”, assistir é transitivo indireto e pede a preposição a.", {}],
+    ["LP", "Assinale a alternativa em que o verbo <i>haver</i> está empregado de acordo com a norma-padrão.",
+      ["Haviam muitos candidatos na sala.", "Houveram muitos candidatos na sala.", "Havia muitos candidatos na sala.", "Haverão muitos candidatos na sala."], 2,
+      "Haver, no sentido de existir, é impessoal e fica sempre na 3ª pessoa do singular: “Havia”.", {}],
+    ["LP", "Na frase “Marta, venha cá”, a vírgula é usada para separar",
+      ["o vocativo.", "o aposto.", "o sujeito.", "o objeto."], 0,
+      "“Marta” é o termo que chama o interlocutor, ou seja, um vocativo, e se isola por vírgula.", {}],
+    ["LP", "Assinale a alternativa em que a palavra está grafada corretamente.",
+      ["previlégio", "privilégio", "privilegio", "previlegio"], 1,
+      "A grafia correta é “privilégio”, de origem latina (privilegium). A palavra recebe acento por ser proparoxítona.", {}],
+    ["LP", "Assinale a alternativa em que o emprego de <i>mau / mal</i> está correto.",
+      ["Ele trabalha mau.", "Ele passou muito mau.", "Ele é um mal funcionário.", "Ele é um mau funcionário."], 3,
+      "“Mau” é adjetivo (oposto de bom) e acompanha substantivo. “Mal” é advérbio ou substantivo (oposto de bem).", {}],
+    // ---------- RACIOCÍNIO LÓGICO ----------
+    ["RL", "Observe a sequência: 1, 4, 9, 16, 25, ... O próximo termo é",
+      ["30.", "35.", "36.", "49."], 2,
+      "São os quadrados perfeitos: 1², 2², 3², 4², 5². O próximo é 6² = 36.", {}],
+    ["RL", "O preço de um produto aumentou 10% e, no mês seguinte, aumentou mais 10% sobre o novo preço. O aumento total acumulado foi de",
+      ["20%.", "21%.", "22%.", "25%."], 1,
+      "1,10 × 1,10 = 1,21. O aumento acumulado é de 21%.", {}],
+    ["RL", "Dez máquinas iguais produzem 500 peças em 5 horas. Oito dessas máquinas, funcionando durante 10 horas, produzirão",
+      ["600 peças.", "700 peças.", "800 peças.", "900 peças."], 2,
+      "Cada máquina faz 500 / (10 × 5) = 10 peças por hora. Então 8 × 10 × 10 = 800 peças.", {}],
+    ["RL", "Considere as premissas: “Nenhum A é B” e “Todo C é A”. Dessas premissas conclui-se necessariamente que",
+      ["nenhum C é B.", "algum C é B.", "todo B é C.", "nenhum A é C."], 0,
+      "Se todo C está em A e A não tem elementos em B, então nenhum C pode estar em B.", {}],
+    ["RL", "Uma senha é formada por 2 algarismos distintos escolhidos entre 1, 2, 3, 4 e 5. O número de senhas possíveis é",
+      ["10.", "20.", "25.", "120."], 1,
+      "Para o primeiro algarismo há 5 opções, e para o segundo restam 4: 5 × 4 = 20.", {}],
+    ["RL", "O gráfico mostra o número de atendimentos de um setor em quatro meses. O mês de janeiro representa, em relação ao total do período, um percentual de",
+      ["24%.", "25%.", "26%.", "28%."], 0,
+      "Total: 120 + 150 + 90 + 140 = 500. Janeiro: 120 / 500 = 0,24 = 24%.", { fig: ["bars", "Atendimentos por mês", ["Jan", "Fev", "Mar", "Abr"], [120, 150, 90, 140]] }],
+    ["RL", "A soma de dois números é 40 e a diferença entre eles é 8. O menor desses números é",
+      ["14.", "15.", "16.", "18."], 2,
+      "Os números são (40 + 8)/2 = 24 e (40 − 8)/2 = 16. O menor é 16.", {}],
+    ["RL", "Adotando π = 3, a área de um círculo de raio 10 cm é igual a",
+      ["300 cm².", "314 cm².", "600 cm².", "900 cm²."], 0,
+      "A = π r² = 3 × 10² = 300 cm². Com π = 3,14 seria 314, mas o enunciado pede π = 3.", {}],
+    ["RL", "A negação lógica da afirmação “Maria é médica ou Pedro é engenheiro” é",
+      ["Maria é médica e Pedro não é engenheiro.", "Maria não é médica ou Pedro não é engenheiro.", "Se Maria é médica, então Pedro é engenheiro.", "Maria não é médica e Pedro não é engenheiro."], 3,
+      "Pela lei de De Morgan, a negação de “P ou Q” é “não P e não Q”.", {}],
+    ["RL", "Uma obra começou às 13h45min e terminou às 17h10min do mesmo dia. A duração dessa obra foi de",
+      ["3h15min.", "3h25min.", "3h35min.", "4h15min."], 1,
+      "De 13h45 a 17h45 seriam 4 horas. Como terminou 35 minutos antes disso, são 3 h 25 min.", {}],
+    // ---------- ATUALIDADES ----------
+    ["AT", "O BRICS é um agrupamento de países que, em sua formação original, reunia Brasil, Rússia, Índia, China e",
+      ["Argentina.", "África do Sul.", "Arábia Saudita.", "Austrália."], 1,
+      "A África do Sul entrou no grupo em 2011, completando a sigla BRICS.", {}],
+    ["AT", "O Plano Real, de estabilização da economia brasileira, foi implantado em",
+      ["1986.", "1990.", "1994.", "1999."], 2,
+      "O Plano Real começou em 1994, com a URV e depois a nova moeda, e controlou a hiperinflação.", {}],
+    ["AT", "O Acordo de Paris, firmado em 2015 no âmbito da ONU, tem como meta principal",
+      ["limitar o aquecimento global bem abaixo de 2 °C em relação aos níveis pré-industriais.", "eliminar o uso de energia hidrelétrica.", "proibir a pesca em águas internacionais.", "taxar a exportação de alimentos."], 0,
+      "O acordo busca manter o aumento da temperatura média global bem abaixo de 2 °C, com esforços para limitar a 1,5 °C.", {}],
+    ["AT", "O Dia Mundial do Meio Ambiente é comemorado em",
+      ["22 de março.", "5 de junho.", "21 de setembro.", "12 de outubro."], 1,
+      "A data, 5 de junho, foi instituída pela ONU. O Dia Mundial da Água é 22 de março.", {}],
+    ["AT", "A Constituição da República Federativa do Brasil, conhecida como “Constituição Cidadã”, foi promulgada em",
+      ["1º de janeiro de 1989.", "7 de setembro de 1988.", "15 de novembro de 1988.", "5 de outubro de 1988."], 3,
+      "A atual Constituição foi promulgada em 5 de outubro de 1988.", {}],
+    // ---------- LEGISLAÇÃO ----------
+    ["LG", "Segundo o §1º do art. 37 da Constituição Federal, a publicidade dos atos, programas, obras, serviços e campanhas dos órgãos públicos deverá ter caráter",
+      ["promocional.", "educativo, informativo ou de orientação social.", "eleitoral.", "comercial."], 1,
+      "Além disso, dela não podem constar nomes, símbolos ou imagens que caracterizem promoção pessoal de autoridades ou servidores.", {}],
+    ["LG", "Segundo o §4º do art. 37 da Constituição Federal, os atos de improbidade administrativa importarão",
+      ["prisão perpétua.", "apenas advertência verbal.", "a suspensão dos direitos políticos, a perda da função pública, a indisponibilidade dos bens e o ressarcimento ao erário.", "apenas multa de natureza tributária."], 2,
+      "As sanções são cumulativas e previstas na forma e gradação da lei, sem prejuízo da ação penal cabível.", {}],
+    ["LG", "Segundo o art. 41, §1º, da Constituição Federal, o servidor público estável só perderá o cargo",
+      ["por decisão discricionária do chefe do Poder Executivo.", "em virtude de sentença judicial transitada em julgado, de processo administrativo com ampla defesa ou de avaliação periódica de desempenho.", "por simples conveniência da Administração.", "ao completar 60 anos de idade."], 1,
+      "A Constituição lista três hipóteses: sentença judicial transitada em julgado, processo administrativo com ampla defesa e avaliação periódica de desempenho.", {}],
+    ["LG", "Segundo o art. 37, XXI, da Constituição Federal, ressalvados os casos especificados na legislação, as obras, serviços, compras e alienações serão contratados mediante",
+      ["processo de licitação pública que assegure igualdade de condições a todos os concorrentes.", "dispensa de licitação em todos os casos.", "escolha direta feita pela chefia.", "sorteio entre servidores do órgão."], 0,
+      "A licitação é a regra, e a dispensa e a inexigibilidade são exceções previstas em lei.", {}],
+    ["LG", "Segundo o art. 37, XI, da Constituição Federal, nos Municípios, o limite remuneratório dos agentes públicos é o subsídio mensal do(a)",
+      ["Presidente da Câmara Municipal.", "Governador do Estado.", "Presidente da República.", "Prefeito."], 3,
+      "No âmbito municipal, o teto é o subsídio do Prefeito. O subsídio dos Ministros do STF é o teto geral.", {}],
+    // ---------- CONHECIMENTOS ESPECÍFICOS ----------
+    ["CE", "Não é característica do modelo burocrático de Max Weber:",
+      ["hierarquia de autoridade.", "impessoalidade nas relações.", "informalidade nas relações.", "divisão do trabalho."], 2,
+      "O modelo burocrático de Weber se baseia em formalismo, hierarquia, impessoalidade, divisão do trabalho e regras escritas. Informalidade é o oposto.", {}],
+    ["CE", "Segundo o Manual de Redação da Presidência da República, o fecho “Atenciosamente” é empregado",
+      ["em comunicações dirigidas a autoridades de mesma hierarquia ou inferiores.", "somente nas comunicações ao Presidente da República.", "apenas em comunicações internas.", "nunca em ofícios."], 0,
+      "“Respeitosamente” vai para autoridades superiores. “Atenciosamente” serve para as de mesma hierarquia ou inferiores.", {}],
+    ["CE", "Segundo a Lei nº 4.320/1964, os créditos destinados a reforço de dotação orçamentária já existente são os créditos",
+      ["especiais.", "extraordinários.", "reservados.", "suplementares."], 3,
+      "Suplementares reforçam dotação existente. Especiais cobrem despesas sem dotação específica, e extraordinários atendem despesas urgentes e imprevisíveis.", {}],
+    ["CE", "Um capital de R$ 800,00 foi aplicado a juros simples, à taxa de 3% ao mês, durante 5 meses. O montante ao final do período é de",
+      ["R$ 920,00.", "R$ 924,00.", "R$ 936,00.", "R$ 960,00."], 0,
+      "J = 800 × 0,03 × 5 = 120. Montante: 800 + 120 = 920.", {}],
+    ["CE", "O Sistema de Registro de Preços, previsto na Lei nº 14.133/2021, é",
+      ["uma modalidade de licitação exclusiva para obras.", "um conjunto de procedimentos para o registro formal de preços de bens e serviços, destinado a contratações futuras.", "um tipo de contrato que dispensa licitação.", "um cadastro de fornecedores impedidos."], 1,
+      "O SRP permite registrar preços em ata, que a Administração pode usar quando precisar contratar.", {}],
+    ["CE", "A tabela de temporalidade documental",
+      ["lista as despesas do exercício.", "registra a frequência dos funcionários.", "define os prazos de guarda e a destinação final dos documentos.", "relaciona os fornecedores do órgão."], 2,
+      "A tabela de temporalidade diz por quanto tempo cada documento é guardado e se depois será eliminado ou preservado.", {}],
+    ["CE", "No processo de comunicação, o retorno do receptor ao emissor, mostrando como a mensagem foi recebida e compreendida, é o",
+      ["ruído.", "canal.", "código.", "feedback."], 3,
+      "O feedback fecha o ciclo da comunicação, permitindo ao emissor verificar se a mensagem foi entendida.", {}],
+    ["CE", "Segundo o Decreto-Lei nº 200/1967, integram a Administração Pública indireta",
+      ["os ministérios.", "as autarquias.", "as secretarias de governo.", "os órgãos da administração direta."], 1,
+      "A administração indireta é formada por autarquias, fundações públicas, empresas públicas e sociedades de economia mista.", {}],
+    ["CE", "Na classificação ABC de estoques, os itens da classe A são",
+      ["poucos itens, que representam a maior parte do valor total.", "muitos itens de baixo valor.", "itens sem movimentação.", "itens perecíveis."], 0,
+      "A classe A concentra poucos itens que respondem pela maior fatia do valor movimentado e exigem controle mais rigoroso.", {}],
+    ["CE", "Uma taxa de juros simples de 24% ao ano equivale, proporcionalmente, a uma taxa mensal de",
+      ["1%.", "2%.", "2,4%.", "12%."], 1,
+      "Em juros simples, taxas proporcionais se obtêm por divisão: 24% / 12 = 2% ao mês.", {}]
+  ]
+};
+
+// Prova 6: questões originais, no estilo FUNDEP (10 LP, 10 RL, 5 AT, 5 LG, 10 CE).
+PROVAS[6] = {
+  id: 6,
+  titulo: "Prova 6",
+  origem: "Questões originais no estilo da banca",
+  q: [
+    // ---------- LÍNGUA PORTUGUESA ----------
+    ["LP", "O pedido feito pela companhia de águas aos moradores tem como objetivo",
+      ["anunciar um racionamento imediato.", "evitar a necessidade de racionamento mais adiante.", "punir quem lava carros com mangueira.", "reduzir o preço da água."], 1,
+      "O diretor explica que quem economiza hoje ajuda o reservatório a atravessar a estiagem sem racionamento.", { t: "reserv" }],
+    ["LP", "No trecho “não havia risco imediato de desabastecimento, <i>mas</i> pediu que os moradores evitassem lavar calçadas”, a conjunção destacada introduz",
+      ["uma causa.", "uma consequência.", "uma ideia de oposição.", "uma comparação."], 2,
+      "Apesar de não haver risco imediato, a companhia pede economia: as ideias se contrapõem, e “mas” é adversativa.", { t: "reserv" }],
+    ["LP", "A frase do diretor técnico, “prevenir custa menos do que remediar”, expressa a ideia de que",
+      ["agir antes do problema é mais econômico do que corrigi-lo depois.", "remediar é sempre mais barato do que prevenir.", "o racionamento é inevitável.", "a estiagem não preocupa a companhia."], 0,
+      "A comparação “menos do que” coloca a prevenção em vantagem sobre a correção posterior.", { t: "reserv" }],
+    ["LP", "No texto, a palavra <i>estiagem</i> significa",
+      ["excesso de chuvas.", "queda brusca de temperatura.", "período prolongado sem chuvas.", "aumento do nível dos rios."], 2,
+      "Estiagem é a falta de chuvas por um longo período, o que explica a queda no nível do reservatório.", { t: "reserv" }],
+    ["LP", "Assinale a alternativa que está de acordo com a norma-padrão quanto à concordância verbal e nominal.",
+      ["Existe muitas pessoas na fila.", "Existem muitas pessoas na fila.", "Existem muita pessoas na fila.", "Existe muita pessoas na fila."], 1,
+      "O verbo existir concorda com o sujeito (“muitas pessoas”, plural), e o pronome indefinido concorda com o substantivo.", {}],
+    ["LP", "No sentido de “desejar, pretender”, o verbo <i>aspirar</i> exige complemento com preposição. Assinale a alternativa correta.",
+      ["Aspiramos uma vaga no concurso.", "Aspiramos de uma vaga no concurso.", "Aspiramos em uma vaga no concurso.", "Aspiramos a uma vaga no concurso."], 3,
+      "Aspirar, com o sentido de desejar, é transitivo indireto e pede a preposição a: “aspiramos a uma vaga”.", {}],
+    ["LP", "Está correto o uso do sinal indicativo de crase em",
+      ["Refiro-me à funcionária que chegou ontem.", "Fomos à Uberlândia no fim de semana.", "Ela saiu à pé.", "Entregue o documento à quem de direito."], 0,
+      "“Referir-se a” + a funcionária = à funcionária. Uberlândia não admite artigo, e não há crase antes de “pé” (masculino) nem antes de “quem” (pronome).", {}],
+    ["LP", "Em “Marta, chefe da seção, chegou cedo”, as vírgulas isolam",
+      ["um vocativo.", "um adjunto adverbial.", "um aposto.", "uma conjunção."], 2,
+      "“Chefe da seção” explica quem é Marta, ou seja, é um aposto explicativo.", {}],
+    ["LP", "O adjetivo <i>efêmero</i> pode ser substituído, sem prejuízo do sentido, por",
+      ["duradouro.", "passageiro.", "eterno.", "firme."], 1,
+      "Efêmero é o que dura pouco tempo: passageiro.", {}],
+    ["LP", "Em “O relatório foi entregue pela secretária”, o verbo está na",
+      ["voz ativa.", "voz reflexiva.", "voz passiva sintética.", "voz passiva analítica."], 3,
+      "A forma verbal composta (verbo auxiliar ser + particípio) com agente da passiva (“pela secretária”) caracteriza a voz passiva analítica.", {}],
+    // ---------- RACIOCÍNIO LÓGICO ----------
+    ["RL", "Em uma pesquisa com 50 pessoas sobre o meio de transporte que utilizam, o diagrama mostra o número de pessoas que usam apenas ônibus, apenas bicicleta e os dois meios. O número de pessoas que não usam nenhum desses dois meios é",
+      ["2.", "4.", "6.", "8."], 1,
+      "Usam ao menos um meio: 22 + 8 + 16 = 46. Não usam nenhum: 50 − 46 = 4.", { fig: ["venn", "Ônibus", "Bicicleta", 22, 8, 16] }],
+    ["RL", "Após um desconto de 20%, um produto passou a custar R$ 240,00. O preço original desse produto era",
+      ["R$ 260,00.", "R$ 280,00.", "R$ 300,00.", "R$ 320,00."], 2,
+      "O preço com desconto equivale a 80% do original: 240 / 0,80 = 300.", {}],
+    ["RL", "Deseja-se dividir R$ 640,00 entre duas pessoas em partes diretamente proporcionais a 3 e 5. A maior parte é de",
+      ["R$ 320,00.", "R$ 360,00.", "R$ 380,00.", "R$ 400,00."], 3,
+      "Cada parte vale 640 / (3 + 5) = 80. A maior é 5 × 80 = 400.", {}],
+    ["RL", "Na sequência 1, 1, 2, 3, 5, 8, 13, ... , o próximo termo é",
+      ["21.", "22.", "23.", "24."], 0,
+      "Cada termo é a soma dos dois anteriores (sequência de Fibonacci): 8 + 13 = 21.", {}],
+    ["RL", "A negação da afirmação “Algum aluno faltou” é",
+      ["Nenhum aluno faltou.", "Todos os alunos faltaram.", "Algum aluno não faltou.", "Pelo menos um aluno compareceu."], 0,
+      "A negação de “existe pelo menos um que...” é “nenhum...”.", {}],
+    ["RL", "O gráfico mostra o consumo de água (em m³) de uma residência em cinco meses. A diferença entre a média e a mediana desses consumos, nessa ordem (média − mediana), é igual a",
+      ["0.", "1.", "2.", "3."], 1,
+      "Média: (12 + 15 + 18 + 15 + 20) / 5 = 80 / 5 = 16. Mediana: com os valores ordenados 12, 15, 15, 18, 20, é 15. Diferença: 1.", { fig: ["bars", "Consumo mensal (m³)", ["Mai", "Jun", "Jul", "Ago", "Set"], [12, 15, 18, 15, 20]] }],
+    ["RL", "Uma torneira despeja 6.000 litros de água em um tanque em 4 horas, com vazão constante. O tempo necessário para despejar 9.000 litros nessa mesma vazão é de",
+      ["4 horas.", "5 horas.", "6 horas.", "8 horas."], 2,
+      "Vazão: 6000 / 4 = 1500 L/h. Para 9000 L: 9000 / 1500 = 6 horas.", {}],
+    ["RL", "Um triângulo retângulo tem catetos de 12 cm e 7 cm. A área desse triângulo é",
+      ["42 cm².", "48 cm².", "60 cm².", "84 cm²."], 0,
+      "A área é base × altura / 2 = 12 × 7 / 2 = 42 cm².", { fig: ["tri", 12, 7] }],
+    ["RL", "Se o dia 7 de setembro de 2022 foi uma quarta-feira, o dia 25 de dezembro de 2022 foi uma",
+      ["segunda-feira.", "terça-feira.", "sábado.", "domingo."], 3,
+      "De 7 de setembro a 25 de dezembro passam 23 + 31 + 30 + 25 = 109 dias. 109 = 15 × 7 + 4, e quatro dias depois de quarta-feira é domingo.", {}],
+    ["RL", "Com os algarismos 1, 2, 3 e 4, o número de números de três algarismos distintos que podem ser formados é",
+      ["12.", "16.", "24.", "64."], 2,
+      "Há 4 opções para o primeiro algarismo, 3 para o segundo e 2 para o terceiro: 4 × 3 × 2 = 24.", {}],
+    // ---------- ATUALIDADES ----------
+    ["AT", "A Emenda Constitucional nº 103, de 2019, tratou da reforma",
+      ["tributária.", "da Previdência Social.", "administrativa.", "política."], 1,
+      "A EC 103/2019 alterou o sistema de previdência social, com novas regras de idade mínima e de cálculo de benefícios.", {}],
+    ["AT", "O Tratado de Assunção, de 1991, criou o Mercosul, formado inicialmente por Brasil, Argentina, Paraguai e",
+      ["Chile.", "Bolívia.", "Uruguai.", "Venezuela."], 2,
+      "Os quatro fundadores do Mercosul são Brasil, Argentina, Paraguai e Uruguai.", {}],
+    ["AT", "A Lei nº 11.340/2006, conhecida como Lei Maria da Penha, trata do combate à",
+      ["violência doméstica e familiar contra a mulher.", "corrupção eleitoral.", "pirataria de software.", "poluição das águas."], 0,
+      "A lei cria mecanismos para coibir e prevenir a violência doméstica e familiar contra a mulher.", {}],
+    ["AT", "Em maio de 2024, enchentes de grandes proporções atingiram, em especial, o estado de",
+      ["Santa Catarina.", "Paraná.", "São Paulo.", "Rio Grande do Sul."], 3,
+      "As chuvas de maio de 2024 provocaram a maior enchente da história recente do Rio Grande do Sul, com atingidos em centenas de municípios.", {}],
+    ["AT", "O Dia Nacional da Consciência Negra é comemorado em",
+      ["13 de maio.", "20 de novembro.", "7 de setembro.", "15 de novembro."], 1,
+      "A data, 20 de novembro, lembra a morte de Zumbi dos Palmares e é feriado nacional.", {}],
+    // ---------- LEGISLAÇÃO ----------
+    ["LG", "O princípio da eficiência foi incluído expressamente no caput do art. 37 da Constituição Federal pela",
+      ["Emenda Constitucional nº 19/1998.", "redação original da Constituição de 1988.", "Lei nº 8.666/1993.", "Emenda Constitucional nº 103/2019."], 0,
+      "A EC 19/1998 (reforma administrativa) acrescentou a eficiência aos princípios de legalidade, impessoalidade, moralidade e publicidade.", {}],
+    ["LG", "Segundo o art. 37, VII, da Constituição Federal, o direito de greve dos servidores públicos será exercido",
+      ["livremente, sem limites.", "nos termos e nos limites definidos em lei específica.", "somente em dias úteis.", "mediante autorização do prefeito."], 1,
+      "A Constituição remete à lei específica os termos e limites do exercício do direito de greve no serviço público.", {}],
+    ["LG", "De acordo com o art. 37, IX, da Constituição Federal, a lei estabelecerá os casos de contratação por tempo determinado para atender a",
+      ["qualquer vaga permanente do quadro.", "cargos de livre nomeação.", "necessidade temporária de excepcional interesse público.", "vagas de concurso vencido."], 2,
+      "A contratação temporária só se justifica por necessidade temporária de excepcional interesse público.", {}],
+    ["LG", "Na Lei nº 14.133/2021, o servidor designado pela autoridade competente para tomar decisões, acompanhar o trâmite da licitação e conduzir a sessão pública é o(a)",
+      ["fiscal de contrato.", "gestor de contrato.", "parecerista jurídico.", "agente de contratação."], 3,
+      "O agente de contratação conduz a licitação. Fiscal e gestor atuam na execução do contrato.", {}],
+    ["LG", "Na Lei de Acesso à Informação, a divulgação de informações de interesse coletivo pelos órgãos públicos, independentemente de requerimento, chama-se",
+      ["transparência passiva.", "transparência ativa.", "sigilo.", "classificação."], 1,
+      "Na transparência ativa o órgão publica por iniciativa própria, por exemplo, em seu site. Na passiva, responde a pedidos.", {}],
+    // ---------- CONHECIMENTOS ESPECÍFICOS ----------
+    ["CE", "Na teoria dos dois fatores, de Herzberg, são considerados fatores motivacionais",
+      ["salário e condições físicas do trabalho.", "reconhecimento, realização e responsabilidade.", "política da empresa e supervisão.", "relações com os colegas."], 1,
+      "Para Herzberg, os motivacionais estão ligados ao trabalho em si: realização, reconhecimento e responsabilidade. Salário, supervisão e condições são fatores higiênicos.", {}],
+    ["CE", "No ciclo da receita pública, a transferência dos valores arrecadados pelos agentes arrecadadores ao Tesouro é chamada de",
+      ["previsão.", "lançamento.", "arrecadação.", "recolhimento."], 3,
+      "Lançamento identifica o devedor, arrecadação é o pagamento ao agente e recolhimento é a entrada dos valores nos cofres do Tesouro.", {}],
+    ["CE", "Segundo a Lei nº 4.320/1964, consideram-se restos a pagar",
+      ["as despesas liquidadas e pagas no exercício.", "as despesas empenhadas e não pagas até 31 de dezembro.", "as receitas arrecadadas e não recolhidas.", "os créditos adicionais não utilizados."], 1,
+      "Restos a pagar são as despesas empenhadas, mas não pagas até o dia 31 de dezembro.", {}],
+    ["CE", "Segundo a Lei nº 14.133/2021, a garantia exigida em contratos, em regra, não pode exceder a",
+      ["1% do valor inicial do contrato.", "3% do valor inicial do contrato.", "5% do valor inicial do contrato.", "15% do valor inicial do contrato."], 2,
+      "A lei limita a garantia a 5% do valor inicial do contrato. Para obras e serviços de engenharia de grande vulto, o limite pode ser maior.", {}],
+    ["CE", "A organização informal é caracterizada por",
+      ["estrutura definida em organograma e manuais.", "relações sociais espontâneas entre as pessoas, não previstas no organograma.", "hierarquia rígida e documentada.", "divisão do trabalho prevista em regimento."], 1,
+      "A organização informal nasce das relações pessoais e de amizade no trabalho, fora da estrutura formal.", {}],
+    ["CE", "No controle de estoques, o estoque mínimo (ou de segurança) tem a finalidade de",
+      ["eliminar a necessidade de compras.", "aumentar o custo de armazenagem.", "evitar inventários.", "proteger contra atrasos na entrega e variações do consumo."], 3,
+      "O estoque de segurança funciona como reserva para que a operação não pare se o fornecedor atrasar ou o consumo subir.", {}],
+    ["CE", "A diferença entre o memorando e o ofício é que",
+      ["o memorando é interno e o ofício é dirigido a outros órgãos ou a particulares.", "o memorando só é usado por particulares.", "o ofício é sempre interno.", "não há nenhuma diferença."], 0,
+      "O memorando circula entre unidades do mesmo órgão, e o ofício é a comunicação externa, com outros órgãos ou com particulares.", {}],
+    ["CE", "Em uma organização com descentralização do poder de decisão,",
+      ["as decisões ficam concentradas no topo.", "as decisões são delegadas a níveis hierárquicos inferiores.", "não existe hierarquia.", "todas as decisões são tomadas por um comitê externo."], 1,
+      "Descentralizar é levar a autoridade de decidir para níveis mais próximos da execução.", {}],
+    ["CE", "Um título de R$ 5.000,00 foi pago antecipadamente, com desconto de 4%. O valor pago foi de",
+      ["R$ 4.600,00.", "R$ 4.750,00.", "R$ 4.800,00.", "R$ 4.900,00."], 2,
+      "4% de 5000 = 200. O valor pago é 5000 − 200 = 4800.", {}],
+    ["CE", "As despesas com pessoal e encargos sociais do órgão são classificadas como despesas",
+      ["correntes.", "de capital.", "de investimento.", "de amortização da dívida."], 0,
+      "Pessoal e encargos integram as despesas correntes, junto com juros e outras despesas correntes.", {}]
+  ]
+};
+
+// Prova 7: questões originais, no estilo FUNDEP (10 LP, 10 RL, 5 AT, 5 LG, 10 CE).
+PROVAS[7] = {
+  id: 7,
+  titulo: "Prova 7",
+  origem: "Questões originais no estilo da banca",
+  q: [
+    // ---------- LÍNGUA PORTUGUESA ----------
+    ["LP", "Para Rui, atender bem é",
+      ["falar com delicadeza, sem se preocupar com o resultado.", "resolver a necessidade da pessoa atendida.", "responder rápido, mesmo sem certeza da informação.", "evitar registrar os casos."], 1,
+      "O texto afirma que atender bem não é falar bonito, mas resolver.", { t: "atend" }],
+    ["LP", "No trecho “quando não encontra a informação, não improvisa uma resposta”, o sentido é de que Rui",
+      ["responde com segurança mesmo sem saber.", "ignora o pedido do cidadão.", "delega a resposta a outro colega.", "evita dar uma resposta sem ter a informação correta."], 3,
+      "Não improvisar é não responder no escuro. Ele anota o caso, avisa o prazo e retorna com a informação.", { t: "atend" }],
+    ["LP", "A expressão “o caderno de ligações vazio é a sua melhor avaliação” sugere que",
+      ["Rui não deixou pendências ao fim do dia.", "Rui perdeu o caderno.", "não houve atendimento naquele dia.", "as ligações foram ignoradas."], 0,
+      "O caderno guarda os casos a serem retornados. Se está vazio, tudo foi resolvido.", { t: "atend" }],
+    ["LP", "No período “Quando a primeira pessoa chega, ele já sabe quantas estão à frente dela”, a oração iniciada por <i>quando</i> expressa ideia de",
+      ["causa.", "concessão.", "tempo.", "condição."], 2,
+      "“Quando” introduz uma oração subordinada adverbial temporal: indica o momento em que ele já sabe a fila.", { t: "atend" }],
+    ["LP", "Assinale a alternativa em que a regência do verbo está de acordo com a norma-padrão.",
+      ["Obedeça ao regulamento.", "Obedeça o regulamento.", "Obedeça do regulamento.", "Obedeça com o regulamento."], 0,
+      "Obedecer é transitivo indireto e pede a preposição a.", {}],
+    ["LP", "Assinale a alternativa que completa corretamente a frase: “O diretor e o chefe do setor ______ à reunião.”",
+      ["compareceu", "comparecia", "compareceram", "compareça"], 2,
+      "Sujeito composto (“o diretor e o chefe”) pede verbo no plural: compareceram.", {}],
+    ["LP", "Assinale a palavra grafada corretamente.",
+      ["ascenção", "assenção", "asenssão", "ascensão"], 3,
+      "A grafia correta é “ascensão”, do verbo ascender (sc + ensão).", {}],
+    ["LP", "De acordo com o Acordo Ortográfico em vigor, está corretamente grafada a palavra",
+      ["enjôo", "enjoo", "vôo", "abençôo"], 1,
+      "Com o Acordo, perdeu-se o acento circunflexo nas palavras terminadas em -oo(s): enjoo, voo, abençoo.", {}],
+    ["LP", "Assinale a frase em que o emprego de <i>onde / aonde</i> está correto.",
+      ["Onde você mora?", "Aonde você mora?", "Aonde ela está?", "Aonde fica o banco?"], 0,
+      "“Aonde” indica movimento (aonde você vai). Para lugar fixo, usa-se “onde”.", {}],
+    ["LP", "Em “Precisa-se de funcionários”, o sujeito é",
+      ["simples.", "composto.", "indeterminado.", "oculto."], 2,
+      "O verbo está na 3ª pessoa do singular, seguido de “se” e de preposição. Isso indica sujeito indeterminado.", {}],
+    // ---------- RACIOCÍNIO LÓGICO ----------
+    ["RL", "O gráfico mostra o número de protocolos recebidos por um setor em quatro semanas. A média semanal de protocolos nesse período é de",
+      ["110.", "120.", "130.", "140."], 0,
+      "Soma: 90 + 110 + 120 + 120 = 440. Média: 440 / 4 = 110.", { fig: ["bars", "Protocolos por semana", ["Sem 1", "Sem 2", "Sem 3", "Sem 4"], [90, 110, 120, 120]] }],
+    ["RL", "O número de requerimentos analisados por um setor passou de 80 para 100 de um mês para o outro. O aumento percentual foi de",
+      ["20%.", "25%.", "30%.", "80%."], 1,
+      "O aumento foi de 20 sobre a base de 80: 20 / 80 = 0,25 = 25%.", {}],
+    ["RL", "Seis pessoas, trabalhando 4 dias, produzem 240 fichas. Mantido o mesmo ritmo, 9 pessoas trabalhando 8 dias produzirão",
+      ["540 fichas.", "600 fichas.", "660 fichas.", "720 fichas."], 3,
+      "Cada pessoa faz 240 / (6 × 4) = 10 fichas por dia. Então 9 × 8 × 10 = 720.", {}],
+    ["RL", "Considere verdadeiras as afirmações: “O processo é arquivado ou segue ao setor jurídico” e “O processo não foi arquivado”. Conclui-se que",
+      ["o processo segue ao setor jurídico.", "o processo foi arquivado.", "nada se pode concluir.", "o processo foi extraviado."], 0,
+      "Se uma das duas alternativas da disjunção é falsa, a outra é verdadeira.", {}],
+    ["RL", "Lançando-se duas moedas honestas, a probabilidade de saírem duas caras é",
+      ["1/8.", "1/4.", "1/3.", "1/2."], 1,
+      "Cada moeda dá cara com probabilidade 1/2, e os lançamentos são independentes: 1/2 × 1/2 = 1/4.", {}],
+    ["RL", "A idade de Ana é o dobro da idade de Beto. Daqui a 5 anos, a soma das idades dos dois será 58 anos. A idade atual de Ana é",
+      ["28 anos.", "30 anos.", "32 anos.", "36 anos."], 2,
+      "Beto tem b e Ana tem 2b. Então (2b + 5) + (b + 5) = 58, o que dá b = 16 e Ana tem 32.", {}],
+    ["RL", "A área de um terreno quadrado é de 100 m². O perímetro desse terreno é de",
+      ["20 m.", "30 m.", "40 m.", "50 m."], 2,
+      "O lado é √100 = 10 m. O perímetro é 4 × 10 = 40 m.", {}],
+    ["RL", "Um ciclista percorre 45 km em 3 horas. Mantendo a mesma velocidade, ele percorrerá em 5 horas",
+      ["60 km.", "65 km.", "70 km.", "75 km."], 3,
+      "A velocidade é 45 / 3 = 15 km/h. Em 5 horas: 15 × 5 = 75 km.", {}],
+    ["RL", "Dois rolos de fita, de 120 m e de 180 m, serão cortados em pedaços de mesmo comprimento, o maior possível, sem sobras. O comprimento de cada pedaço será de",
+      ["30 m.", "40 m.", "50 m.", "60 m."], 3,
+      "É o máximo divisor comum: MDC(120, 180) = 60 m.", {}],
+    ["RL", "Em uma turma de 60 alunos, o diagrama mostra quantos foram aprovados apenas em Português, apenas em Matemática e nas duas disciplinas. O número de alunos que não foram aprovados em nenhuma das duas disciplinas é",
+      ["5.", "7.", "9.", "11."], 1,
+      "Aprovados em ao menos uma: 25 + 10 + 18 = 53. Em nenhuma: 60 − 53 = 7.", { fig: ["venn", "Português", "Matemática", 25, 10, 18] }],
+    // ---------- ATUALIDADES ----------
+    ["AT", "O mandato dos prefeitos municipais no Brasil é de",
+      ["2 anos.", "4 anos.", "5 anos.", "6 anos."], 1,
+      "Os prefeitos têm mandato de quatro anos, com possibilidade de uma reeleição.", {}],
+    ["AT", "O ChatGPT, lançado em 2022, é um exemplo de",
+      ["inteligência artificial generativa.", "rede social.", "sistema de pagamentos.", "moeda digital."], 0,
+      "É um modelo de linguagem que gera textos a partir de comandos escritos pelo usuário.", {}],
+    ["AT", "O Produto Interno Bruto (PIB) mede",
+      ["a taxa de juros básica da economia.", "o total de impostos arrecadados.", "a soma dos bens e serviços finais produzidos em um país em um período.", "o número de empregos formais."], 2,
+      "O PIB é o valor de tudo o que é produzido em bens e serviços finais dentro das fronteiras do país, em um período.", {}],
+    ["AT", "O fenômeno El Niño caracteriza-se pelo",
+      ["resfriamento anormal das águas do Atlântico Sul.", "aquecimento anormal das águas superficiais do Oceano Pacífico equatorial.", "aumento da camada de ozônio.", "derretimento exclusivo dos polos."], 1,
+      "O El Niño é o aquecimento das águas do Pacífico equatorial, que altera chuvas e temperaturas em várias regiões do planeta.", {}],
+    ["AT", "A sede da Organização das Nações Unidas (ONU) fica em",
+      ["Genebra.", "Paris.", "Nova York.", "Bruxelas."], 2,
+      "A sede principal da ONU fica em Nova York, nos Estados Unidos.", {}],
+    // ---------- LEGISLAÇÃO ----------
+    ["LG", "Segundo a Constituição Federal (art. 5º, XXXIV), são a todos assegurados, independentemente do pagamento de taxas, o direito de petição e a obtenção de",
+      ["certidões em repartições públicas, para a defesa de direitos e o esclarecimento de situações de interesse pessoal.", "isenção de impostos.", "carteira nacional de habilitação.", "cargo público."], 0,
+      "O direito de petição e a obtenção de certidões são gratuitos e visam à defesa de direitos e ao esclarecimento de situações pessoais.", {}],
+    ["LG", "Entre os princípios do processo administrativo previstos na Lei nº 9.784/1999 estão a ampla defesa e o",
+      ["sigilo absoluto.", "personalismo.", "contraditório.", "privilégio das partes."], 2,
+      "O contraditório e a ampla defesa são princípios do processo administrativo, ao lado da legalidade, da motivação e da razoabilidade.", {}],
+    ["LG", "O art. 37, §3º, da Constituição Federal determina que a lei disciplinará as formas de",
+      ["acumulação de cargos públicos.", "aposentadoria compulsória.", "greve dos servidores.", "participação do usuário na administração pública."], 3,
+      "A lei regula a participação do usuário, em especial reclamações sobre serviços, acesso a registros e representação contra abuso.", {}],
+    ["LG", "Como regra geral de licitações e contratos, a Lei nº 14.133/2021 substituiu a Lei nº",
+      ["8.429/1992.", "8.666/1993.", "12.527/2011.", "9.784/1999."], 1,
+      "A Lei 14.133/2021 é a Nova Lei de Licitações e substituiu a Lei 8.666/1993, a do Pregão e a do RDC.", {}],
+    ["LG", "Segundo o art. 41, §3º, da Constituição Federal, extinto o cargo ou declarada sua desnecessidade, o servidor estável ficará em",
+      ["disponibilidade, com remuneração proporcional ao tempo de serviço.", "exoneração imediata, sem direitos.", "licença sem vencimentos.", "demissão sumária."], 0,
+      "O servidor estável não perde o cargo de imediato: fica em disponibilidade com remuneração proporcional até ser aproveitado.", {}],
+    // ---------- CONHECIMENTOS ESPECÍFICOS ----------
+    ["CE", "No estilo de liderança democrática, o líder",
+      ["decide sozinho, sem consultar ninguém.", "incentiva a participação do grupo nas decisões.", "evita qualquer intervenção, deixando o grupo sem direção.", "pune todos os desvios."], 1,
+      "Na liderança democrática, o líder consulta, orienta e divide as decisões com o grupo.", {}],
+    ["CE", "Os tributos arrecadados por um município (como o IPTU) são classificados como receitas",
+      ["de operações de crédito.", "de capital.", "patrimoniais de alienação.", "correntes."], 3,
+      "A receita tributária integra as receitas correntes.", {}],
+    ["CE", "Em um ofício, o campo que resume, em poucas palavras, o conteúdo da comunicação é o",
+      ["fecho.", "assunto.", "vocativo.", "anexo."], 1,
+      "O “assunto” é a síntese do que trata o documento, e fica entre o destinatário e o texto.", {}],
+    ["CE", "A fiscalização da execução de um contrato administrativo é feita por",
+      ["fiscal designado pela Administração.", "qualquer cidadão, com poder de decisão.", "somente o contratado.", "o Poder Judiciário, obrigatoriamente."], 0,
+      "A Administração deve designar um ou mais fiscais para acompanhar e fiscalizar a execução do contrato.", {}],
+    ["CE", "Um capital de R$ 2.000,00 foi aplicado a juros compostos, à taxa de 10% ao ano, durante 2 anos. Os juros obtidos foram de",
+      ["R$ 400,00.", "R$ 410,00.", "R$ 420,00.", "R$ 440,00."], 2,
+      "M = 2000 × 1,1² = 2420. Juros: 2420 − 2000 = 420.", {}],
+    ["CE", "No controle de estoques pelo método PEPS (primeiro a entrar, primeiro a sair),",
+      ["os itens mais novos saem primeiro.", "os itens mais antigos saem primeiro.", "os itens mais caros saem primeiro.", "a saída dos itens é aleatória."], 1,
+      "No PEPS, a saída segue a ordem de entrada: o que chegou primeiro é consumido primeiro.", {}],
+    ["CE", "No arquivamento de documentos organizado por local (estado, cidade, bairro), o método utilizado é o",
+      ["alfabético.", "numérico.", "cronológico.", "geográfico."], 3,
+      "O método geográfico ordena os documentos pelo local a que se referem.", {}],
+    ["CE", "A análise SWOT (ou FOFA) é uma ferramenta de planejamento que avalia",
+      ["apenas os custos.", "apenas os concorrentes.", "forças, fraquezas, oportunidades e ameaças.", "somente a legislação aplicável."], 2,
+      "A matriz SWOT cruza fatores internos (forças e fraquezas) e externos (oportunidades e ameaças).", {}],
+    ["CE", "O orçamento participativo caracteriza-se por",
+      ["participação da população na definição das prioridades do orçamento.", "decisão sigilosa do chefe do Executivo.", "elaboração exclusiva pelo Legislativo.", "eliminação das audiências públicas."], 0,
+      "No orçamento participativo, a população discute e decide parte das prioridades de investimento.", {}],
+    ["CE", "Para representar graficamente as etapas de um processo e a sequência entre elas, utiliza-se o",
+      ["organograma.", "cronograma.", "fluxograma.", "balanço patrimonial."], 2,
+      "O fluxograma mostra o passo a passo de um processo. O organograma mostra a estrutura hierárquica.", {}]
+  ]
+};
+
+// Prova 8: mini simulado original, com 20 questões (5 LP, 5 RL, 2 AT, 3 LG, 5 CE).
+PROVAS[8] = {
+  id: 8,
+  titulo: "Mini simulado",
+  origem: "20 questões originais no estilo da banca",
+  q: [
+    // ---------- LÍNGUA PORTUGUESA ----------
+    ["LP", "A ideia central do texto é que",
+      ["vazamentos pequenos podem causar grandes desperdícios.", "torneiras pingando não afetam a conta de água.", "a água desperdiçada volta ao rio.", "consertar vazamentos é muito caro."], 0,
+      "O texto mostra que um pingo aparentemente inofensivo gera desperdício ao longo do tempo e que consertar custa pouco.", { t: "poupa" }],
+    ["LP", "No trecho “ignorá-lo custa caro”, o pronome <i>-lo</i> retoma",
+      ["o rio.", "o vazamento doméstico.", "o prejuízo.", "a conta."], 1,
+      "O pronome refere-se ao termo mencionado na oração anterior: “um vazamento doméstico”.", { t: "poupa" }],
+    ["LP", "Assinale a alternativa que completa corretamente a frase: “Ontem ele não ______ comparecer à reunião.”",
+      ["pode", "pôde", "põe", "pôe"], 1,
+      "O pretérito perfeito do verbo poder recebe acento circunflexo para se diferenciar do presente: “pôde”.", {}],
+    ["LP", "Assinale a alternativa que completa corretamente a frase: “Se o diretor ______ novas regras, todos deverão cumpri-las.”",
+      ["propor", "propõe", "propuser", "propôs"], 2,
+      "Após “se”, em hipótese futura, usa-se o futuro do subjuntivo: “propuser”.", {}],
+    ["LP", "Em “Embora estivesse cansada, ela terminou o trabalho”, a oração iniciada por <i>embora</i> expressa ideia de",
+      ["causa.", "finalidade.", "proporção.", "concessão."], 3,
+      "“Embora” é conjunção concessiva: apresenta um fato que seria obstáculo, mas não impede o resultado.", {}],
+    // ---------- RACIOCÍNIO LÓGICO ----------
+    ["RL", "Dois descontos sucessivos de 10% sobre o preço de um produto equivalem a um único desconto de",
+      ["19%.", "20%.", "21%.", "22%."], 0,
+      "0,90 × 0,90 = 0,81. O preço final é 81% do original, ou seja, um desconto de 19%.", {}],
+    ["RL", "Na sequência 2, 5, 11, 23, ... , o próximo termo é",
+      ["44.", "45.", "46.", "47."], 3,
+      "Cada termo é o dobro do anterior mais 1: 23 × 2 + 1 = 47.", {}],
+    ["RL", "Uma receita usa 3 partes de farinha para 2 partes de água. Com 12 partes de farinha, a quantidade de água necessária é de",
+      ["6 partes.", "8 partes.", "9 partes.", "10 partes."], 1,
+      "A razão é 3 : 2. Com 12 de farinha (3 × 4), a água é 2 × 4 = 8.", {}],
+    ["RL", "De quantas maneiras diferentes 5 pessoas podem formar uma fila?",
+      ["60.", "100.", "120.", "125."], 2,
+      "Permutação simples: 5! = 5 × 4 × 3 × 2 × 1 = 120.", {}],
+    ["RL", "Considere as premissas: “Todos os fiscais são servidores” e “Ana é fiscal”. Conclui-se necessariamente que",
+      ["todo servidor é fiscal.", "Ana não é servidora.", "Ana é aposentada.", "Ana é servidora."], 3,
+      "Se Ana pertence ao conjunto dos fiscais e todos os fiscais são servidores, Ana é servidora.", {}],
+    // ---------- ATUALIDADES ----------
+    ["AT", "Pela Lei nº 14.026/2020, cabe à Agência Nacional de Águas e Saneamento Básico (ANA) editar",
+      ["normas de referência para a regulação dos serviços de saneamento.", "as tarifas de todos os municípios.", "o orçamento das prefeituras.", "as leis orgânicas municipais."], 0,
+      "O Novo Marco do Saneamento deu à ANA o papel de editar normas de referência para a regulação do setor.", {}],
+    ["AT", "O Dia do Servidor Público é comemorado em",
+      ["1º de maio.", "15 de outubro.", "28 de outubro.", "21 de abril."], 2,
+      "O Dia do Servidor Público foi instituído em 28 de outubro.", {}],
+    // ---------- LEGISLAÇÃO ----------
+    ["LG", "Segundo a Lei de Responsabilidade Fiscal (Lei Complementar nº 101/2000), a despesa total com pessoal, em cada período de apuração, não pode exceder, no Município, a",
+      ["40% da receita corrente líquida.", "50% da receita corrente líquida.", "60% da receita corrente líquida.", "80% da receita corrente líquida."], 2,
+      "O limite para Municípios é de 60% da receita corrente líquida, somados Executivo e Legislativo.", {}],
+    ["LG", "Segundo a Lei nº 9.784/1999, inexistindo disposição específica, os atos do órgão ou da autoridade responsável pelo processo devem ser praticados no prazo de",
+      ["1 dia.", "5 dias, salvo motivo de força maior.", "30 dias.", "90 dias."], 1,
+      "O prazo geral é de cinco dias, podendo ser dilatado até o dobro, mediante comprovada justificação.", {}],
+    ["LG", "O princípio da igualdade, previsto no art. 5º, caput, da Constituição Federal, determina que",
+      ["somente os servidores públicos têm direitos fundamentais.", "a lei pode tratar as pessoas de forma desigual por conveniência política.", "os direitos variam conforme a renda.", "todos são iguais perante a lei, sem distinção de qualquer natureza."], 3,
+      "A Constituição garante a todos igualdade perante a lei, sem distinção de qualquer natureza.", {}],
+    // ---------- CONHECIMENTOS ESPECÍFICOS ----------
+    ["CE", "Na Teoria Y, de McGregor, parte-se do pressuposto de que",
+      ["as pessoas evitam o trabalho e precisam de controle rígido.", "o trabalho é tão natural quanto o descanso, e as pessoas podem se autodirigir.", "apenas o dinheiro motiva.", "a supervisão deve ser sempre punitiva."], 1,
+      "A Teoria Y vê o trabalho como natural e as pessoas como capazes de assumir responsabilidade e se autocontrolar. A Teoria X é a visão oposta.", {}],
+    ["CE", "No estágio da liquidação da despesa pública, verifica-se",
+      ["a abertura da licitação.", "a previsão da receita.", "o direito adquirido pelo credor, com base em documentos que comprovam o crédito.", "o pagamento ao fornecedor."], 2,
+      "Na liquidação, a Administração confere se o bem ou serviço foi entregue e se o credor tem direito ao pagamento.", {}],
+    ["CE", "A certidão é o documento",
+      ["de comunicação interna entre setores.", "de pedido formal de licença.", "de registro de reunião.", "pelo qual a autoridade atesta, a pedido, fato constante de seus registros."], 3,
+      "A certidão reproduz ou atesta fatos que constam de livros, processos ou registros da Administração.", {}],
+    ["CE", "Um capital de R$ 1.500,00 foi aplicado a juros simples, à taxa de 2% ao mês, durante 6 meses. O montante ao final do período é de",
+      ["R$ 1.680,00.", "R$ 1.700,00.", "R$ 1.720,00.", "R$ 1.800,00."], 0,
+      "J = 1500 × 0,02 × 6 = 180. Montante: 1500 + 180 = 1680.", {}],
+    ["CE", "No ciclo PDCA, a etapa D (Do) consiste em",
+      ["definir metas.", "verificar resultados.", "executar o que foi planejado.", "corrigir falhas."], 2,
+      "PDCA: Plan (planejar), Do (executar), Check (verificar) e Act (agir). A etapa D é a execução do plano.", {}]
+  ]
+};
+
+
+const AREAS = { LP: "Língua Portuguesa", RL: "Raciocínio Lógico", AT: "Atualidades", LG: "Legislação", CE: "Conhecimentos Específicos" };
+const AREA_ORDER = ["LP", "RL", "AT", "LG", "CE"];
+const LETRAS = ["A", "B", "C", "D"];
+
+const ALL = [];
+for (const k of [1, 2, 3, 4, 5, 6, 7, 8]) {
+  const p = PROVAS[k];
+  p.qs = p.q.map((a, i) => Object.assign({ id: k + "-" + (i + 1), prova: k, n: i + 1, area: a[0], enun: a[1], alts: a[2], gab: a[3], exp: a[4] }, a[5] || {}));
+  ALL.push(...p.qs);
+}
+
+/* ---------- persistência (opcional) ---------- */
+const store = {
+  get(k) { try { return JSON.parse(localStorage.getItem(k)); } catch (e) { return null; } },
+  set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) { /* sem armazenamento */ } },
+  del(k) { try { localStorage.removeItem(k); } catch (e) { /* sem armazenamento */ } }
+};
+const keyOf = (mode, set) => "dmae:" + mode + ":" + set;
+
+/* ---------- figuras ---------- */
+const FIG = {
+  cube(n) {
+    const s = 34, k = 0.5, ox = 14;
+    const W = n * s, D = n * s * k;
+    const oy0 = W + D + 10;
+    const P = (x, y, z) => [(ox + x * s + z * k * s).toFixed(1), (oy0 - y * s - z * k * s).toFixed(1)];
+    const poly = (pts, cls) => '<polygon class="' + cls + '" points="' + pts.map(p => p.join(",")).join(" ") + '"/>';
+    const ln = (a, b) => '<line x1="' + a[0] + '" y1="' + a[1] + '" x2="' + b[0] + '" y2="' + b[1] + '"/>';
+    let g = "";
+    g += poly([P(0, 0, 0), P(n, 0, 0), P(n, n, 0), P(0, n, 0)], "f1");
+    g += poly([P(0, n, 0), P(n, n, 0), P(n, n, n), P(0, n, n)], "f2");
+    g += poly([P(n, 0, 0), P(n, 0, n), P(n, n, n), P(n, n, 0)], "f3");
+    for (let i = 0; i <= n; i++) {
+      g += ln(P(i, 0, 0), P(i, n, 0)) + ln(P(0, i, 0), P(n, i, 0));
+      g += ln(P(0, n, i), P(n, n, i)) + ln(P(i, n, 0), P(i, n, n));
+      g += ln(P(n, 0, i), P(n, n, i)) + ln(P(n, i, 0), P(n, i, n));
+    }
+    const w = ox * 2 + W + D, h = oy0 + 8;
+    return '<svg viewBox="0 0 ' + w.toFixed(0) + " " + h.toFixed(0) + '" width="' + w.toFixed(0) + '" role="img" aria-label="Cubo formado por ' + (n * n * n) + ' cubinhos"><style>.f1{fill:var(--accent-soft)}.f2{fill:var(--bg)}.f3{fill:var(--bar)}.cb line{stroke:var(--ink);stroke-width:1.2}.cb polygon{stroke:var(--ink);stroke-width:2}</style><g class="cb">' + g + "</g></svg>";
+  },
+  hex() {
+    const r = 90, cx = 120, cy = 100;
+    const pts = [];
+    for (let i = 0; i < 6; i++) { const a = Math.PI / 3 * i; pts.push([cx + r * Math.cos(a), cy + r * Math.sin(a)]); }
+    const lab = [];
+    for (let i = 0; i < 6; i++) {
+      const a = pts[i], b = pts[(i + 1) % 6];
+      const mx = (a[0] + b[0]) / 2, my = (a[1] + b[1]) / 2;
+      const dx = mx - cx, dy = my - cy, d = Math.hypot(dx, dy);
+      lab.push('<text x="' + (mx + dx / d * 14).toFixed(1) + '" y="' + (my + dy / d * 14 + 4).toFixed(1) + '" text-anchor="middle" font-size="12" fill="var(--muted)">lado ' + (i + 1) + "</text>");
+    }
+    return '<svg viewBox="0 0 240 200" width="240" role="img" aria-label="Hexágono regular com seis lados"><polygon points="' + pts.map(p => p[0].toFixed(1) + "," + p[1].toFixed(1)).join(" ") + '" fill="var(--accent-soft)" stroke="var(--ink)" stroke-width="2.5"/>' + lab.join("") + "</svg>";
+  },
+  venn(la, lb, a, ab, b) {
+    const W = 380, H = 220;
+    return '<svg viewBox="0 0 ' + W + " " + H + '" width="' + W + '" role="img" aria-label="Diagrama de dois conjuntos: ' + la + " e " + lb + '"><circle cx="150" cy="112" r="78" fill="var(--accent)" fill-opacity=".22" stroke="var(--ink)" stroke-width="2"/><circle cx="230" cy="112" r="78" fill="var(--ok)" fill-opacity=".22" stroke="var(--ink)" stroke-width="2"/>' +
+      '<text x="116" y="20" text-anchor="middle" font-size="14" font-weight="700" fill="var(--ink)">' + la + '</text><text x="264" y="20" text-anchor="middle" font-size="14" font-weight="700" fill="var(--ink)">' + lb + '</text>' +
+      '<text x="112" y="120" text-anchor="middle" font-size="22" font-weight="700" fill="var(--ink)">' + a + '</text><text x="190" y="120" text-anchor="middle" font-size="22" font-weight="700" fill="var(--ink)">' + ab + '</text><text x="268" y="120" text-anchor="middle" font-size="22" font-weight="700" fill="var(--ink)">' + b + "</text></svg>";
+  },
+  tri(a, b) {
+    const sc = 24, w = a * sc, h = b * sc, ox = 40, oy = 20;
+    const A = [ox, oy + h], B = [ox + w, oy + h], C = [ox, oy];
+    return '<svg viewBox="0 0 ' + (w + 90) + " " + (h + 60) + '" width="' + (w + 90) + '" role="img" aria-label="Triângulo retângulo de catetos ' + a + " e " + b + '"><polygon points="' + [A, B, C].map(p => p.join(",")).join(" ") + '" fill="var(--accent-soft)" stroke="var(--ink)" stroke-width="2.5"/><path d="M' + A[0] + "," + (A[1] - 14) + " h14 v14" + '" fill="none" stroke="var(--ink)" stroke-width="1.5" transform="translate(0,0)"/><text x="' + (ox + w / 2) + '" y="' + (oy + h + 22) + '" text-anchor="middle" font-size="14" fill="var(--ink)">' + a + ' cm</text><text x="' + (ox - 10) + '" y="' + (oy + h / 2 + 5) + '" text-anchor="end" font-size="14" fill="var(--ink)">' + b + " cm</text></svg>";
+  },
+  bars(title, labels, values) {
+    const W = 440, H = 250, L = 44, R = 12, T = 34, B = 34;
+    const max = Math.max(...values);
+    const step = max <= 100 ? 20 : 50;
+    const top = Math.ceil(max / step) * step;
+    const iw = W - L - R, ih = H - T - B;
+    const bw = iw / values.length;
+    let g = '<text x="' + L + '" y="18" font-size="14" font-weight="700" fill="var(--ink)">' + title + "</text>";
+    for (let v = 0; v <= top; v += step) {
+      const y = T + ih - v / top * ih;
+      g += '<line x1="' + L + '" x2="' + (W - R) + '" y1="' + y.toFixed(1) + '" y2="' + y.toFixed(1) + '" stroke="var(--line)" stroke-width="1"/>';
+      g += '<text x="' + (L - 6) + '" y="' + (y + 4).toFixed(1) + '" text-anchor="end" font-size="11" fill="var(--muted)">' + v + "</text>";
+    }
+    values.forEach((v, i) => {
+      const x = L + i * bw + bw * 0.2, w = bw * 0.6, h = v / top * ih, y = T + ih - h;
+      g += '<rect x="' + x.toFixed(1) + '" y="' + y.toFixed(1) + '" width="' + w.toFixed(1) + '" height="' + h.toFixed(1) + '" fill="var(--accent)"/>';
+      g += '<text x="' + (x + w / 2).toFixed(1) + '" y="' + (y - 5).toFixed(1) + '" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ink)">' + v + "</text>";
+      g += '<text x="' + (x + w / 2).toFixed(1) + '" y="' + (H - 12) + '" text-anchor="middle" font-size="12" fill="var(--ink)">' + labels[i] + "</text>";
+    });
+    g += '<line x1="' + L + '" x2="' + (W - R) + '" y1="' + (T + ih) + '" y2="' + (T + ih) + '" stroke="var(--ink)" stroke-width="1.5"/>';
+    return '<svg viewBox="0 0 ' + W + " " + H + '" width="' + W + '" role="img" aria-label="Gráfico de barras: ' + title + '">' + g + "</svg>";
+  }
+};
+function figHtml(f) {
+  if (!f) return "";
+  const [name, ...args] = f;
+  return '<div class="fig">' + FIG[name](...args) + "</div>";
+}
+
+/* ---------- estado ---------- */
+let S = null;          // sessão atual
+let tick = null;
+const app = document.getElementById("app");
+
+function pool(set) { return typeof set === "number" ? PROVAS[set].qs : ALL.filter(q => q.area === set); }
+function setTitle(set) { return typeof set === "number" ? "Prova " + set : AREAS[set]; }
+
+function persist() {
+  if (!S) return;
+  store.set(keyOf(S.mode, S.set), { answers: S.answers, flags: S.flags, idx: S.idx, elapsed: elapsedNow(), done: S.done });
+}
+function elapsedNow() { return S.base + (S.done ? 0 : Math.floor((Date.now() - S.t0) / 1000)); }
+
+function start(mode, set, fresh) {
+  const saved = fresh ? null : store.get(keyOf(mode, set));
+  const qs = pool(set);
+  S = {
+    mode, set, qs,
+    answers: (saved && saved.answers) || {},
+    flags: (saved && saved.flags) || {},
+    idx: saved && !saved.done ? Math.min(saved.idx || 0, qs.length - 1) : 0,
+    base: saved && !saved.done ? saved.elapsed || 0 : 0,
+    t0: Date.now(), done: false, confirm: false, filter: "all"
+  };
+  if (saved && saved.done) { S.answers = {}; S.flags = {}; }
+  persist();
+  renderQuiz();
+  window.scrollTo(0, 0);
+}
+
+function stopTimer() { if (tick) { clearInterval(tick); tick = null; } }
+function fmt(sec) {
+  const h = Math.floor(sec / 3600), m = Math.floor(sec % 3600 / 60), s = sec % 60;
+  return (h ? h + ":" : "") + String(m).padStart(2, "0") + ":" + String(s).padStart(2, "0");
+}
+
+/* ---------- home ---------- */
+function renderHome() {
+  stopTimer(); S = null;
+  const cards = [1, 2, 3, 4, 5, 6, 7, 8].map(k => {
+    const p = PROVAS[k];
+    const cnt = {}; p.qs.forEach(q => cnt[q.area] = (cnt[q.area] || 0) + 1);
+    const chips = AREA_ORDER.map(a => '<span class="chip">' + a + " " + cnt[a] + "</span>").join("");
+    const sp = store.get(keyOf("prova", k)), res = store.get("dmae:best:" + k);
+    const inProg = sp && !sp.done && Object.keys(sp.answers || {}).length > 0;
+    const best = res ? '<div class="best">Última prova concluída: <b class="mono">' + res.ok + "/" + res.total + "</b> acertos</div>" : "";
+    const prog = inProg ? '<div class="best">Em andamento: <b class="mono">' + Object.keys(sp.answers).length + "/" + p.qs.length + "</b> marcadas</div>" : "";
+    return '<article class="caderno"><div class="head"><span class="num">' + k + '</span><span class="origem">' + p.origem + '</span></div><div class="comp">' + chips + "</div>" + best + prog +
+      '<div class="btn-row"><button class="btn primary" data-act="prova" data-k="' + k + '">' + (inProg ? "Continuar prova" : "Fazer prova") + '</button><button class="btn" data-act="treino" data-k="' + k + '">Treinar</button>' +
+      (inProg ? '<button class="btn link" data-act="reset" data-k="' + k + '">Recomeçar</button>' : "") + "</div></article>";
+  }).join("");
+  const areaBtns = AREA_ORDER.map(a => '<button class="btn" data-act="area" data-k="' + a + '">' + AREAS[a] + "<span>" + ALL.filter(q => q.area === a).length + " questões</span></button>").join("");
+  app.innerHTML =
+    '<header class="masthead"><div class="org">DMAE Uberlândia · Edital 01/2019 · FUNDEP</div><h1>Simulados DMAE Uberlândia</h1><p>Oficial Administrativo, código 302. Sete provas de 40 questões no formato do caderno (10 de Língua Portuguesa, 10 de Raciocínio Lógico, 5 de Atualidades, 5 de Legislação e 10 de Conhecimentos Específicos) e um mini simulado de 20 questões.</p></header>' +
+    '<div class="notice"><div><b>Prova 1</b> traz as 40 questões do caderno de 2020, com o gabarito resolvido por mim (a prova que você enviou não tinha gabarito). Em questões marcadas como “gabarito a conferir”, não consegui confirmar o texto da lei.</div><div><b>Provas 2 a 8</b> são questões originais, escritas no estilo da banca. Em Legislação, usei a Constituição Federal e leis federais; as normas de Uberlândia não foram incluídas por falta de fonte confiável.</div></div>' +
+    '<h2 class="section-title">Provas</h2><div class="provas">' + cards + "</div>" +
+    '<h2 class="section-title">Treino por matéria (as 200 questões, com correção imediata)</h2><div class="areas">' + areaBtns + "</div>";
+}
+
+/* ---------- prova ---------- */
+function optHtml(q, ans, mode, reveal) {
+  return q.alts.map((t, i) => {
+    let cls = "opt", dis = "";
+    if (reveal) {
+      dis = " disabled";
+      if (i === q.gab) cls += " ok"; else if (i === ans) cls += " bad";
+    }
+    const pressed = !reveal && ans === i ? "true" : "false";
+    return '<button class="' + cls + '" data-opt="' + i + '" aria-pressed="' + pressed + '"' + dis + '><span class="bub">' + LETRAS[i] + '</span><span class="otx">' + t + "</span></button>";
+  }).join("");
+}
+function baseHtml(q) {
+  if (!q.t) return "";
+  const t = TEXTOS[q.t];
+  return '<details class="base" open><summary>Texto de apoio</summary><div class="bt">' + t.titulo + '</div><p class="by">' + t.autor + "</p>" + t.html + "</details>";
+}
+function bodyHtml(q, ans, mode, reveal) {
+  return baseHtml(q) + figHtml(q.fig) + '<div class="enun">' + q.enun + '</div><div class="opts">' + optHtml(q, ans, mode, reveal) + "</div>";
+}
+function feedbackHtml(q, ans) {
+  const right = ans === q.gab;
+  const warn = q.conf ? ' <span class="warn">gabarito a conferir</span>' : "";
+  return '<div class="feedback ' + (right ? "ok" : "bad") + '"><div><b>' + (right ? "Correto." : "Incorreto. Resposta: " + LETRAS[q.gab] + ".") + "</b>" + warn + "</div><div>" + q.exp + "</div></div>";
+}
+
+function sheetHtml() {
+  const rows = S.qs.map((q, i) => {
+    const a = S.answers[q.id];
+    const bubs = [0, 1, 2, 3].map(j => '<button class="bb' + (a === j ? " on" : "") + '" data-bub="' + i + ":" + j + '" aria-label="Questão ' + (i + 1) + ", alternativa " + LETRAS[j] + '">' + LETRAS[j] + "</button>").join("");
+    return '<div class="row' + (i === S.idx ? " cur" : "") + (S.flags[q.id] ? " flag" : "") + '"><button class="rn" data-go="' + i + '" aria-label="Ir para a questão ' + (i + 1) + '">' + (i + 1) + "</button>" + bubs + "</div>";
+  }).join("");
+  const n = Object.keys(S.answers).length;
+  return '<h2>Folha de respostas <span>' + n + "/" + S.qs.length + '</span></h2><div class="grid">' + rows + '</div><div class="legend"><span><i style="background:var(--accent)"></i>marcada</span><span><i style="background:var(--flag)"></i>para revisar</span></div>';
+}
+
+function renderQuiz() {
+  const q = S.qs[S.idx];
+  const ans = S.answers[q.id];
+  const treino = S.mode === "treino";
+  const reveal = treino && ans !== undefined;
+  const n = Object.keys(S.answers).length;
+  const blank = S.qs.length - n;
+  const confirm = S.confirm
+    ? '<div class="confirm"><div>' + (blank ? "Você deixou " + blank + (blank === 1 ? " questão em branco." : " questões em branco.") : "Todas as questões foram marcadas.") + " Finalizar agora?</div><div class=\"btn-row\"><button class=\"btn primary\" data-act=\"finish-yes\">Finalizar e ver a correção</button><button class=\"btn\" data-act=\"finish-no\">Voltar à prova</button></div></div>"
+    : "";
+  const last = S.idx === S.qs.length - 1;
+  app.innerHTML =
+    '<div class="topbar"><div class="title">' + setTitle(S.set) + '<span class="sub">' + (treino ? "Modo treino" : "Modo prova") + '</span></div><span class="timer" id="timer" aria-label="Tempo decorrido">' + fmt(elapsedNow()) + '</span><button class="btn small" data-act="home">Sair</button><button class="btn small primary" data-act="finish">' + (treino ? "Encerrar" : "Finalizar prova") + "</button></div>" + confirm +
+    '<div class="quiz"><section class="qcard"><div class="bar-label">' + AREAS[q.area] + '</div><div class="inner"><div class="qhead"><span class="qnum">Questão ' + (S.idx + 1) + ' <span class="mono" style="font-size:14px;color:var(--muted);font-weight:500">de ' + S.qs.length + "</span></span>" +
+    (treino && typeof S.set !== "number" ? '<span class="chip">Prova ' + q.prova + " · nº " + q.n + "</span>" : "") +
+    '<button class="flagbtn" data-act="flag" aria-pressed="' + (S.flags[q.id] ? "true" : "false") + '">' + (S.flags[q.id] ? "Marcada para revisar" : "Marcar para revisar") + "</button></div>" +
+    bodyHtml(q, ans, S.mode, reveal) + (reveal ? feedbackHtml(q, ans) : "") +
+    '<div class="nav desk-nav"><button class="btn" data-act="prev"' + (S.idx === 0 ? " disabled" : "") + '>Anterior</button>' + (treino && ans !== undefined ? '<button class="btn link" data-act="retry">Refazer questão</button>' : "") + '<button class="btn primary" data-act="next"' + (last ? " disabled" : "") + ">Próxima</button></div></div></section>" +
+    '<aside class="sheet" id="sheet" aria-label="Folha de respostas">' + sheetHtml() + "</aside></div>" +
+    '<div class="mbar"><button class="btn" data-act="prev"' + (S.idx === 0 ? " disabled" : "") + '>Anterior</button><button class="btn" data-act="sheet">Folha ' + n + "/" + S.qs.length + '</button><button class="btn primary" data-act="next"' + (last ? " disabled" : "") + ">Próxima</button></div>";
+  stopTimer();
+  tick = setInterval(() => { const el = document.getElementById("timer"); if (el && S) el.textContent = fmt(elapsedNow()); }, 1000);
+}
+
+function mark(i, j) {
+  const q = S.qs[i];
+  if (S.mode === "treino" && S.answers[q.id] !== undefined) return;
+  S.answers[q.id] = j;
+  S.idx = i;
+  persist();
+  renderQuiz();
+}
+function go(i) {
+  S.idx = Math.max(0, Math.min(S.qs.length - 1, i));
+  persist();
+  renderQuiz();
+  const sh = document.getElementById("sheet"); if (sh) sh.classList.remove("open");
+  window.scrollTo(0, 0);
+}
+
+/* ---------- resultado ---------- */
+function finish() {
+  S.done = true;
+  S.final = elapsedNow();
+  S.base = S.final;
+  stopTimer();
+  const ok = S.qs.filter(q => S.answers[q.id] === q.gab).length;
+  persist();
+  if (S.mode === "prova" && typeof S.set === "number") store.set("dmae:best:" + S.set, { ok, total: S.qs.length, t: S.final });
+  renderResult();
+  window.scrollTo(0, 0);
+}
+function renderResult() {
+  const total = S.qs.length;
+  const ok = S.qs.filter(q => S.answers[q.id] === q.gab).length;
+  const blank = S.qs.filter(q => S.answers[q.id] === undefined).length;
+  const wrong = total - ok - blank;
+  const pct = Math.round(ok / total * 100);
+  const by = AREA_ORDER.map(a => {
+    const qs = S.qs.filter(q => q.area === a);
+    if (!qs.length) return "";
+    const o = qs.filter(q => S.answers[q.id] === q.gab).length;
+    return '<div class="ab"><span>' + AREAS[a] + '</span><span class="track"><span class="fill" style="width:' + (o / qs.length * 100).toFixed(0) + '%"></span></span><span class="v">' + o + "/" + qs.length + "</span></div>";
+  }).join("");
+  const items = S.qs.map((q, i) => {
+    const a = S.answers[q.id];
+    const st = a === undefined ? "no" : a === q.gab ? "ok" : "bad";
+    if (S.filter === "bad" && st !== "bad") return "";
+    if (S.filter === "no" && st !== "no") return "";
+    const label = st === "ok" ? "Certa" : st === "bad" ? "Errada" : "Em branco";
+    const ref = typeof S.set !== "number" ? " · Prova " + q.prova + " nº " + q.n : "";
+    return '<details><summary><span class="st ' + st + '">' + String(i + 1).padStart(2, "0") + '</span><span>' + label + '</span><span class="ar">' + AREAS[q.area] + ref + "</span></summary><div class=\"body\">" + baseHtml(q) + figHtml(q.fig) + '<div class="enun">' + q.enun + '</div><div class="opts">' + review(q, a) + "</div>" +
+      '<div class="feedback ' + (st === "ok" ? "ok" : "bad") + '"><div><b>Resposta: ' + LETRAS[q.gab] + ".</b>" + (a === undefined ? " Você não marcou nenhuma alternativa." : a === q.gab ? " Você acertou." : " Você marcou " + LETRAS[a] + ".") + (q.conf ? ' <span class="warn">gabarito a conferir</span>' : "") + "</div><div>" + q.exp + "</div></div></div></details>";
+  }).join("") || '<div class="empty">Nenhuma questão nesta lista.</div>';
+  app.innerHTML =
+    '<div class="topbar"><div class="title">' + setTitle(S.set) + '<span class="sub">Correção</span></div><button class="btn small" data-act="home">Início</button><button class="btn small primary" data-act="again">Refazer</button></div>' +
+    '<section class="score"><div class="big">' + ok + '<small> / ' + total + "</small></div><div><b>" + pct + "% de acertos.</b> " + wrong + " erradas, " + blank + ' em branco. Tempo: <span class="mono">' + fmt(S.final || 0) + '</span>.</div><div class="areabars">' + by + "</div></section>" +
+    '<h2 class="section-title">Revisão questão por questão</h2><div class="filters"><button class="btn small" data-filter="all" aria-pressed="' + (S.filter === "all") + '">Todas</button><button class="btn small" data-filter="bad" aria-pressed="' + (S.filter === "bad") + '">Erradas</button><button class="btn small" data-filter="no" aria-pressed="' + (S.filter === "no") + '">Em branco</button></div><div class="review">' + items + "</div>";
+}
+function review(q, a) {
+  return q.alts.map((t, i) => {
+    let cls = "opt";
+    if (i === q.gab) cls += " ok"; else if (i === a) cls += " bad";
+    return '<div class="' + cls + '"><span class="bub">' + LETRAS[i] + '</span><span class="otx">' + t + "</span></div>";
+  }).join("");
+}
+
+/* ---------- eventos ---------- */
+app.addEventListener("click", e => {
+  const t = e.target.closest("button");
+  if (!t || t.disabled) return;
+  if (t.dataset.opt !== undefined) return mark(S.idx, +t.dataset.opt);
+  if (t.dataset.bub) {
+    const [i, j] = t.dataset.bub.split(":").map(Number);
+    if (S.mode === "prova") return mark(i, j);
+    return go(i);
+  }
+  if (t.dataset.go !== undefined) return go(+t.dataset.go);
+  if (t.dataset.filter) { S.filter = t.dataset.filter; return renderResult(); }
+  switch (t.dataset.act) {
+    case "prova": return start("prova", +t.dataset.k, false);
+    case "treino": return start("treino", +t.dataset.k, false);
+    case "area": return start("treino", t.dataset.k, false);
+    case "reset": store.del(keyOf("prova", +t.dataset.k)); return renderHome();
+    case "home": persist(); return renderHome();
+    case "prev": return go(S.idx - 1);
+    case "next": return go(S.idx + 1);
+    case "flag": { const q = S.qs[S.idx]; if (S.flags[q.id]) delete S.flags[q.id]; else S.flags[q.id] = 1; persist(); return renderQuiz(); }
+    case "retry": { delete S.answers[S.qs[S.idx].id]; persist(); return renderQuiz(); }
+    case "sheet": { const sh = document.getElementById("sheet"); if (sh) sh.classList.toggle("open"); return; }
+    case "finish": S.confirm = true; return renderQuiz();
+    case "finish-no": S.confirm = false; return renderQuiz();
+    case "finish-yes": return finish();
+    case "again": return start(S.mode, S.set, true);
+  }
+});
+document.addEventListener("keydown", e => {
+  if (!S || S.done || e.metaKey || e.ctrlKey || e.altKey) return;
+  const k = e.key.toLowerCase();
+  const m = { a: 0, b: 1, c: 2, d: 3, "1": 0, "2": 1, "3": 2, "4": 3 };
+  if (k in m) { mark(S.idx, m[k]); }
+  else if (e.key === "ArrowRight") go(S.idx + 1);
+  else if (e.key === "ArrowLeft") go(S.idx - 1);
+});
+
+renderHome();
 </script>
-</body>
-</html>
+
+</body></html>
